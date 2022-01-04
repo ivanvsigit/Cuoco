@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9C54B08B277DA01A00E1939A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54B08A277DA01A00E1939A /* TabBarController.swift */; };
+		9C54B08E277DA3FB00E1939A /* ResepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54B08C277DA3FB00E1939A /* ResepViewController.swift */; };
+		9C54B08F277DA3FB00E1939A /* ResepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C54B08D277DA3FB00E1939A /* ResepViewController.xib */; };
+		9C54B092277DA41200E1939A /* IdentifikasiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54B090277DA41200E1939A /* IdentifikasiViewController.swift */; };
+		9C54B093277DA41200E1939A /* IdentifikasiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C54B091277DA41200E1939A /* IdentifikasiViewController.xib */; };
+		9C54B096277DA42100E1939A /* SimpanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54B094277DA42100E1939A /* SimpanViewController.swift */; };
+		9C54B097277DA42100E1939A /* SimpanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C54B095277DA42100E1939A /* SimpanViewController.xib */; };
+		9C54B0A7277DADB400E1939A /* HighlightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54B0A5277DADB400E1939A /* HighlightTableViewCell.swift */; };
+		9C54B0A8277DADB400E1939A /* HighlightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C54B0A6277DADB400E1939A /* HighlightTableViewCell.xib */; };
+		9C54B0AC277DAE0C00E1939A /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54B0AA277DAE0C00E1939A /* CardTableViewCell.swift */; };
+		9C54B0AD277DAE0C00E1939A /* CardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C54B0AB277DAE0C00E1939A /* CardTableViewCell.xib */; };
+		9C54B0B4277DB97200E1939A /* HightlightCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54B0B2277DB97200E1939A /* HightlightCollectionViewCell.swift */; };
+		9C54B0B5277DB97200E1939A /* HightlightCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C54B0B3277DB97200E1939A /* HightlightCollectionViewCell.xib */; };
+		9CD1231F277D9ABF00E5BE36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD1231E277D9ABF00E5BE36 /* AppDelegate.swift */; };
+		9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD12320277D9ABF00E5BE36 /* SceneDelegate.swift */; };
+		9CD12329277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CD12327277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld */; };
+		9CD1232B277D9AC000E5BE36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1232A277D9AC000E5BE36 /* Assets.xcassets */; };
+		9CD1232E277D9AC000E5BE36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1232C277D9AC000E5BE36 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9C54B08A277DA01A00E1939A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		9C54B08C277DA3FB00E1939A /* ResepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResepViewController.swift; sourceTree = "<group>"; };
+		9C54B08D277DA3FB00E1939A /* ResepViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResepViewController.xib; sourceTree = "<group>"; };
+		9C54B090277DA41200E1939A /* IdentifikasiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifikasiViewController.swift; sourceTree = "<group>"; };
+		9C54B091277DA41200E1939A /* IdentifikasiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IdentifikasiViewController.xib; sourceTree = "<group>"; };
+		9C54B094277DA42100E1939A /* SimpanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpanViewController.swift; sourceTree = "<group>"; };
+		9C54B095277DA42100E1939A /* SimpanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpanViewController.xib; sourceTree = "<group>"; };
+		9C54B0A5277DADB400E1939A /* HighlightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightTableViewCell.swift; sourceTree = "<group>"; };
+		9C54B0A6277DADB400E1939A /* HighlightTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighlightTableViewCell.xib; sourceTree = "<group>"; };
+		9C54B0AA277DAE0C00E1939A /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		9C54B0AB277DAE0C00E1939A /* CardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardTableViewCell.xib; sourceTree = "<group>"; };
+		9C54B0B2277DB97200E1939A /* HightlightCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HightlightCollectionViewCell.swift; sourceTree = "<group>"; };
+		9C54B0B3277DB97200E1939A /* HightlightCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HightlightCollectionViewCell.xib; sourceTree = "<group>"; };
+		9CD1231B277D9ABF00E5BE36 /* Skripsi AMIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Skripsi AMIN.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD1231E277D9ABF00E5BE36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9CD12320277D9ABF00E5BE36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9CD12328277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Skripsi_AMIN.xcdatamodel; sourceTree = "<group>"; };
+		9CD1232A277D9AC000E5BE36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9CD1232D277D9AC000E5BE36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9CD1232F277D9AC000E5BE36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9CD12318277D9ABF00E5BE36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9C54B081277D9CB300E1939A /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				9C54B082277D9CF100E1939A /* Main Page */,
+				9C54B098277DA6B700E1939A /* Resep Page */,
+				9C54B099277DA6C400E1939A /* Identifikasi Page */,
+				9C54B09A277DA6D700E1939A /* Simpan Page */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		9C54B082277D9CF100E1939A /* Main Page */ = {
+			isa = PBXGroup;
+			children = (
+				9C54B083277D9D3800E1939A /* Model */,
+				9C54B084277D9D4100E1939A /* View */,
+				9C54B085277D9D4D00E1939A /* Controller */,
+			);
+			path = "Main Page";
+			sourceTree = "<group>";
+		};
+		9C54B083277D9D3800E1939A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9C54B084277D9D4100E1939A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9C54B085277D9D4D00E1939A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9C54B08A277DA01A00E1939A /* TabBarController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9C54B098277DA6B700E1939A /* Resep Page */ = {
+			isa = PBXGroup;
+			children = (
+				9C54B09D277DA77200E1939A /* Model */,
+				9C54B09C277DA76A00E1939A /* View */,
+				9C54B09B277DA76100E1939A /* Controller */,
+			);
+			path = "Resep Page";
+			sourceTree = "<group>";
+		};
+		9C54B099277DA6C400E1939A /* Identifikasi Page */ = {
+			isa = PBXGroup;
+			children = (
+				9C54B0A0277DA79300E1939A /* Model */,
+				9C54B09F277DA78D00E1939A /* View */,
+				9C54B09E277DA78400E1939A /* Controller */,
+			);
+			path = "Identifikasi Page";
+			sourceTree = "<group>";
+		};
+		9C54B09A277DA6D700E1939A /* Simpan Page */ = {
+			isa = PBXGroup;
+			children = (
+				9C54B0A4277DA7B200E1939A /* Model */,
+				9C54B0A3277DA7AB00E1939A /* View */,
+				9C54B0A2277DA7A400E1939A /* Controller */,
+			);
+			path = "Simpan Page";
+			sourceTree = "<group>";
+		};
+		9C54B09B277DA76100E1939A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9C54B08C277DA3FB00E1939A /* ResepViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9C54B09C277DA76A00E1939A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9C54B08D277DA3FB00E1939A /* ResepViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9C54B09D277DA77200E1939A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9C54B09E277DA78400E1939A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9C54B090277DA41200E1939A /* IdentifikasiViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9C54B09F277DA78D00E1939A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9C54B091277DA41200E1939A /* IdentifikasiViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9C54B0A0277DA79300E1939A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9C54B0A2277DA7A400E1939A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9C54B094277DA42100E1939A /* SimpanViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9C54B0A3277DA7AB00E1939A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9C54B095277DA42100E1939A /* SimpanViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9C54B0A4277DA7B200E1939A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9C54B0A9277DADD000E1939A /* Reusable Components */ = {
+			isa = PBXGroup;
+			children = (
+				9C54B0A5277DADB400E1939A /* HighlightTableViewCell.swift */,
+				9C54B0A6277DADB400E1939A /* HighlightTableViewCell.xib */,
+				9C54B0AA277DAE0C00E1939A /* CardTableViewCell.swift */,
+				9C54B0AB277DAE0C00E1939A /* CardTableViewCell.xib */,
+				9C54B0B2277DB97200E1939A /* HightlightCollectionViewCell.swift */,
+				9C54B0B3277DB97200E1939A /* HightlightCollectionViewCell.xib */,
+			);
+			path = "Reusable Components";
+			sourceTree = "<group>";
+		};
+		9CD12312277D9ABE00E5BE36 = {
+			isa = PBXGroup;
+			children = (
+				9CD1231D277D9ABF00E5BE36 /* Skripsi AMIN */,
+				9CD1231C277D9ABF00E5BE36 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9CD1231C277D9ABF00E5BE36 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9CD1231B277D9ABF00E5BE36 /* Skripsi AMIN.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9CD1231D277D9ABF00E5BE36 /* Skripsi AMIN */ = {
+			isa = PBXGroup;
+			children = (
+				9CD12335277D9C1700E5BE36 /* Helper */,
+				9CD12336277D9C2900E5BE36 /* Constant */,
+				9C54B0A9277DADD000E1939A /* Reusable Components */,
+				9C54B081277D9CB300E1939A /* Feature */,
+				9CD1231E277D9ABF00E5BE36 /* AppDelegate.swift */,
+				9CD12320277D9ABF00E5BE36 /* SceneDelegate.swift */,
+				9CD1232A277D9AC000E5BE36 /* Assets.xcassets */,
+				9CD1232C277D9AC000E5BE36 /* LaunchScreen.storyboard */,
+				9CD1232F277D9AC000E5BE36 /* Info.plist */,
+				9CD12327277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld */,
+			);
+			path = "Skripsi AMIN";
+			sourceTree = "<group>";
+		};
+		9CD12335277D9C1700E5BE36 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		9CD12336277D9C2900E5BE36 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9CD1231A277D9ABF00E5BE36 /* Skripsi AMIN */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CD12332277D9AC000E5BE36 /* Build configuration list for PBXNativeTarget "Skripsi AMIN" */;
+			buildPhases = (
+				9CD12317277D9ABF00E5BE36 /* Sources */,
+				9CD12318277D9ABF00E5BE36 /* Frameworks */,
+				9CD12319277D9ABF00E5BE36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Skripsi AMIN";
+			productName = "Skripsi AMIN";
+			productReference = 9CD1231B277D9ABF00E5BE36 /* Skripsi AMIN.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9CD12313277D9ABE00E5BE36 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					9CD1231A277D9ABF00E5BE36 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+				};
+			};
+			buildConfigurationList = 9CD12316277D9ABE00E5BE36 /* Build configuration list for PBXProject "Skripsi AMIN" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9CD12312277D9ABE00E5BE36;
+			productRefGroup = 9CD1231C277D9ABF00E5BE36 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9CD1231A277D9ABF00E5BE36 /* Skripsi AMIN */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9CD12319277D9ABF00E5BE36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C54B0A8277DADB400E1939A /* HighlightTableViewCell.xib in Resources */,
+				9C54B0B5277DB97200E1939A /* HightlightCollectionViewCell.xib in Resources */,
+				9C54B0AD277DAE0C00E1939A /* CardTableViewCell.xib in Resources */,
+				9CD1232E277D9AC000E5BE36 /* LaunchScreen.storyboard in Resources */,
+				9CD1232B277D9AC000E5BE36 /* Assets.xcassets in Resources */,
+				9C54B097277DA42100E1939A /* SimpanViewController.xib in Resources */,
+				9C54B093277DA41200E1939A /* IdentifikasiViewController.xib in Resources */,
+				9C54B08F277DA3FB00E1939A /* ResepViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9CD12317277D9ABF00E5BE36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C54B096277DA42100E1939A /* SimpanViewController.swift in Sources */,
+				9C54B08E277DA3FB00E1939A /* ResepViewController.swift in Sources */,
+				9C54B0B4277DB97200E1939A /* HightlightCollectionViewCell.swift in Sources */,
+				9C54B0A7277DADB400E1939A /* HighlightTableViewCell.swift in Sources */,
+				9CD1231F277D9ABF00E5BE36 /* AppDelegate.swift in Sources */,
+				9C54B08B277DA01A00E1939A /* TabBarController.swift in Sources */,
+				9CD12329277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld in Sources */,
+				9C54B092277DA41200E1939A /* IdentifikasiViewController.swift in Sources */,
+				9C54B0AC277DAE0C00E1939A /* CardTableViewCell.swift in Sources */,
+				9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9CD1232C277D9AC000E5BE36 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9CD1232D277D9AC000E5BE36 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9CD12330277D9AC000E5BE36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9CD12331277D9AC000E5BE36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9CD12333277D9AC000E5BE36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VL4WA3LJ69;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Skripsi AMIN/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Apple-Academy.Skripsi-AMIN";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9CD12334277D9AC000E5BE36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VL4WA3LJ69;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Skripsi AMIN/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Apple-Academy.Skripsi-AMIN";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9CD12316277D9ABE00E5BE36 /* Build configuration list for PBXProject "Skripsi AMIN" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CD12330277D9AC000E5BE36 /* Debug */,
+				9CD12331277D9AC000E5BE36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CD12332277D9AC000E5BE36 /* Build configuration list for PBXNativeTarget "Skripsi AMIN" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CD12333277D9AC000E5BE36 /* Debug */,
+				9CD12334277D9AC000E5BE36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9CD12327277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9CD12328277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodel */,
+			);
+			currentVersion = 9CD12328277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodel */;
+			path = Skripsi_AMIN.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9CD12313277D9ABE00E5BE36 /* Project object */;
+}
