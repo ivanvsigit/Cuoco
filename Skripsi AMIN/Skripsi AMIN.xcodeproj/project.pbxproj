@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C4083E02784495400F414E5 /* HighlightCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4083DE2784495400F414E5 /* HighlightCollectionViewCell.swift */; };
+		9C4083E12784495400F414E5 /* HighlightCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C4083DF2784495400F414E5 /* HighlightCollectionViewCell.xib */; };
+		9C4083E327845ED000F414E5 /* DataResep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4083E227845ED000F414E5 /* DataResep.swift */; };
+		9C4083E52784650C00F414E5 /* ModelResep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4083E42784650C00F414E5 /* ModelResep.swift */; };
+		9C4083E72784674D00F414E5 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4083E62784674D00F414E5 /* SectionModel.swift */; };
+		9C4083EA2784C98600F414E5 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4083E82784C98600F414E5 /* CardCollectionViewCell.swift */; };
+		9C4083EB2784C98600F414E5 /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C4083E92784C98600F414E5 /* CardCollectionViewCell.xib */; };
 		9C54B08B277DA01A00E1939A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54B08A277DA01A00E1939A /* TabBarController.swift */; };
 		9C54B08E277DA3FB00E1939A /* ResepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54B08C277DA3FB00E1939A /* ResepViewController.swift */; };
 		9C54B08F277DA3FB00E1939A /* ResepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C54B08D277DA3FB00E1939A /* ResepViewController.xib */; };
@@ -18,8 +25,6 @@
 		9C54B0A8277DADB400E1939A /* HighlightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C54B0A6277DADB400E1939A /* HighlightTableViewCell.xib */; };
 		9C54B0AC277DAE0C00E1939A /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54B0AA277DAE0C00E1939A /* CardTableViewCell.swift */; };
 		9C54B0AD277DAE0C00E1939A /* CardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C54B0AB277DAE0C00E1939A /* CardTableViewCell.xib */; };
-		9C54B0B4277DB97200E1939A /* HightlightCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54B0B2277DB97200E1939A /* HightlightCollectionViewCell.swift */; };
-		9C54B0B5277DB97200E1939A /* HightlightCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C54B0B3277DB97200E1939A /* HightlightCollectionViewCell.xib */; };
 		9CD1231F277D9ABF00E5BE36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD1231E277D9ABF00E5BE36 /* AppDelegate.swift */; };
 		9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD12320277D9ABF00E5BE36 /* SceneDelegate.swift */; };
 		9CD12329277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CD12327277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld */; };
@@ -28,6 +33,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C4083DE2784495400F414E5 /* HighlightCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightCollectionViewCell.swift; sourceTree = "<group>"; };
+		9C4083DF2784495400F414E5 /* HighlightCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighlightCollectionViewCell.xib; sourceTree = "<group>"; };
+		9C4083E227845ED000F414E5 /* DataResep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataResep.swift; path = "Skripsi AMIN/Reusable Components/DataResep.swift"; sourceTree = SOURCE_ROOT; };
+		9C4083E42784650C00F414E5 /* ModelResep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModelResep.swift; path = "Skripsi AMIN/Reusable Components/ModelResep.swift"; sourceTree = SOURCE_ROOT; };
+		9C4083E62784674D00F414E5 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SectionModel.swift; path = "Skripsi AMIN/Reusable Components/SectionModel.swift"; sourceTree = SOURCE_ROOT; };
+		9C4083E82784C98600F414E5 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		9C4083E92784C98600F414E5 /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
 		9C54B08A277DA01A00E1939A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9C54B08C277DA3FB00E1939A /* ResepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResepViewController.swift; sourceTree = "<group>"; };
 		9C54B08D277DA3FB00E1939A /* ResepViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResepViewController.xib; sourceTree = "<group>"; };
@@ -39,8 +51,6 @@
 		9C54B0A6277DADB400E1939A /* HighlightTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighlightTableViewCell.xib; sourceTree = "<group>"; };
 		9C54B0AA277DAE0C00E1939A /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		9C54B0AB277DAE0C00E1939A /* CardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardTableViewCell.xib; sourceTree = "<group>"; };
-		9C54B0B2277DB97200E1939A /* HightlightCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HightlightCollectionViewCell.swift; sourceTree = "<group>"; };
-		9C54B0B3277DB97200E1939A /* HightlightCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HightlightCollectionViewCell.xib; sourceTree = "<group>"; };
 		9CD1231B277D9ABF00E5BE36 /* Skripsi AMIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Skripsi AMIN.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD1231E277D9ABF00E5BE36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CD12320277D9ABF00E5BE36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +95,8 @@
 		9C54B083277D9D3800E1939A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9C4083E227845ED000F414E5 /* DataResep.swift */,
+				9C4083E42784650C00F414E5 /* ModelResep.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,6 +165,7 @@
 		9C54B09D277DA77200E1939A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9C4083E62784674D00F414E5 /* SectionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,8 +223,10 @@
 				9C54B0A6277DADB400E1939A /* HighlightTableViewCell.xib */,
 				9C54B0AA277DAE0C00E1939A /* CardTableViewCell.swift */,
 				9C54B0AB277DAE0C00E1939A /* CardTableViewCell.xib */,
-				9C54B0B2277DB97200E1939A /* HightlightCollectionViewCell.swift */,
-				9C54B0B3277DB97200E1939A /* HightlightCollectionViewCell.xib */,
+				9C4083DE2784495400F414E5 /* HighlightCollectionViewCell.swift */,
+				9C4083DF2784495400F414E5 /* HighlightCollectionViewCell.xib */,
+				9C4083E82784C98600F414E5 /* CardCollectionViewCell.swift */,
+				9C4083E92784C98600F414E5 /* CardCollectionViewCell.xib */,
 			);
 			path = "Reusable Components";
 			sourceTree = "<group>";
@@ -322,13 +337,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C54B0A8277DADB400E1939A /* HighlightTableViewCell.xib in Resources */,
-				9C54B0B5277DB97200E1939A /* HightlightCollectionViewCell.xib in Resources */,
+				9C4083EB2784C98600F414E5 /* CardCollectionViewCell.xib in Resources */,
 				9C54B0AD277DAE0C00E1939A /* CardTableViewCell.xib in Resources */,
 				9CD1232E277D9AC000E5BE36 /* LaunchScreen.storyboard in Resources */,
 				9CD1232B277D9AC000E5BE36 /* Assets.xcassets in Resources */,
 				9C54B097277DA42100E1939A /* SimpanViewController.xib in Resources */,
 				9C54B093277DA41200E1939A /* IdentifikasiViewController.xib in Resources */,
 				9C54B08F277DA3FB00E1939A /* ResepViewController.xib in Resources */,
+				9C4083E12784495400F414E5 /* HighlightCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,8 +356,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C54B096277DA42100E1939A /* SimpanViewController.swift in Sources */,
+				9C4083E72784674D00F414E5 /* SectionModel.swift in Sources */,
+				9C4083E02784495400F414E5 /* HighlightCollectionViewCell.swift in Sources */,
+				9C4083E327845ED000F414E5 /* DataResep.swift in Sources */,
+				9C4083EA2784C98600F414E5 /* CardCollectionViewCell.swift in Sources */,
+				9C4083E52784650C00F414E5 /* ModelResep.swift in Sources */,
 				9C54B08E277DA3FB00E1939A /* ResepViewController.swift in Sources */,
-				9C54B0B4277DB97200E1939A /* HightlightCollectionViewCell.swift in Sources */,
 				9C54B0A7277DADB400E1939A /* HighlightTableViewCell.swift in Sources */,
 				9CD1231F277D9ABF00E5BE36 /* AppDelegate.swift in Sources */,
 				9C54B08B277DA01A00E1939A /* TabBarController.swift in Sources */,
