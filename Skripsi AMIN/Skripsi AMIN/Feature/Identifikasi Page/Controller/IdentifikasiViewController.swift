@@ -23,6 +23,7 @@ class IdentifikasiViewController: UIViewController, AVCapturePhotoCaptureDelegat
         
         let settings = AVCapturePhotoSettings()
         imageOutput.capturePhoto(with: settings, delegate: self)
+        print("ShutterTapped")
     }
     
     @IBAction func flipButton(_ sender: UIButton) {
@@ -167,8 +168,8 @@ class IdentifikasiViewController: UIViewController, AVCapturePhotoCaptureDelegat
         //PassingPhoto
         ImageModel.shared.image = image
         let vc = ResultPageViewController()
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     
     //CleanUpSession

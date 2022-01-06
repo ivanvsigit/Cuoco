@@ -58,8 +58,9 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     @objc func openCamera() {
         let vc = IdentifikasiViewController()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+        let navigationWrapper = UINavigationController(rootViewController: vc)
+        navigationWrapper.modalPresentationStyle = .fullScreen
+        self.present(navigationWrapper, animated: true, completion: nil)
     }
 
 }
