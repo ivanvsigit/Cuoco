@@ -9,7 +9,7 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
-    // Mark: App Lifecycle
+    // MARK: App Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -17,7 +17,7 @@ class TabBarController: UITabBarController {
         
     }
     
-    // Mark: - Create Navigation Controller for Main Page with Tab Bar
+    // MARK: - Create Navigation Controller for Main Page with Tab Bar
     fileprivate func createNavigationController(for rootViewController: UIViewController, title: String, image: UIImage) -> UIViewController {
         
         let navigationController = UINavigationController(rootViewController: rootViewController)
@@ -28,7 +28,7 @@ class TabBarController: UITabBarController {
         return navigationController
     }
     
-    //Mark: -Setup ViewController for Main Page
+    //MARK: -Setup ViewController for Main Page
     func setupVC() {
         viewControllers = [
             //Mark: - UIImage are not supported below iOS 15, the original was menucard and clock

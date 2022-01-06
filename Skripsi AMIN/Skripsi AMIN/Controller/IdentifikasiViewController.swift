@@ -8,10 +8,10 @@
 import UIKit
 
 class IdentifikasiViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        UIColor =
         // Do any additional setup after loading the view.
     }
 

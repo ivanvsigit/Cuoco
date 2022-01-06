@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResepViewController" customModule="Skripsi_AMIN" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="izt-Nd-tOF"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="chW-ab-gYd">
+                    <rect key="frame" x="0.0" y="88" width="390" height="756"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qxL-EI-rHy">
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="722"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="PqT-jj-FYr">
+                                    <rect key="frame" x="20" y="42" width="350" height="150"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nama Resep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bTb-nI-zn1">
+                                    <rect key="frame" x="125" y="346" width="139" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock.fill" catalog="system" id="qb7-Tg-Y64">
+                                    <rect key="frame" x="182" y="348" width="25" height="25.000000000000014"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" red="0.22745098039215686" green="0.29411764705882354" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </imageView>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fork.knife" catalog="system" id="qsJ-VP-jsg">
+                                    <rect key="frame" x="182" y="348" width="25" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" red="0.2274509804" green="0.29411764709999999" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </imageView>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flame.fill" catalog="system" id="19p-3t-Jhq">
+                                    <rect key="frame" x="182" y="348" width="25" height="25.000000000000011"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" red="0.2274509804" green="0.29411764709999999" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Durasi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WT4-9I-Uwh">
+                                    <rect key="frame" x="156" y="346" width="77" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Porsi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U3o-eQ-vRj">
+                                    <rect key="frame" x="156" y="346" width="77" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kalori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W8y-m9-Hxf">
+                                    <rect key="frame" x="156" y="346" width="77" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Langkah Memasak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yNU-Ga-ZGr">
+                                    <rect key="frame" x="20" y="571" width="192" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h0a-fX-pWV">
+                                    <rect key="frame" x="20" y="609" width="143" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <attributedString key="attributedText">
+                                        <fragment content="Langkah 1">
+                                            <attributes>
+                                                <font key="NSFont" size="17" name="AmericanTypewriter-Semibold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N8k-DP-oBW">
+                                    <rect key="frame" x="20" y="633" width="350" height="81"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bahan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rCZ-rd-fmd">
+                                    <rect key="frame" x="20" y="420" width="107" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="722" id="NCf-eK-lQh"/>
+                                <constraint firstAttribute="height" constant="1000" id="aTo-Pq-qxx"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="9Pq-1v-fZl"/>
+                    <constraints>
+                        <constraint firstItem="qxL-EI-rHy" firstAttribute="top" secondItem="VQn-CY-cdD" secondAttribute="top" id="QFJ-rm-2YE"/>
+                        <constraint firstItem="qxL-EI-rHy" firstAttribute="bottom" secondItem="9Pq-1v-fZl" secondAttribute="bottom" id="V3x-Av-8Y2"/>
+                        <constraint firstItem="qxL-EI-rHy" firstAttribute="top" secondItem="eyW-kK-2TY" secondAttribute="top" id="YSN-HL-AFD"/>
+                        <constraint firstItem="qxL-EI-rHy" firstAttribute="leading" secondItem="VQn-CY-cdD" secondAttribute="leading" id="b83-Wt-9CP"/>
+                        <constraint firstItem="qxL-EI-rHy" firstAttribute="leading" secondItem="eyW-kK-2TY" secondAttribute="leading" id="dar-bh-a2r"/>
+                        <constraint firstItem="qxL-EI-rHy" firstAttribute="width" secondItem="eyW-kK-2TY" secondAttribute="width" id="gK3-80-rsk"/>
+                        <constraint firstItem="qxL-EI-rHy" firstAttribute="bottom" secondItem="VQn-CY-cdD" secondAttribute="bottom" id="q2D-V0-rJc"/>
+                        <constraint firstItem="qxL-EI-rHy" firstAttribute="trailing" secondItem="eyW-kK-2TY" secondAttribute="trailing" id="uCZ-AO-EAn"/>
+                        <constraint firstItem="qxL-EI-rHy" firstAttribute="trailing" secondItem="VQn-CY-cdD" secondAttribute="trailing" id="yU7-9D-S1V"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="VQn-CY-cdD"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="eyW-kK-2TY"/>
+                </scrollView>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGp-iJ-nf4">
+                    <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                    <color key="tintColor" red="0.074509803920000006" green="0.1450980392" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="barTintColor" red="0.75294117650000003" green="0.80392156859999997" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <textAttributes key="titleTextAttributes">
+                        <color key="textColor" red="0.074509803921568626" green="0.14509803921568626" blue="0.043137254901960784" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </textAttributes>
+                    <items>
+                        <navigationItem title="Title" id="Dky-OA-Jdp">
+                            <barButtonItem key="leftBarButtonItem" title="Kembali" image="chevron.backward" catalog="system" id="yge-HJ-Ti9"/>
+                            <barButtonItem key="rightBarButtonItem" title="Item" id="yuk-BZ-pMf"/>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="lGp-iJ-nf4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9mc-wF-f4t"/>
+                <constraint firstItem="lGp-iJ-nf4" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="U5l-YK-JM7"/>
+                <constraint firstItem="chW-ab-gYd" firstAttribute="top" secondItem="lGp-iJ-nf4" secondAttribute="bottom" id="qXu-Aa-c6c"/>
+                <constraint firstItem="lGp-iJ-nf4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="yAh-oT-GTw"/>
+            </constraints>
+            <point key="canvasLocation" x="0.0" y="79.620853080568722"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="clock.fill" catalog="system" width="128" height="121"/>
+        <image name="flame.fill" catalog="system" width="108" height="128"/>
+        <image name="fork.knife" catalog="system" width="92" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
