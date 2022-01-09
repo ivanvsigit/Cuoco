@@ -19,7 +19,7 @@ class HighlightTableViewCell: UITableViewCell {
 //
 //    }
     
-    
+//    var delay = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
     
     var currentIndex = 0 {
         didSet {
@@ -38,7 +38,7 @@ class HighlightTableViewCell: UITableViewCell {
         highlightPageController.pageIndicatorTintColor = UIColor(named: "SecondaryTintColor")
         highlightPageController.currentPageIndicatorTintColor = UIColor(named: "PrimaryColor")
         
-        
+//        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -46,8 +46,12 @@ class HighlightTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
     
+//    @objc func autoScroll() {
+//        let index = NSIndexPath(index: 2)
+//        highlightCollection.scrollToItem(at: index as IndexPath, at: .centeredHorizontally, animated: true)
+//    }
+        
 }
 
 extension HighlightTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

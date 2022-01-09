@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ResepViewController: UIViewController {
     
@@ -20,23 +21,14 @@ class ResepViewController: UIViewController {
         return image
     }()
     
-//    let iconView: UIView = {
-//        let view = UIView()
-//
-//        var image = UIImageViewx()
-//        image = UIImage(systemName: "magnifyingglass")!
-//        view.addSubview(image)
-//        return view
-//
-//    }()
-//
-     // MARK: THIS IS DUMMY DATA
-    var content: [SectionModel] = []
+//    var content: [DataContent] = []
     
-//    var sectionTitle = ["", "Resep Terbaru", "Terakhir Dilihat"]
+     // MARK: THIS IS DUMMY DATA
+    var dummyContent: [SectionModel] = []    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.seafood))
         
         tableView.register(UINib(nibName: "\(HighlightTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "highlightCell")
         tableView.register(UINib(nibName: "\(CardTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "cardCell")
@@ -46,17 +38,17 @@ class ResepViewController: UIViewController {
         navigationItem.title = "Resep"
         navigationItem.largeTitleDisplayMode = .always
 
-        content.append(SectionModel(title: "", content: [Content(image: UIImage(named: "transparent-background-pattern")!, label: "Bayam Kuah"),
+        dummyContent.append(SectionModel(title: "", content: [Content(image: UIImage(named: "transparent-background-pattern")!, label: "Bayam Kuah"),
                                                          Content(image: UIImage(systemName: "chevron.left")!, label: "Kangkung Belacan")]
                                    )
         )
         
-        content.append(SectionModel(title: "Resep Terbaru", content: [Content(image: UIImage(systemName: "person.fill")!, label: "Soto Ayam"),
+        dummyContent.append(SectionModel(title: "Resep Terbaru", content: [Content(image: UIImage(systemName: "person.fill")!, label: "Soto Ayam"),
                                                          Content(image: UIImage(systemName: "chevron.left")!, label: "Pak Coy Krispi")]
                                    )
         )
         
-        content.append(SectionModel(title: "Terakhir Dilihat", content: [Content(image: UIImage(systemName: "person.fill")!, label: "Cah Bayam"),
+        dummyContent.append(SectionModel(title: "Terakhir Dilihat", content: [Content(image: UIImage(systemName: "person.fill")!, label: "Cah Bayam"),
                                                          Content(image: UIImage(systemName: "chevron.left")!, label: "Sayur Asam")]
                                    )
         )
@@ -75,15 +67,22 @@ class ResepViewController: UIViewController {
         
         filterBtn.tintColor = UIColor(named: "PrimaryColor")
         
+      
     }
-
-
+    
+    
+    @IBAction func filterBtn(_ sender: UIButton) {
+        print(Constant.shared.data.count)
+    }
+  
 }
 
 extension ResepViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return content.count
+        print(Constant.shared.data.count)
+        
+        return dummyContent.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,20 +93,20 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource {
     
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "highlightCell") as! HighlightTableViewCell
-            cell.tempModelHTab = content[indexPath.section].content
-            cell.highlightPageController.numberOfPages = content[indexPath.section].content.count
+            cell.tempModelHTab = dummyContent[indexPath.section].content
+            cell.highlightPageController.numberOfPages = dummyContent[indexPath.section].content.count
             
             return cell
         }
    
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell") as! CardTableViewCell
-        cell.tempModelCTab = content[indexPath.section].content
+        cell.tempModelCTab = dummyContent[indexPath.section].content
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return content[section].title
+        return dummyContent[section].title
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -137,7 +136,5 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource {
         
         return 190
     }
-   
-    
-    
 }
+

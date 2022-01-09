@@ -17,6 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow (frame: UIScreen.main.bounds)
         
+        API.shared.fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.sayuran))
+        API.shared.fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.ayam))
+        API.shared.fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.seafood))
+        
         let tabbar = TabBarController()
         
         self.window?.rootViewController = tabbar
