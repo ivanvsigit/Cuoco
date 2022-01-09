@@ -73,6 +73,8 @@ class ResepViewController: UIViewController {
         searchTextField.layer.borderColor = UIColor.white.cgColor
         searchTextField.clipsToBounds = true
         
+        filterBtn.tintColor = UIColor(named: "PrimaryColor")
+        
     }
 
 
