@@ -16,20 +16,22 @@ class IdentifikasiViewController: UIViewController, AVCapturePhotoCaptureDelegat
     @IBOutlet weak var fotoLabel: UILabel!
     
     //Button
-    
-    
-    
     @IBAction func shutterButton(_ sender: UIButton) {
         
-        let settings = AVCapturePhotoSettings()
+        //ButtonAnimation
+        sender.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: CGFloat(0.20), initialSpringVelocity: CGFloat(6.0), options: UIView.AnimationOptions.allowUserInteraction, animations: {
+                    sender.transform = CGAffineTransform.identity
+                }, completion: {Void in()})
+        
+        let settings = getSettings(camera: currentCamera, flashMode: flashMode)
+        //let settings = AVCapturePhotoSettings()
         imageOutput.capturePhoto(with: settings, delegate: self)
-        print("ShutterTapped")
     }
     
     @IBAction func flipButton(_ sender: UIButton) {
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = .medium
-        
         
         //CameraDevice
         if index == 0{
@@ -83,6 +85,7 @@ class IdentifikasiViewController: UIViewController, AVCapturePhotoCaptureDelegat
     var currentCamera: AVCaptureDevice = AVCaptureDevice.default(for: .video)!
     var usingFrontCamera = false
     var index = 0
+    var flashModeCamera: Bool = true
     var flashMode: AVCaptureDevice.FlashMode = .auto
 
     //PrivacyAccessCamera
@@ -91,70 +94,28 @@ class IdentifikasiViewController: UIViewController, AVCapturePhotoCaptureDelegat
         
     }
     
-    
-    //SetupFlash
-    func flashOn(currentCamera: AVCaptureDevice)
-    {
-        do{
-            if(currentCamera.hasFlash)
-            {
-                try currentCamera.lockForConfiguration()
-                currentCamera.torchMode = .on
-                currentCamera.flashMode = .on
-                currentCamera.unlockForConfiguration()
-            }
-            
+    private func getSettings(camera: AVCaptureDevice, flashMode: AVCaptureDevice.FlashMode) -> AVCapturePhotoSettings {
+        let settings = AVCapturePhotoSettings()
+
+        if camera.hasFlash {
+            settings.flashMode = flashMode
         }
-        catch{
-            print("Flash Error")
-        }
+        return settings
     }
     
-    func flashOff(currentCamera:AVCaptureDevice)
-        {
-            do{
-                if (currentCamera.hasFlash){
-                    try currentCamera.lockForConfiguration()
-                    currentCamera.torchMode = .off
-                    currentCamera.flashMode = .off
-                    currentCamera.unlockForConfiguration()
-                }
-            }catch{
-                //DISABEL FLASH BUTTON HERE IF ERROR
-                print("Device tourch Flash Error ");
+    @objc func flashOnOff(){
+            if flashModeCamera == false{
+                flashModeCamera = true
+                navigationItem.leftBarButtonItem?.image = UIImage(systemName: "bolt.fill")
+                flashMode = .on
+                print("on")
+            }else{
+                flashModeCamera = false
+                navigationItem.leftBarButtonItem?.image = UIImage(systemName: "bolt.slash.fill")
+                flashMode = .off
+                print("off")
             }
         }
-    
-    @objc func toggleFlash(){
-        if #available(iOS 10.0, *) {
-                    
-                let videoDeviceSession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .builtInDuoCamera], mediaType: .video, position: .unspecified)
-                
-                let devices = videoDeviceSession.devices
-                    currentCamera = devices.first!
-
-                } else {
-                    // Fallback on earlier versions
-                    currentCamera = AVCaptureDevice.default(for: .video)!
-                }
-
-        if ((currentCamera as AnyObject).hasMediaType(AVMediaType.video))
-                {
-                    if (currentCamera.hasTorch)
-                    {
-                        self.captureSession.beginConfiguration()
-                        //self.objOverlayView.disableCenterCameraBtn();
-                        if currentCamera.isTorchActive == false {
-                            self.flashOn(currentCamera: currentCamera)
-                        } else {
-                            self.flashOff(currentCamera: currentCamera);
-                        }
-                        //self.objOverlayView.enableCenterCameraBtn();
-                        self.captureSession.commitConfiguration()
-                    }
-                }
-    }
-    
     
     //CaptureProcess
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
@@ -169,7 +130,8 @@ class IdentifikasiViewController: UIViewController, AVCapturePhotoCaptureDelegat
         ImageModel.shared.image = image
         let vc = ResultPageViewController()
         vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+        //self.present(vc, animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     //CleanUpSession
@@ -182,7 +144,7 @@ class IdentifikasiViewController: UIViewController, AVCapturePhotoCaptureDelegat
         super.viewDidLoad()
        
         //NavBar
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(toggleFlash))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bolt.badge.a.fill"), style: .plain, target: self, action: #selector(flashOnOff))
         
         //HideTabBar
         self.tabBarController?.tabBar.isHidden = true
