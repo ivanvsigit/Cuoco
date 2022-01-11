@@ -47,7 +47,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     func setupIdentifikasiBtn() {
         let identifikasiBtn = UIButton(frame: CGRect(x: (self.view.bounds.width/2) - 30, y: -20, width: 60, height: 60))
         identifikasiBtn.backgroundColor = UIColor(named: "PrimaryColor")
-        identifikasiBtn.setImage(UIImage(systemName: "camera.fill"), for: .normal)
+        identifikasiBtn.setImage(UIImage(named: "CameraBtn"), for: .normal)
         
         identifikasiBtn.tintColor = .white
         identifikasiBtn.layer.cornerRadius = 30

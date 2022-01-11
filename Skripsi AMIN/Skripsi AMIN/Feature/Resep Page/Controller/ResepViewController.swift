@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ResepViewController: UIViewController {
     
@@ -20,23 +21,23 @@ class ResepViewController: UIViewController {
         return image
     }()
     
-//    let iconView: UIView = {
-//        let view = UIView()
-//
-//        var image = UIImageViewx()
-//        image = UIImage(systemName: "magnifyingglass")!
-//        view.addSubview(image)
-//        return view
-//
-//    }()
-//
-     // MARK: THIS IS DUMMY DATA
-    var content: [SectionModel] = []
     
-//    var sectionTitle = ["", "Resep Terbaru", "Terakhir Dilihat"]
+     // MARK: THIS IS DUMMY DATA
+    var dummyContent: [SectionModel] = []
+    
+    // MARK: Hold the API Data
+    var data = [DataContent]()
+    
+     // MARK: to store filtered data
+    var filteredData: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.seafood))
+        fetchData()
+//
+//        }
+        
         
         tableView.register(UINib(nibName: "\(HighlightTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "highlightCell")
         tableView.register(UINib(nibName: "\(CardTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "cardCell")
@@ -46,20 +47,10 @@ class ResepViewController: UIViewController {
         navigationItem.title = "Resep"
         navigationItem.largeTitleDisplayMode = .always
 
-        content.append(SectionModel(title: "", content: [Content(image: UIImage(named: "transparent-background-pattern")!, label: "Bayam Kuah"),
-                                                         Content(image: UIImage(systemName: "chevron.left")!, label: "Kangkung Belacan")]
-                                   )
-        )
-        
-        content.append(SectionModel(title: "Resep Terbaru", content: [Content(image: UIImage(systemName: "person.fill")!, label: "Soto Ayam"),
-                                                         Content(image: UIImage(systemName: "chevron.left")!, label: "Pak Coy Krispi")]
-                                   )
-        )
-        
-        content.append(SectionModel(title: "Terakhir Dilihat", content: [Content(image: UIImage(systemName: "person.fill")!, label: "Cah Bayam"),
-                                                         Content(image: UIImage(systemName: "chevron.left")!, label: "Sayur Asam")]
-                                   )
-        )
+//        dummyContent.append(SectionModel(title: "", content: [Content(image: UIImage(named: "transparent-background-pattern")!, label: "Bayam Kuah"),
+//                                                         Content(image: UIImage(systemName: "chevron.left")!, label: "Kangkung Belacan")]
+//                                   )
+//        )
         
         searchTextField.placeholder = "Pencarian"
         searchTextField.leftViewMode = .always
@@ -73,15 +64,68 @@ class ResepViewController: UIViewController {
         searchTextField.layer.borderColor = UIColor.white.cgColor
         searchTextField.clipsToBounds = true
         
+        filterBtn.tintColor = UIColor(named: "PrimaryColor")
+      
+        searchTextField.addTarget(self, action: #selector(ResepViewController.textFieldDidChange(_:)), for: .editingChanged)
+      
     }
-
-
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        guard let safeText = textField.text else {
+            return
+        }
+        API.shared.fetchSearchDataAPI(urlKey: safeText)
+    }
+    
+    @IBAction func filterBtn(_ sender: UIButton) {
+        print(Constant.shared.data.count)
+    }
+    
+    func fetchData() {
+//        API.shared.fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.desert)){
+            API.shared.fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.hari_raya)){
+                API.shared.fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.tradisional)){
+                    API.shared.fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.makan_malam)){
+                        API.shared.fetchNewestResepDataAPI {
+                            var contents: [Content] = []
+                            for content in Constant.shared.data {
+                                let data = Content(image: UIImage(named: content.thumb) ?? UIImage(), label: content.title)
+                                contents.append(data)
+                            }
+                            self.dummyContent.append(SectionModel(title: "", content: contents))
+                            
+                            var new: [Content] = []
+                            for content in Constant.shared.newest {
+                                let data = Content(image: UIImage(named: content.thumb) ?? UIImage(), label: content.title)
+                                new.append(data)
+                            }
+                            self.dummyContent.append(SectionModel(title: "Resep terbaru", content: new))
+                            
+                            self.dummyContent.append(SectionModel(title: "Terakhir Dilihat", content:
+                                                                    [Content(image: UIImage(systemName: "person.fill")!, label: "Cah Bayam"),
+                                                                    Content(image: UIImage(systemName: "chevron.left")!, label: "Sayur Asam")]
+                                                                    )
+                                         )
+                            
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        }
+                      
+                        
+                    }
+                }
+            }
+        }
+//    }
 }
 
 extension ResepViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return content.count
+//        print(Constant.shared.data.count)
+        
+        return dummyContent.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,20 +136,20 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource {
     
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "highlightCell") as! HighlightTableViewCell
-            cell.tempModelHTab = content[indexPath.section].content
-            cell.highlightPageController.numberOfPages = content[indexPath.section].content.count
+            cell.tempModelHTab = dummyContent[indexPath.section].content
+            cell.highlightPageController.numberOfPages = 5
             
             return cell
         }
    
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell") as! CardTableViewCell
-        cell.tempModelCTab = content[indexPath.section].content
+        cell.tempModelCTab = dummyContent[indexPath.section].content
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return content[section].title
+        return dummyContent[section].title
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -135,7 +179,8 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource {
         
         return 190
     }
-   
-    
+}
+
+extension ResepViewController: UITextFieldDelegate, UISearchBarDelegate {
     
 }
