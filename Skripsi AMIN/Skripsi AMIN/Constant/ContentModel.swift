@@ -12,6 +12,6 @@ struct DataContent {
     let thumb: String
     let key: String
     let times: String
-    let portion: String
+    let serving: String
     let dificulty: String
 }

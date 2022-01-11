@@ -13,9 +13,15 @@ struct Constant{
     static var shared = Constant()
     
     let urlCategory = "https://masak-apa.tomorisakura.vercel.app/api/categorys/recipes/"
+    let urlSearch = "https://masak-apa.tomorisakura.vercel.app/api/search/?q="
+    let urlNewest = "https://masak-apa.tomorisakura.vercel.app/api/recipes"
     
-    // MARK: Hold the API Data
+    // MARK: Hold the API Resep Category Data
     var data = [DataContent]()
+    
+     // MARK: Hold the API Newest Resep Data
+    var newest = [DataContent]()
+    
     
     enum Key: CodingKey{
         case desert

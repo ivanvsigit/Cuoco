@@ -12,6 +12,10 @@ struct DataResep: Codable {
     let results: [ContentResep]
 }
 
+struct SearchResult: Codable {
+    let results: [SearchModel]
+}
+
 struct ResepTerbaru: Codable {
     let results: [ContentResep]
 }
@@ -46,6 +50,15 @@ struct DetailAuthor: Codable {
 struct DetailItem: Codable {
     let item_name: String
     let thumb_item: String
+}
+
+struct SearchModel: Codable {
+    let title: String
+    let thumb: String
+    let key: String
+    let times: String
+    let serving: String
+    let difficulty: String
 }
 
 

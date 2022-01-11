@@ -38,7 +38,8 @@ class HighlightTableViewCell: UITableViewCell {
         highlightPageController.pageIndicatorTintColor = UIColor(named: "SecondaryTintColor")
         highlightPageController.currentPageIndicatorTintColor = UIColor(named: "PrimaryColor")
         
-//        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
+        timer()
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -47,16 +48,36 @@ class HighlightTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-//    @objc func autoScroll() {
-//        let index = NSIndexPath(index: 2)
-//        highlightCollection.scrollToItem(at: index as IndexPath, at: .centeredHorizontally, animated: true)
-//    }
+    func timer() {
+        Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
+    }
+    
+    @objc func autoScroll() {
+        if let coll  = highlightCollection {
+                for cell in coll.visibleCells {
+                    let indexPath: IndexPath? = coll.indexPath(for: cell)
+                    if ((indexPath?.row)! < 4){
+                        let indexPath1: IndexPath?
+                        indexPath1 = IndexPath.init(row: (indexPath?.row)! + 1, section: (indexPath?.section)!)
+
+                        coll.scrollToItem(at: indexPath1!, at: .right, animated: true)
+                    }
+                    else{
+                        let indexPath1: IndexPath?
+                        indexPath1 = IndexPath.init(row: 0, section: (indexPath?.section)!)
+                        coll.scrollToItem(at: indexPath1!, at: .left, animated: true)
+                    }
+
+                }
+            }
+        
+    }
         
 }
 
 extension HighlightTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tempModelHTab.count
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -69,9 +90,6 @@ extension HighlightTableViewCell: UICollectionViewDelegate, UICollectionViewData
     
     // MARK: give collection view cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        collectionView.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor).isActive = true
         
 //        return CGSize(width: 350, height: 100)
          // MARK: give cell the same size with collection view
