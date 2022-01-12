@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResultPageViewController" customModule="Skripsi_AMIN" customModuleProvider="target">
             <connections>
                 <outlet property="captureResult" destination="MGd-xJ-ejm" id="ueR-gD-5u2"/>
-                <outlet property="rekomenLabel" destination="GDF-db-Hj5" id="Eag-sC-ggj"/>
+                <outlet property="collectionView" destination="94s-Tc-BJc" id="NpM-uH-0kt"/>
                 <outlet property="resultName" destination="Fsw-mL-3KE" id="XPE-fv-Cke"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -30,34 +31,38 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsw-mL-3KE">
-                            <rect key="frame" x="166" y="440" width="59" height="31"/>
+                            <rect key="frame" x="115" y="440" width="161" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="tintColor" red="0.2274509804" green="0.29411764709999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                             <attributedString key="attributedText">
                                 <fragment content="Label">
                                     <attributes>
-                                        <color key="NSColor" red="0.074509803921568626" green="0.14509803921568626" blue="0.043137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <font key="NSFont" size="22" name="Poppins-Medium"/>
+                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <font key="NSFont" metaFont="system" size="22"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>
                             </attributedString>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDF-db-Hj5">
-                            <rect key="frame" x="8" y="508" width="207" height="28"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rekomendasi Resep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXx-yN-0El">
+                            <rect key="frame" x="8" y="484" width="187" height="35"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="tintColor" red="0.2274509804" green="0.29411764709999999" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <attributedString key="attributedText">
-                                <fragment content="Rekomendasi Resep">
-                                    <attributes>
-                                        <color key="NSColor" red="0.074509803921568626" green="0.14509803921568626" blue="0.043137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <font key="NSFont" size="20" name="Poppins-SemiBold"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                    </attributes>
-                                </fragment>
-                            </attributedString>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="94s-Tc-BJc">
+                            <rect key="frame" x="20" y="527" width="350" height="150"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="E3o-5H-CLH">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
@@ -72,5 +77,8 @@
         <namedColor name="Secondary">
             <color red="0.75294117647058822" green="0.80392156862745101" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

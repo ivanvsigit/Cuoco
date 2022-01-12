@@ -41,7 +41,9 @@ struct API{
         task.resume()
     }
     
-    func fetchSearchDataAPI(urlKey: String) {
+    func fetchSearchDataAPI(urlKey: String, completion: @escaping(()->())) {
+        Constant.shared.search.removeAll()
+        
          // MARK: Create a URL
         let url = URL(string: Constant.shared.urlSearch+urlKey)
         
@@ -57,11 +59,11 @@ struct API{
                 let decoder = JSONDecoder()
                 do{
                     let result = try decoder.decode(SearchResult.self, from: safe_data)
-                    print(result)
-//                    for data in result.results {
-//                        Constant.shared.data.append(DataContent(title: data.title, thumb: data.thumb, key: data.key, times: data.times, portion: data.portion, dificulty: data.dificulty))
-//                    }
-//                    completion()
+//                    print(result)
+                    for data in result.results {
+                        Constant.shared.search.append(DataContent(title: data.title, thumb: data.thumb, key: data.key, times: data.times, serving: data.serving, dificulty: data.difficulty))
+                    }
+                    completion()
                 }
                 catch{
                     print(error)
