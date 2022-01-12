@@ -32,11 +32,6 @@ class ResultPageViewController: UIViewController {
         captureResult.image = image
         analyzeImage(image: image)
         
-//        rekomendasiTableView.register(UINib(nibName: "\(CardTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "cardCell")
-//        rekomendasiTableView.delegate = self
-//        rekomendasiTableView.dataSource = self
-        
-        
         
         collectionView.register(UINib(nibName: "\(CardCollectionViewCell.self)", bundle: nil), forCellWithReuseIdentifier: "cardCollectionCell")
         collectionView.delegate = self
@@ -71,7 +66,7 @@ class ResultPageViewController: UIViewController {
         }
         API.shared.fetchSearchDataAPI(urlKey: url) {
             for content in Constant.shared.search {
-                let data = Content(image: UIImage(named: content.thumb) ?? UIImage(), label: content.title)
+                let data = Content(image: UIImage(data: Constant.shared.getImage), label: content.title)
                 self.filteredData.append(data)
             }
             DispatchQueue.main.async {
@@ -79,21 +74,8 @@ class ResultPageViewController: UIViewController {
             }
         }
         
-        //var results: [Content] = []
-        
         print(filteredData.count)
       
-            
-//        var new: [Content] = []
-//        for content in Constant.shared.newest {
-//            let data = Content(image: UIImage(named: content.thumb) ?? UIImage(), label: content.title)
-//                new.append(data)
-//            }
-//            self.dummyContent.append(SectionModel(title: "Resep terbaru", content: new))
-//
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
         
     }
     
@@ -172,47 +154,11 @@ extension UIImage {
     }
 }
 
-//extension ResultPageViewController: UITableViewDelegate, UITableViewDataSource{
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 1
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = rekomendasiTableView.dequeueReusableCell(withIdentifier: "cardCell") as! CardTableViewCell
-//        cell.tempSearch = filteredData[indexPath.section].content
-//
-//        return cell
-//    }
-//
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return filteredData[section].title
-//    }
-//
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//
-//        let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25))
-//        let sectionLabel = UILabel(frame: CGRect(x: 20.0, y: 0, width: sectionView.frame.width, height: 25))
-//
-//        sectionLabel.textColor = UIColor(named: "TextColor")
-//        sectionLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
-//
-//        sectionView.addSubview(sectionLabel)
-//
-//        return sectionView
-//    }
-//
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//
-//        return 190
-//    }
-//
-//
-//}
 
 extension ResultPageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(filteredData.count)
-        return filteredData.count
+        
+        return 5
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
