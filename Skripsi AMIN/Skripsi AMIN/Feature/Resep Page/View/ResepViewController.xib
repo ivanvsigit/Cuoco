@@ -35,7 +35,7 @@
                         <constraint firstAttribute="width" constant="317" id="76d-lk-6hL"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartInsertDeleteType="no"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1q-Qt-oxw">
                     <rect key="frame" x="345" y="61" width="49" height="31"/>

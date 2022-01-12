@@ -23,6 +23,7 @@ struct Constant{
     var newest = [DataContent]()
     
     
+    
     enum Key: CodingKey{
         case desert
         case hari_raya
@@ -36,6 +37,7 @@ struct Constant{
         case sarapan
     }
     
+     // MARK: Get the API Key
     func getKey(key: Key) -> String{
         if key == Key.desert{
             return "resep-desert"
@@ -69,4 +71,20 @@ struct Constant{
         }
         return ""
     }
+    
+    // MARK: Get Image From URL
+   func getImage(urlKey: String)->Data{
+       var dataFinal = Data()
+       if let url  = URL(string: urlKey){
+           do{
+               let data = try Data(contentsOf: url)
+               dataFinal = data
+               return data
+           }
+           catch{
+               print(error)
+           }
+       }
+       return dataFinal
+   }
 }
