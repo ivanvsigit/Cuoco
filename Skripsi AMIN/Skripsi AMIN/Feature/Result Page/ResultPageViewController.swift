@@ -66,7 +66,7 @@ class ResultPageViewController: UIViewController {
         }
         API.shared.fetchSearchDataAPI(urlKey: url) {
             for content in Constant.shared.search {
-                let data = Content(image: UIImage(data: Constant.shared.getImage), label: content.title)
+                let data = Content(image: UIImage(data: Constant.shared.getImage(urlKey: content.thumb))!, label: content.title)
                 self.filteredData.append(data)
             }
             DispatchQueue.main.async {
