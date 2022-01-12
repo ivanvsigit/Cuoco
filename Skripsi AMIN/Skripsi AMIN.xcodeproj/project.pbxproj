@@ -37,8 +37,7 @@
 		A83CB50527847EC300C4DFB8 /* imageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83CB50427847EC300C4DFB8 /* imageModel.swift */; };
 		A8AE3C9E278D862B00EF034B /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE3C9C278D862B00EF034B /* TimerViewController.swift */; };
 		A8AE3C9F278D862B00EF034B /* TimerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8AE3C9D278D862B00EF034B /* TimerViewController.xib */; };
-		A8AE3CA1278D9B8E00EF034B /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE3CA0278D9B8E00EF034B /* ProgressBar.swift */; };
-		A8AE3CA3278D9BB600EF034B /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE3CA2278D9BB600EF034B /* CountdownTimer.swift */; };
+		A8AE3CA5278EE20800EF034B /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE3CA4278EE20800EF034B /* CircularProgressView.swift */; };
 		A8C4C16C27844BFE00472491 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15927844BFE00472491 /* Poppins-ExtraLight.ttf */; };
 		A8C4C16D27844BFE00472491 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15A27844BFE00472491 /* Poppins-ThinItalic.ttf */; };
 		A8C4C16E27844BFE00472491 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15B27844BFE00472491 /* Poppins-ExtraLightItalic.ttf */; };
@@ -93,8 +92,7 @@
 		A83CB50427847EC300C4DFB8 /* imageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageModel.swift; sourceTree = "<group>"; };
 		A8AE3C9C278D862B00EF034B /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		A8AE3C9D278D862B00EF034B /* TimerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerViewController.xib; sourceTree = "<group>"; };
-		A8AE3CA0278D9B8E00EF034B /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
-		A8AE3CA2278D9BB600EF034B /* CountdownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
+		A8AE3CA4278EE20800EF034B /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		A8C4C15927844BFE00472491 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		A8C4C15A27844BFE00472491 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		A8C4C15B27844BFE00472491 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -354,8 +352,7 @@
 			children = (
 				A8AE3C9C278D862B00EF034B /* TimerViewController.swift */,
 				A8AE3C9D278D862B00EF034B /* TimerViewController.xib */,
-				A8AE3CA0278D9B8E00EF034B /* ProgressBar.swift */,
-				A8AE3CA2278D9BB600EF034B /* CountdownTimer.swift */,
+				A8AE3CA4278EE20800EF034B /* CircularProgressView.swift */,
 			);
 			path = "Timer Page";
 			sourceTree = "<group>";
@@ -498,7 +495,6 @@
 				9C3B0C2C278AFB1D00AD8F6A /* Networking.swift in Sources */,
 				9C6E1072278AEF6E002D679C /* Constant.swift in Sources */,
 				9C4083E02784495400F414E5 /* HighlightCollectionViewCell.swift in Sources */,
-				A8AE3CA1278D9B8E00EF034B /* ProgressBar.swift in Sources */,
 				9C4083E327845ED000F414E5 /* DataResep.swift in Sources */,
 				9C4083EA2784C98600F414E5 /* CardCollectionViewCell.swift in Sources */,
 				9C54B08E277DA3FB00E1939A /* ResepViewController.swift in Sources */,
@@ -510,8 +506,8 @@
 				9C3B0C2A278AF7FA00AD8F6A /* ContentModel.swift in Sources */,
 				9C54B092277DA41200E1939A /* IdentifikasiViewController.swift in Sources */,
 				9C54B0AC277DAE0C00E1939A /* CardTableViewCell.swift in Sources */,
-				A8AE3CA3278D9BB600EF034B /* CountdownTimer.swift in Sources */,
 				9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */,
+				A8AE3CA5278EE20800EF034B /* CircularProgressView.swift in Sources */,
 				A83CB50527847EC300C4DFB8 /* imageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
