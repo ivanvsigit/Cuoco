@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
        
         
-        let tabbar = TabBarController()
+        let tabbar = TimerViewController()
         
         self.window?.rootViewController = tabbar
         window?.makeKeyAndVisible()
