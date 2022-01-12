@@ -22,6 +22,8 @@ struct Constant{
      // MARK: Hold the API Newest Resep Data
     var newest = [DataContent]()
     
+    // MARK: Hold the API Search Data
+    var search = [DataContent]()
     
     
     enum Key: CodingKey{
