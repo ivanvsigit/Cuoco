@@ -47,6 +47,9 @@ class ResepViewController: UIViewController {
 
         search()
         fetchData()
+        self.hideKeyboardWhenTappedAround()
+        
+       
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
@@ -61,6 +64,7 @@ class ResepViewController: UIViewController {
     }
     
     func search() {
+        searchTextField.delegate = self
         searchTextField.placeholder = "Pencarian"
         searchTextField.leftViewMode = .always
 //        searchTextField.leftView = UIImageView(image: UIImage(systemName: "magnifyingglass")).frame.size
@@ -184,5 +188,43 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ResepViewController: UITextFieldDelegate, UISearchBarDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.endEditing(true)
+        return true
+    }
     
+     
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if searchTextField.text != "" {
+            return true
+        }
+        else {
+            searchTextField.placeholder = "Masukan Kata Kunci"
+            return false
+        }
+    }
+    
+     // MARK: Func after done editing
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let data = searchTextField.text {
+            //TODO: Func fetch data
+        }
+
+        searchTextField.text = ""
+    }
+}
+
+extension ResepViewController {
+    func hideKeyboardWhenTappedAround() {
+         // MARK: Looks for single or multiple taps
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ResepViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+     // MARK: Calls this function when the tap is recognized
+    @objc func dismissKeyboard() {
+         // MARK: Causes the view (or one of its embedded text fields) to resign the first responder status
+        view.endEditing(true)
+    }
 }
