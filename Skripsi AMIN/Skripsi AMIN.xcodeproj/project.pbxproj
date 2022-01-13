@@ -134,9 +134,9 @@
 		9C54B081277D9CB300E1939A /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				9C54B082277D9CF100E1939A /* Main Page */,
 				A8AE3C99278D847100EF034B /* Timer Page */,
 				A83CB4FF27847A3C00C4DFB8 /* Result Page */,
-				9C54B082277D9CF100E1939A /* Main Page */,
 				9C54B098277DA6B700E1939A /* Resep Page */,
 				9C54B099277DA6C400E1939A /* Identifikasi Page */,
 				9C54B09A277DA6D700E1939A /* Simpan Page */,

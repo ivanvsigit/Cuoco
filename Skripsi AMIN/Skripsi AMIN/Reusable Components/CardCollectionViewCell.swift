@@ -28,6 +28,8 @@ class CardCollectionViewCell: UICollectionViewCell {
         cardView.layer.cornerRadius = 10
 //        cardView.backgroundColor = UIColor(named: "SecondaryColor")
         cardLabelBG.backgroundColor = UIColor(named: "SecondaryColor")
+        cardLabel.font = UIFont(name: "Poppins-Medium", size: 14)
+        cardLabel.textColor = UIColor(named: "TextColor")
         
     }
     
