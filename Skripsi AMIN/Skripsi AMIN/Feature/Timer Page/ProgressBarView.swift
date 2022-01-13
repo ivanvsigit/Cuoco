@@ -1,21 +1,22 @@
 //
-//  progressBar.swift
+//  ProgressBarView.swift
 //  Skripsi AMIN
 //
-//  Created by Olga Husada on 12/01/22.
+//  Created by Olga Husada on 13/01/22.
 //
 
 import UIKit
 
-protocol TimerHandleDelegate {
-    func counterUpdateTimeValue(with sender:CircularProgressView, newValue: Int)
-    func didStartTimer(sender: CircularProgressView)
-    func didEndTimer(sender: CircularProgressView)
+protocol TimerDelegate{
+    func counterUpdateTimeValue(with sender: ProgressBarView, newValue: Int)
+    func didStartTimer(sender: ProgressBarView)
+    func didEndTimer(sender: ProgressBarView)
 }
 
-@IBDesignable class CircularProgressView: UIView {
+@IBDesignable class ProgressBarView: UIView {
+    
     //Delegate
-    var delegate: TimerHandleDelegate?
+    var delegate: TimerDelegate?
     
     //Make var available in storyboard as well
     //width or cicular bar
@@ -23,17 +24,17 @@ protocol TimerHandleDelegate {
     //background color of circle
     @IBInspectable public var barBackLineColor: UIColor = .lightGray
     //front color of cicrle
-    @IBInspectable public var barFrontLineColor: UIColor = .purple
+    @IBInspectable public var barFrontLineColor: UIColor = .blue
     //Bool to hide time counter label
     @IBInspectable public var isTextLabelHidden: Bool = false
     //string to show when timer finishd time
     @IBInspectable public var timerFinishingText: String?
-
-    //Public vars
+    
+    //public var
     public var isMinutesAndSecondsShow = false
     public var isMovingClockWise = false
     
-    //Private vars
+    //private vars
     private var timer: Timer?
     private var beginingValue: Int = 1
     private var totalTime: TimeInterval = 1
@@ -68,8 +69,7 @@ protocol TimerHandleDelegate {
             delegate?.counterUpdateTimeValue(with: self, newValue: currentCounterValue)
         }
     }
-
-    // MARK: View Life cycle
+    
     override public init(frame: CGRect) {
         if frame.width != frame.height {
             fatalError("Please use a rectangle frame for SRCountdownTimer")
@@ -139,7 +139,7 @@ protocol TimerHandleDelegate {
         //invalidate Timer
         timer?.invalidate()
         //Re-initialize TImer
-        timer = Timer(timeInterval: fireInterval, target: self, selector: #selector(CircularProgressView.timerFired(_:)), userInfo: nil, repeats: true)
+        timer = Timer(timeInterval: fireInterval, target: self, selector: #selector(ProgressBarView.timerFired(_:)), userInfo: nil, repeats: true)
         //add timer in Runloop
         RunLoop.main.add(timer!, forMode: .common)
 

@@ -10,30 +10,29 @@ import UIKit
 class TimerViewController: UIViewController {
     
     @IBAction func startButton(_ sender: UIButton) {
-        self.progressView.start(beginingValue: 10, interval: 1.0)
+        self.ProgressBar.start(beginingValue: 10, interval: 1.0)
     }
-    @IBOutlet weak var progressView: CircularProgressView!
     
+    @IBOutlet weak var ProgressBar:ProgressBarView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //TimerHandleDelegate set
-       // self.progressView.delegate = self
+        self.ProgressBar.delegate = self
     }
 
 }
 
-extension TimerViewController: TimerHandleDelegate {
-    func counterUpdateTimeValue(with sender: CircularProgressView, newValue: Int) {
+extension TimerViewController: TimerDelegate {
+    func counterUpdateTimeValue(with sender: ProgressBarView, newValue: Int) {
         print("CURRENT VALUE IS: \(newValue)")
     }
     
-    func didStartTimer(sender: CircularProgressView) {
+    func didStartTimer(sender: ProgressBarView) {
         print("PROGRESS ANIMATION STARTED ")
     }
     
-    func didEndTimer(sender: CircularProgressView) {
+    func didEndTimer(sender: ProgressBarView) {
         print("PROGRESS ANIMATION FINISHD ")
     }
 }
