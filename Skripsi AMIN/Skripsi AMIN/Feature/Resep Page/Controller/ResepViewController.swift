@@ -53,7 +53,7 @@ class ResepViewController: UIViewController {
         guard let safeText = textField.text else {
             return
         }
-        API.shared.fetchSearchDataAPI(urlKey: safeText)
+//        API.shared.fetchSearchDataAPI(urlKey: safeText)
     }
     
     @IBAction func filterBtn(_ sender: UIButton) {
