@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C182A46278FE3B600C95B14 /* SimpanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C182A44278FE3B600C95B14 /* SimpanCollectionViewCell.swift */; };
+		9C182A47278FE3B600C95B14 /* SimpanCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C182A45278FE3B600C95B14 /* SimpanCollectionViewCell.xib */; };
 		9C1DE319278F019E009989B2 /* Vegetables Identifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DE318278F019E009989B2 /* Vegetables Identifier.mlmodel */; };
 		9C3B0C2A278AF7FA00AD8F6A /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3B0C29278AF7FA00AD8F6A /* ContentModel.swift */; };
 		9C3B0C2C278AFB1D00AD8F6A /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3B0C2B278AFB1D00AD8F6A /* Networking.swift */; };
@@ -61,6 +63,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C182A44278FE3B600C95B14 /* SimpanCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpanCollectionViewCell.swift; sourceTree = "<group>"; };
+		9C182A45278FE3B600C95B14 /* SimpanCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpanCollectionViewCell.xib; sourceTree = "<group>"; };
 		9C1DE318278F019E009989B2 /* Vegetables Identifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Vegetables Identifier.mlmodel"; sourceTree = "<group>"; };
 		9C3B0C29278AF7FA00AD8F6A /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentModel.swift; path = "Skripsi AMIN/Constant/ContentModel.swift"; sourceTree = SOURCE_ROOT; };
 		9C3B0C2B278AFB1D00AD8F6A /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Networking.swift; path = "Skripsi AMIN/Feature/Main Page/Networking.swift"; sourceTree = SOURCE_ROOT; };
@@ -285,6 +289,8 @@
 				9C4083DF2784495400F414E5 /* HighlightCollectionViewCell.xib */,
 				9C4083E82784C98600F414E5 /* CardCollectionViewCell.swift */,
 				9C4083E92784C98600F414E5 /* CardCollectionViewCell.xib */,
+				9C182A44278FE3B600C95B14 /* SimpanCollectionViewCell.swift */,
+				9C182A45278FE3B600C95B14 /* SimpanCollectionViewCell.xib */,
 			);
 			path = "Reusable Components";
 			sourceTree = "<group>";
@@ -468,6 +474,7 @@
 				A8C4C17627844BFE00472491 /* OFL.txt in Resources */,
 				9CD1232E277D9AC000E5BE36 /* LaunchScreen.storyboard in Resources */,
 				9CD1232B277D9AC000E5BE36 /* Assets.xcassets in Resources */,
+				9C182A47278FE3B600C95B14 /* SimpanCollectionViewCell.xib in Resources */,
 				A8C4C16E27844BFE00472491 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				9C54B097277DA42100E1939A /* SimpanViewController.xib in Resources */,
 				A8AE3C9F278D862B00EF034B /* TimerViewController.xib in Resources */,
@@ -498,6 +505,7 @@
 				9C3B0C2C278AFB1D00AD8F6A /* Networking.swift in Sources */,
 				9C6E1072278AEF6E002D679C /* Constant.swift in Sources */,
 				9C4083E02784495400F414E5 /* HighlightCollectionViewCell.swift in Sources */,
+				9C182A46278FE3B600C95B14 /* SimpanCollectionViewCell.swift in Sources */,
 				9C4083E327845ED000F414E5 /* DataResep.swift in Sources */,
 				9C4083EA2784C98600F414E5 /* CardCollectionViewCell.swift in Sources */,
 				9C54B08E277DA3FB00E1939A /* ResepViewController.swift in Sources */,
