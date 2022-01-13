@@ -11,8 +11,8 @@ import CoreML
 
 class ResultPageViewController: UIViewController {
     
+    @IBOutlet weak var rekomenResep: UILabel!
     @IBOutlet weak var resultName: UILabel!
-    @IBOutlet weak var rekomendasiTableView: UITableView!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -23,6 +23,11 @@ class ResultPageViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        //Font
+        resultName.font = UIFont(name: "Poppins-Medium", size: 22)
+        rekomenResep.font = UIFont(name: "Poppins-SemiBold", size: 20)
+        
         
         //Nav Bar
         navigationController?.title = "Hasil"
@@ -158,7 +163,7 @@ extension UIImage {
 extension ResultPageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 5
+        return filteredData.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
