@@ -43,7 +43,7 @@ extension CardTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
         let cell = cardCollection.dequeueReusableCell(withReuseIdentifier: "cardCollectionCell", for: indexPath) as! CardCollectionViewCell
         cell.tempModelCCol = tempModelCTab[indexPath.row]
         cell.layer.cornerRadius = 10
-        cell.layer.shadowColor = UIColor.black.cgColor
+//        cell.layer.shadowColor = UIColor.black.cgColor
         
         return cell
     }

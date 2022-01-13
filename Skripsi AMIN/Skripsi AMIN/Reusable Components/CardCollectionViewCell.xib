@@ -70,7 +70,7 @@
                 <outlet property="cardLabelBG" destination="edY-rG-Rzz" id="0RV-gC-YFu"/>
                 <outlet property="cardView" destination="6dT-7D-ob0" id="VFE-Um-dAq"/>
             </connections>
-            <point key="canvasLocation" x="132" y="120"/>
+            <point key="canvasLocation" x="131.8840579710145" y="119.86607142857142"/>
         </collectionViewCell>
     </objects>
     <resources>
