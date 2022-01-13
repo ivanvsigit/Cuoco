@@ -26,7 +26,10 @@ class HighlightCollectionViewCell: UICollectionViewCell {
         // Initialization code
 //        highlightView.backgroundColor = UIColor(named: "SecondaryColor")
         highlightLabelBG.backgroundColor = UIColor(named: "SecondaryColor")
-       
+//        highlightLabel.attributedText = NSAttributedString.Key.foregroundColor: UIC
+        highlightLabel.font = UIFont(name: "Poppins-Medium", size: 14)
+        highlightLabel.textColor = UIColor(named: "TextColor")
+        
         
     }
     

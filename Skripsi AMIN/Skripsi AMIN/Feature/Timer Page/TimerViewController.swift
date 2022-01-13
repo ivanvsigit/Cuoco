@@ -19,7 +19,7 @@ class TimerViewController: UIViewController {
         super.viewDidLoad()
         
         //TimerHandleDelegate set
-        self.progressView.delegate = self
+       // self.progressView.delegate = self
     }
 
 }

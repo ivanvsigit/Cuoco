@@ -40,6 +40,9 @@ class ResepViewController: UIViewController {
         
         navigationItem.title = "Resep"
         navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-SemiBold", size: 17)!]
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-Bold", size: 32)!]
+        
 //        buat navnya ga ke scroll
         
         filterBtn.setTitle("", for: .normal)
@@ -47,13 +50,16 @@ class ResepViewController: UIViewController {
 
         search()
         fetchData()
+        self.hideKeyboardWhenTappedAround()
+        
+       
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         guard let safeText = textField.text else {
             return
         }
-//        API.shared.fetchSearchDataAPI(urlKey: safeText)
+        //API.shared.fetchSearchDataAPI(urlKey: safeText)
     }
     
     @IBAction func filterBtn(_ sender: UIButton) {
@@ -61,11 +67,11 @@ class ResepViewController: UIViewController {
     }
     
     func search() {
-        searchTextField.placeholder = "Pencarian"
+        searchTextField.delegate = self
         searchTextField.leftViewMode = .always
 //        searchTextField.leftView = UIImageView(image: UIImage(systemName: "magnifyingglass")).frame.size
         searchTextField.leftView = imageIcon
-        searchTextField.leftView?.tintColor = .systemGray
+        searchTextField.leftView?.tintColor = UIColor(named: "TextColor")
         searchTextField.layer.cornerRadius = 10
         searchTextField.backgroundColor = UIColor(named: "SecondaryTintColor")
 //        searchTextField.borderStyle = .none
@@ -73,6 +79,8 @@ class ResepViewController: UIViewController {
         searchTextField.layer.borderColor = UIColor.white.cgColor
         searchTextField.clipsToBounds = true
         searchTextField.addTarget(self, action: #selector(ResepViewController.textFieldDidChange(_:)), for: .editingChanged)
+        searchTextField.attributedPlaceholder = NSAttributedString(string: "Pencarian", attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "TextColor")!])
+        searchTextField.font = UIFont(name: "Poppins-Regular", size: 17)
     }
     
     func fetchData() {
@@ -112,13 +120,6 @@ class ResepViewController: UIViewController {
                 }
             }
         }
-//    }
-
-//    func randomize() {
-//        for _ in 0..<5 {
-//            let randomInt = Int.random(in: 0..<contentData.count)
-//            randomIndex.append(randomInt)
-//        }
 //    }
     
 }
@@ -161,6 +162,7 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource {
         
         sectionLabel.textColor = UIColor(named: "TextColor")
         sectionLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        sectionLabel.font = UIFont(name: "Poppins-SemiBold", size: 22)
         
         sectionView.addSubview(sectionLabel)
         
@@ -184,5 +186,43 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ResepViewController: UITextFieldDelegate, UISearchBarDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.endEditing(true)
+        return true
+    }
     
+     
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if searchTextField.text != "" {
+            return true
+        }
+        else {
+            searchTextField.placeholder = "Masukan Kata Kunci"
+            return false
+        }
+    }
+    
+     // MARK: Func after done editing
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let data = searchTextField.text {
+            //TODO: Func fetch data
+        }
+
+        searchTextField.text = ""
+    }
+}
+
+extension ResepViewController {
+    func hideKeyboardWhenTappedAround() {
+         // MARK: Looks for single or multiple taps
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ResepViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+     // MARK: Calls this function when the tap is recognized
+    @objc func dismissKeyboard() {
+         // MARK: Causes the view (or one of its embedded text fields) to resign the first responder status
+        view.endEditing(true)
+    }
 }
