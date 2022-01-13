@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EPl-PF-UzZ">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EPl-PF-UzZ">
                     <rect key="frame" x="0.0" y="108" width="414" height="754"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <connections>
@@ -35,10 +35,10 @@
                         <constraint firstAttribute="width" constant="317" id="76d-lk-6hL"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" smartInsertDeleteType="no"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" smartInsertDeleteType="no"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1q-Qt-oxw">
-                    <rect key="frame" x="345" y="61" width="49" height="31"/>
+                    <rect key="frame" x="345" y="58" width="49" height="31"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="slider.horizontal.3" catalog="system"/>
                     <connections>
@@ -52,12 +52,12 @@
                 <constraint firstItem="Nmk-UO-qPQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="1KJ-e7-RqG"/>
                 <constraint firstItem="EPl-PF-UzZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="CD1-gB-dW1"/>
                 <constraint firstItem="g1q-Qt-oxw" firstAttribute="leading" secondItem="Nmk-UO-qPQ" secondAttribute="trailing" constant="8" id="Dzn-Pf-AYc"/>
-                <constraint firstItem="EPl-PF-UzZ" firstAttribute="top" secondItem="g1q-Qt-oxw" secondAttribute="bottom" constant="16" id="JiX-Fv-TbK"/>
-                <constraint firstItem="EPl-PF-UzZ" firstAttribute="top" secondItem="Nmk-UO-qPQ" secondAttribute="bottom" constant="16" id="KED-42-YY8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="EPl-PF-UzZ" secondAttribute="trailing" id="Q25-rH-QYb"/>
                 <constraint firstItem="EPl-PF-UzZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="64" id="Zkh-QX-aiX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="EPl-PF-UzZ" secondAttribute="bottom" id="eLH-Bc-guY"/>
+                <constraint firstItem="Nmk-UO-qPQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="14" id="kfV-zh-R30"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="g1q-Qt-oxw" secondAttribute="trailing" constant="20" id="ng5-V7-iPM"/>
+                <constraint firstItem="g1q-Qt-oxw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="14" id="rLE-5B-jnu"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="79.6875"/>
         </view>

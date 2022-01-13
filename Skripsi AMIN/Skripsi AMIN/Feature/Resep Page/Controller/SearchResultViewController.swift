@@ -1,16 +1,16 @@
 //
-//  SimpanViewController.swift
+//  SearchResultViewController.swift
 //  Skripsi AMIN
 //
-//  Created by Vivian Angela on 30/12/21.
+//  Created by Vivian Angela on 13/01/22.
 //
 
 import UIKit
 
-class SimpanViewController: UIViewController {
+class SearchResultViewController: UIViewController {
 
+    @IBOutlet weak var searchResultCollection: UICollectionView!
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var simpanCollection: UICollectionView!
     @IBOutlet weak var filterBtn: UIButton!
     @IBAction func filterBtn(_ sender: Any) {
     }
@@ -24,16 +24,11 @@ class SimpanViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        simpanCollection.register(UINib(nibName: "\(SimpanCollectionViewCell.self)", bundle: nil), forCellWithReuseIdentifier: "simpanCollectionCell")
-        simpanCollection.delegate = self
-        simpanCollection.dataSource = self
-        
-        navigationItem.title = "Simpan"
-        navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-SemiBold", size: 17)!]
-        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-Bold", size: 32)!]
-        //TODO: Navbar don't scroll
+//        view.backgroundColor = .systemPink
+        navigationController?.isNavigationBarHidden = true
+        searchResultCollection.register(UINib(nibName: "\(SimpanCollectionViewCell.self)", bundle: nil), forCellWithReuseIdentifier: "simpanCollectionCell")
+      
+        self.hideKeyboardWhenTappedAround()
         
         filterBtn.tintColor = UIColor(named: "PrimaryColor")
         
@@ -50,37 +45,47 @@ class SimpanViewController: UIViewController {
         searchTextField.layer.borderWidth = 1
         searchTextField.layer.borderColor = UIColor.white.cgColor
         searchTextField.clipsToBounds = true
+        searchTextField.addTarget(self, action: #selector(ResepViewController.textFieldDidChange(_:)), for: .editingChanged)
         searchTextField.attributedPlaceholder = NSAttributedString(string: "Pencarian", attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "TextColor")!])
         searchTextField.font = UIFont(name: "Poppins-Regular", size: 17)
-        
     }
-    
+
 }
 
-extension SimpanViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension SearchResultViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 6
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = simpanCollection.dequeueReusableCell(withReuseIdentifier: "simpanCollectionCell", for: indexPath) as! SimpanCollectionViewCell
-        
+        let cell = searchResultCollection.dequeueReusableCell(withReuseIdentifier: "simpanCollectionCell", for: indexPath) as! SimpanCollectionViewCell
+
         cell.layer.cornerRadius = 10
-        
+
         return cell
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 164, height: 200)
     }
-    
+
 }
 
-extension SimpanViewController: UITextFieldDelegate, UISearchBarDelegate {
+extension SearchResultViewController: UITextFieldDelegate, UISearchBarDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        if searchTextField.text?.count!= 0 {
+//            self.filteredData.removeAll()
+//        }
+        
         searchTextField.endEditing(true)
+//        navigationController?.isNavigationBarHidden = false
         return true
     }
+    
+     // MARK: while editing will display another view
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+    }
+    
      
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         if searchTextField.text != "" {
@@ -94,15 +99,21 @@ extension SimpanViewController: UITextFieldDelegate, UISearchBarDelegate {
     
      // MARK: Func after done editing
     func textFieldDidEndEditing(_ textField: UITextField) {
+        
         if let data = searchTextField.text {
             //TODO: Func fetch data
+            data.lowercased().range(of: searchTextField.text!, options: .caseInsensitive, range: nil, locale: nil)
         }
+        
         searchTextField.text = ""
+        
+//        willMove(toParent: nil)
+//        vc.view.removeFromSuperview()
     }
     
     func hideKeyboardWhenTappedAround() {
          // MARK: Looks for single or multiple taps
-        let tap = UITapGestureRecognizer(target: self, action: #selector(SimpanViewController.dismissKeyboard))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SearchResultViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }

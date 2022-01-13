@@ -21,6 +21,7 @@ class ResepViewController: UIViewController {
         return image
     }()
     
+    let vc = SearchResultViewController()
     
      // MARK: THIS IS DUMMY DATA
     var contentData: [SectionModel] = []
@@ -31,6 +32,11 @@ class ResepViewController: UIViewController {
     
      // MARK: to store random index data
     var randomIndex: [Int] = []
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        fetchData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,9 +55,6 @@ class ResepViewController: UIViewController {
         filterBtn.tintColor = UIColor(named: "PrimaryColor")
 
         search()
-        fetchData()
-        self.hideKeyboardWhenTappedAround()
-        
        
     }
     
@@ -186,43 +189,53 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ResepViewController: UITextFieldDelegate, UISearchBarDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchTextField.endEditing(true)
-        return true
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        if searchTextField.text?.count!= 0 {
+//            self.filteredData.removeAll()
+//        }
+        
+//        searchTextField.endEditing(true)
+//        return true
+//    }
+    
+     // MARK: while editing will display another view
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        addChild(vc)
+        vc.view.frame.size = view.sizeThatFits(CGSize(width: 350, height: 500))
+        view.addSubview(vc.view)
+        vc.didMove(toParent: self)
+//        searchTextField.endEditing(true)
+//        vc.view.translatesAutoresizingMaskIntoConstraints = false
+//        vc.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+//        vc.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+//        vc.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
      
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if searchTextField.text != "" {
-            return true
-        }
-        else {
-            searchTextField.placeholder = "Masukan Kata Kunci"
-            return false
-        }
-    }
+//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+//        if searchTextField.text != "" {
+//            return true
+//        }
+//        else {
+//            searchTextField.placeholder = "Masukan Kata Kunci"
+//            return false
+//        }
+//    }
     
      // MARK: Func after done editing
     func textFieldDidEndEditing(_ textField: UITextField) {
+        
         if let data = searchTextField.text {
             //TODO: Func fetch data
+            data.lowercased().range(of: searchTextField.text!, options: .caseInsensitive, range: nil, locale: nil)
         }
-
+        
         searchTextField.text = ""
-    }
-}
-
-extension ResepViewController {
-    func hideKeyboardWhenTappedAround() {
-         // MARK: Looks for single or multiple taps
-        let tap = UITapGestureRecognizer(target: self, action: #selector(ResepViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
+        
+         // MARK: after editing will remove the other view and back to previous view
+        willMove(toParent: nil)
+        vc.view.removeFromSuperview()
     
-     // MARK: Calls this function when the tap is recognized
-    @objc func dismissKeyboard() {
-         // MARK: Causes the view (or one of its embedded text fields) to resign the first responder status
-        view.endEditing(true)
+        
     }
 }
