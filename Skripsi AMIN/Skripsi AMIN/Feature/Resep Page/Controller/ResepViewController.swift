@@ -11,76 +11,50 @@ import AVFoundation
 class ResepViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var filterBtn: UIButton!
     
-    let imageIcon: UIImageView = {
-       let image = UIImageView(frame: CGRect(x: 8, y: 0, width: 16, height: 16))
-        image.image = UIImage(systemName: "magnifyingglass")
-        
-        return image
-    }()
+    let searchBar = UISearchBar()
+//    let searchBar = UISearchController()
     
+    let vc = SearchResultViewController()
     
      // MARK: THIS IS DUMMY DATA
     var contentData: [SectionModel] = []
     
-    
      // MARK: to store filtered data
-    var filteredData: [String] = []
+    var filteredData: [Content] = []
     
      // MARK: to store random index data
     var randomIndex: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        fetchData()
         tableView.register(UINib(nibName: "\(HighlightTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "highlightCell")
         tableView.register(UINib(nibName: "\(CardTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "cardCell")
-        
+        navigationController?.navigationBar.isTranslucent = false
         navigationItem.title = "Resep"
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-SemiBold", size: 17)!]
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-Bold", size: 32)!]
-        
-//        buat navnya ga ke scroll
-        
-        filterBtn.setTitle("", for: .normal)
-        filterBtn.tintColor = UIColor(named: "PrimaryColor")
 
-        search()
-        fetchData()
-        self.hideKeyboardWhenTappedAround()
+        searchBar.delegate = self
+        searchBar.sizeToFit()
+        navigationItem.titleView = searchBar
+//        navigationItem.searchController = searchBar
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(showFilter))
+        searchBar.searchTextField.backgroundColor = UIColor(named: "SecondaryTintColor")
+        searchBar.placeholder = "Pencarian"
+        searchBar.tintColor = UIColor(named: "PrimaryColor")
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "PrimaryColor")
+//        UISearchBar.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        
         
        
     }
     
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        guard let safeText = textField.text else {
-            return
-        }
-        //API.shared.fetchSearchDataAPI(urlKey: safeText)
-    }
-    
-    @IBAction func filterBtn(_ sender: UIButton) {
-//        print(Constant.shared.data.count)
-    }
-    
-    func search() {
-        searchTextField.delegate = self
-        searchTextField.leftViewMode = .always
-//        searchTextField.leftView = UIImageView(image: UIImage(systemName: "magnifyingglass")).frame.size
-        searchTextField.leftView = imageIcon
-        searchTextField.leftView?.tintColor = UIColor(named: "TextColor")
-        searchTextField.layer.cornerRadius = 10
-        searchTextField.backgroundColor = UIColor(named: "SecondaryTintColor")
-//        searchTextField.borderStyle = .none
-        searchTextField.layer.borderWidth = 1
-        searchTextField.layer.borderColor = UIColor.white.cgColor
-        searchTextField.clipsToBounds = true
-        searchTextField.addTarget(self, action: #selector(ResepViewController.textFieldDidChange(_:)), for: .editingChanged)
-        searchTextField.attributedPlaceholder = NSAttributedString(string: "Pencarian", attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "TextColor")!])
-        searchTextField.font = UIFont(name: "Poppins-Regular", size: 17)
+    @objc func showFilter() {
+        
     }
     
     func fetchData() {
@@ -185,44 +159,80 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension ResepViewController: UITextFieldDelegate, UISearchBarDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchTextField.endEditing(true)
-        return true
+extension ResepViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        let vc = SearchResultViewController()
+        navigationController?.pushViewController(vc, animated: false)
+        searchBar.endEditing(true)
     }
+//    func updateSearchResults(for searchController: UISearchController) {
+//        guard let safeText = searchBar.searchBar.text else {
+//            return
+//        }
+//
+//        if safeText.count > 0 {
+////            Constant.shared.searchKey = safeText
+////            searchController.viewDidLoad()
+//            API.shared.fetchSearchResultDataAPI(urlKey: safeText) {
+//                for data in Constant.shared.search {
+//                    self.filteredData.append(Content(image: UIImage(data: Constant.shared.getImage(urlKey: data.thumb))!, label: data.title))
+//                }
+//                let vc = SearchResultViewController()
+//                vc.filteredData = self.filteredData
+//                DispatchQueue.main.async {
+//                    searchController.viewDidLoad()
+//                }
+//            }
+//        }
+        
+//    }
+    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        if searchTextField.text?.count!= 0 {
+//            self.filteredData.removeAll()
+//        }
+        
+//        searchTextField.endEditing(true)
+//        return true
+//    }
+    
+     // MARK: while editing will display another view
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        addChild(vc)
+//        vc.view.frame.size = view.sizeThatFits(CGSize(width: 350, height: 500))
+//        view.addSubview(vc.view)
+//        vc.didMove(toParent: self)
+//        searchTextField.endEditing(true)
+//        vc.view.translatesAutoresizingMaskIntoConstraints = false
+//        vc.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+//        vc.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+//        vc.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+//    }
     
      
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if searchTextField.text != "" {
-            return true
-        }
-        else {
-            searchTextField.placeholder = "Masukan Kata Kunci"
-            return false
-        }
-    }
+//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+//        if searchTextField.text != "" {
+//            return true
+//        }
+//        else {
+//            searchTextField.placeholder = "Masukan Kata Kunci"
+//            return false
+//        }
+//    }
     
      // MARK: Func after done editing
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if let data = searchTextField.text {
-            //TODO: Func fetch data
-        }
-
-        searchTextField.text = ""
-    }
-}
-
-extension ResepViewController {
-    func hideKeyboardWhenTappedAround() {
-         // MARK: Looks for single or multiple taps
-        let tap = UITapGestureRecognizer(target: self, action: #selector(ResepViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-     // MARK: Calls this function when the tap is recognized
-    @objc func dismissKeyboard() {
-         // MARK: Causes the view (or one of its embedded text fields) to resign the first responder status
-        view.endEditing(true)
-    }
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//
+//        if let data = searchTextField.text {
+//            //TODO: Func fetch data
+//            data.lowercased().range(of: searchTextField.text!, options: .caseInsensitive, range: nil, locale: nil)
+//        }
+//
+//        searchTextField.text = ""
+//
+//         // MARK: after editing will remove the other view and back to previous view
+//        willMove(toParent: nil)
+//        vc.view.removeFromSuperview()
+//
+//    }
 }
