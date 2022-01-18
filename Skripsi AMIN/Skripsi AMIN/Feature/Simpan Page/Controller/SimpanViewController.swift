@@ -9,18 +9,17 @@ import UIKit
 
 class SimpanViewController: UIViewController {
 
-    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var simpanCollection: UICollectionView!
-    @IBOutlet weak var filterBtn: UIButton!
-    @IBAction func filterBtn(_ sender: Any) {
-    }
     
-    let imageIcon: UIImageView = {
-       let image = UIImageView(frame: CGRect(x: 8, y: 0, width: 16, height: 16))
-        image.image = UIImage(systemName: "magnifyingglass")
-        
-        return image
-    }()
+    
+//    let imageIcon: UIImageView = {
+//       let image = UIImageView(frame: CGRect(x: 8, y: 0, width: 16, height: 16))
+//        image.image = UIImage(systemName: "magnifyingglass")
+//
+//        return image
+//    }()
+    
+    let searchBar = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,23 +34,36 @@ class SimpanViewController: UIViewController {
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-Bold", size: 32)!]
         //TODO: Navbar don't scroll
         
-        filterBtn.tintColor = UIColor(named: "PrimaryColor")
-        
-        search()
+        setUpSearch()
+        self.hideKeyboardWhenTappedAround()
     }
     
-    func search() {
-        searchTextField.delegate = self
-        searchTextField.leftViewMode = .always
-        searchTextField.leftView = imageIcon
-        searchTextField.leftView?.tintColor = UIColor(named: "TextColor")
-        searchTextField.layer.cornerRadius = 10
-        searchTextField.backgroundColor = UIColor(named: "SecondaryTintColor")
-        searchTextField.layer.borderWidth = 1
-        searchTextField.layer.borderColor = UIColor.white.cgColor
-        searchTextField.clipsToBounds = true
-        searchTextField.attributedPlaceholder = NSAttributedString(string: "Pencarian", attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "TextColor")!])
-        searchTextField.font = UIFont(name: "Poppins-Regular", size: 17)
+    func setUpSearch() {
+        navigationItem.searchController = searchBar
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(showFilter))
+        searchBar.searchBar.searchTextField.backgroundColor = UIColor(named: "SecondaryTintColor")
+        searchBar.searchBar.placeholder = "Pencarian"
+        searchBar.searchBar.tintColor = UIColor(named: "PrimaryColor")
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "PrimaryColor")
+        searchBar.searchResultsUpdater = self
+        searchBar.searchBar.delegate = self
+
+         // MARK: Custom search
+//        searchTextField.delegate = self
+//        searchTextField.leftViewMode = .always
+//        searchTextField.leftView = imageIcon
+//        searchTextField.leftView?.tintColor = UIColor(named: "TextColor")
+//        searchTextField.layer.cornerRadius = 10
+//        searchTextField.backgroundColor = UIColor(named: "SecondaryTintColor")
+//        searchTextField.layer.borderWidth = 1
+//        searchTextField.layer.borderColor = UIColor.white.cgColor
+//        searchTextField.clipsToBounds = true
+//        searchTextField.attributedPlaceholder = NSAttributedString(string: "Pencarian", attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "TextColor")!])
+//        searchTextField.font = UIFont(name: "Poppins-Regular", size: 17)
+        
+    }
+    
+    @objc func showFilter() {
         
     }
     
@@ -76,29 +88,33 @@ extension SimpanViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
 }
 
-extension SimpanViewController: UITextFieldDelegate, UISearchBarDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchTextField.endEditing(true)
-        return true
-    }
-     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if searchTextField.text != "" {
-            return true
-        }
-        else {
-            searchTextField.placeholder = "Masukan Kata Kunci"
-            return false
-        }
+extension SimpanViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        
     }
     
-     // MARK: Func after done editing
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if let data = searchTextField.text {
-            //TODO: Func fetch data
-        }
-        searchTextField.text = ""
-    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        searchTextField.endEditing(true)
+//        return true
+//    }
+//
+//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+//        if searchTextField.text != "" {
+//            return true
+//        }
+//        else {
+//            searchTextField.placeholder = "Masukan Kata Kunci"
+//            return false
+//        }
+//    }
+//
+//     // MARK: Func after done editing
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        if let data = searchTextField.text {
+//            //TODO: Func fetch data
+//        }
+//        searchTextField.text = ""
+//    }
     
     func hideKeyboardWhenTappedAround() {
          // MARK: Looks for single or multiple taps

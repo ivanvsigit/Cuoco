@@ -10,8 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResepViewController" customModule="Skripsi_AMIN" customModuleProvider="target">
             <connections>
-                <outlet property="filterBtn" destination="g1q-Qt-oxw" id="PRz-ch-JRJ"/>
-                <outlet property="searchTextField" destination="Nmk-UO-qPQ" id="pQZ-p7-7w7"/>
                 <outlet property="tableView" destination="EPl-PF-UzZ" id="OJ5-fK-ADP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,48 +20,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EPl-PF-UzZ">
-                    <rect key="frame" x="0.0" y="108" width="414" height="754"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="wDV-OQ-ozW"/>
                         <outlet property="delegate" destination="-1" id="S9A-Oj-izV"/>
                     </connections>
                 </tableView>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nmk-UO-qPQ">
-                    <rect key="frame" x="20" y="58" width="317" height="34"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="317" id="76d-lk-6hL"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" smartInsertDeleteType="no"/>
-                </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1q-Qt-oxw">
-                    <rect key="frame" x="345" y="58" width="49" height="31"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="slider.horizontal.3" catalog="system"/>
-                    <connections>
-                        <action selector="filterBtn:" destination="-1" eventType="touchUpInside" id="SFw-XO-Bzq"/>
-                    </connections>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Nmk-UO-qPQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="1KJ-e7-RqG"/>
                 <constraint firstItem="EPl-PF-UzZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="CD1-gB-dW1"/>
-                <constraint firstItem="g1q-Qt-oxw" firstAttribute="leading" secondItem="Nmk-UO-qPQ" secondAttribute="trailing" constant="8" id="Dzn-Pf-AYc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="EPl-PF-UzZ" secondAttribute="trailing" id="Q25-rH-QYb"/>
-                <constraint firstItem="EPl-PF-UzZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="64" id="Zkh-QX-aiX"/>
+                <constraint firstItem="EPl-PF-UzZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Zkh-QX-aiX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="EPl-PF-UzZ" secondAttribute="bottom" id="eLH-Bc-guY"/>
-                <constraint firstItem="Nmk-UO-qPQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="14" id="kfV-zh-R30"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="g1q-Qt-oxw" secondAttribute="trailing" constant="20" id="ng5-V7-iPM"/>
-                <constraint firstItem="g1q-Qt-oxw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="14" id="rLE-5B-jnu"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="79.6875"/>
         </view>
     </objects>
     <resources>
-        <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
