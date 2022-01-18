@@ -18,38 +18,39 @@ protocol TimerDelegate{
     //Delegate
     var delegate: TimerDelegate?
     
-    //Make var available in storyboard as well
-    //width or cicular bar
-    @IBInspectable public var barLineWidth: CGFloat = 15.0
-    //background color of circle
-    @IBInspectable public var barBackLineColor: UIColor = .lightGray
-    //front color of cicrle
-    @IBInspectable public var barFrontLineColor: UIColor = .blue
-    //Bool to hide time counter label
+    //WidthCicularBar
+    @IBInspectable public var barLineWidth: CGFloat = 25
+    //BGColor
+    @IBInspectable public var barBackLineColor = UIColor(named: "SecondaryColor")?.cgColor
+    //FrontColor
+    @IBInspectable public var barFrontLineColor = UIColor(named: "PrimaryColor")?.cgColor
+    //ToHideTimerLabel
     @IBInspectable public var isTextLabelHidden: Bool = false
-    //string to show when timer finishd time
+    //ToShowWhenTimerFinished
     @IBInspectable public var timerFinishingText: String?
     
-    //public var
-    public var isMinutesAndSecondsShow = false
+    //Vars
+    public var isMinutesAndSecondsShow = true
     public var isMovingClockWise = false
     
-    //private vars
     private var timer: Timer?
     private var beginingValue: Int = 1
     private var totalTime: TimeInterval = 1
     private var elapsedTime: TimeInterval = 0
+    private var remainingTime: TimeInterval = 1
     private var interval: TimeInterval = 1 // Interval which is set by a user
     private let fireInterval: TimeInterval = 0.01 // ~60 FPS
     
+    //TimerLabel
     private lazy var counterLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .darkText
+        label.textColor = UIColor(named: "PrimaryColor")
         label.numberOfLines  = 3
         self.addSubview(label)
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         label.frame = self.bounds
+        label.font = UIFont(name: "Poppins-Bold", size: 48)
         return label
     }()
     
@@ -107,7 +108,7 @@ protocol TimerDelegate{
             startAngle: currentAngle - .pi / 2,
             endAngle: .pi * 2 - .pi / 2,
             clockwise: isMovingClockWise)
-        context?.setStrokeColor(barBackLineColor.cgColor)
+        context?.setStrokeColor(barBackLineColor!)
         context?.strokePath()
         context?.setLineCap(.round)
 
@@ -119,7 +120,7 @@ protocol TimerDelegate{
             startAngle: -.pi / 2,
             endAngle: currentAngle - .pi / 2,
             clockwise: isMovingClockWise)
-        context?.setStrokeColor(barFrontLineColor.cgColor)
+        context?.setStrokeColor(barFrontLineColor!)
         context?.setLineCap(.round)
         context?.strokePath()
     }
@@ -163,12 +164,23 @@ protocol TimerDelegate{
         delegate?.didEndTimer(sender: self)
     }
     
+    public func pause(){
+        if timer != nil{
+            timer?.invalidate()
+            remainingTime = totalTime - elapsedTime
+            timer = nil
+        }else{
+            timer = Timer(timeInterval: fireInterval, target: self, selector: #selector(ProgressBarView.timerFired(_:)), userInfo: nil, repeats: true)
+            RunLoop.main.add(timer!, forMode: .common)
+        }
+    }
+    
     //MARK:- Calculate value in minutes and seconds and return it as String
     private func getMinutesAndSeconds(remainingSeconds: Int) -> (String) {
-        let minutes = remainingSeconds / 60
-        let seconds = remainingSeconds - minutes * 60
-        let secondString = seconds < 10 ? "0" + seconds.description : seconds.description
-        return minutes.description + ":" + secondString
+        let hours = remainingSeconds / 3600
+        let minutes = remainingSeconds / 60 % 60
+        let seconds = remainingSeconds % 60
+        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }
 
     // MARK: Private methods
