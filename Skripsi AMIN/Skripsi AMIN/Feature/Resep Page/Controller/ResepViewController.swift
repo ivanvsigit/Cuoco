@@ -40,6 +40,9 @@ class ResepViewController: UIViewController {
         
         navigationItem.title = "Resep"
         navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-SemiBold", size: 17)!]
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-Bold", size: 32)!]
+        
 //        buat navnya ga ke scroll
         
         filterBtn.setTitle("", for: .normal)
@@ -65,11 +68,10 @@ class ResepViewController: UIViewController {
     
     func search() {
         searchTextField.delegate = self
-        searchTextField.placeholder = "Pencarian"
         searchTextField.leftViewMode = .always
 //        searchTextField.leftView = UIImageView(image: UIImage(systemName: "magnifyingglass")).frame.size
         searchTextField.leftView = imageIcon
-        searchTextField.leftView?.tintColor = .systemGray
+        searchTextField.leftView?.tintColor = UIColor(named: "TextColor")
         searchTextField.layer.cornerRadius = 10
         searchTextField.backgroundColor = UIColor(named: "SecondaryTintColor")
 //        searchTextField.borderStyle = .none
@@ -77,6 +79,8 @@ class ResepViewController: UIViewController {
         searchTextField.layer.borderColor = UIColor.white.cgColor
         searchTextField.clipsToBounds = true
         searchTextField.addTarget(self, action: #selector(ResepViewController.textFieldDidChange(_:)), for: .editingChanged)
+        searchTextField.attributedPlaceholder = NSAttributedString(string: "Pencarian", attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "TextColor")!])
+        searchTextField.font = UIFont(name: "Poppins-Regular", size: 17)
     }
     
     func fetchData() {
@@ -116,13 +120,6 @@ class ResepViewController: UIViewController {
                 }
             }
         }
-//    }
-
-//    func randomize() {
-//        for _ in 0..<5 {
-//            let randomInt = Int.random(in: 0..<contentData.count)
-//            randomIndex.append(randomInt)
-//        }
 //    }
     
 }
@@ -165,6 +162,7 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource {
         
         sectionLabel.textColor = UIColor(named: "TextColor")
         sectionLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        sectionLabel.font = UIFont(name: "Poppins-SemiBold", size: 22)
         
         sectionView.addSubview(sectionLabel)
         

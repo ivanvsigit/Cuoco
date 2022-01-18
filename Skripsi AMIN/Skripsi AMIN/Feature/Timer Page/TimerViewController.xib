@@ -10,7 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimerViewController" customModule="Skripsi_AMIN" customModuleProvider="target">
             <connections>
-                <outlet property="progressView" destination="ytv-Ce-JRA" id="tDe-Tg-aNf"/>
+                <outlet property="ProgressBar" destination="ytv-Ce-JRA" id="Odj-NT-hZZ"/>
+                <outlet property="cancelButton" destination="GlM-34-4LB" id="KTx-vy-S6N"/>
+                <outlet property="startButton" destination="11e-Kd-AtG" id="Dut-Jk-LbO"/>
+                <outlet property="timerLabel" destination="IY6-bY-roj" id="6ee-VY-1hf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,37 +22,18 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GlM-34-4LB">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GlM-34-4LB">
                     <rect key="frame" x="48" y="582" width="83" height="83"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" name="PrimaryColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="83" id="ce7-3l-riW"/>
+                        <constraint firstAttribute="width" constant="83" id="o0p-Uu-iBR"/>
+                    </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain">
                         <attributedString key="attributedTitle">
-                            <fragment content="Stop">
-                                <attributes>
-                                    <font key="NSFont" size="20" name="Poppins-Regular"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
-                    </buttonConfiguration>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="40"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11e-Kd-AtG">
-                    <rect key="frame" x="259" y="582" width="83" height="83"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" name="PrimaryColor"/>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain">
-                        <attributedString key="attributedTitle">
-                            <fragment content="Start">
+                            <fragment content="Batal">
                                 <attributes>
                                     <font key="NSFont" size="20" name="Poppins-Regular"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -63,23 +47,105 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="startButton:" destination="-1" eventType="touchUpInside" id="cDP-lu-yMG"/>
+                        <action selector="cancelButton:" destination="-1" eventType="touchUpInside" id="6Ax-6V-e9Z"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ytv-Ce-JRA" userLabel="ProgressBar" customClass="progressBar" customModule="Skripsi_AMIN" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11e-Kd-AtG">
+                    <rect key="frame" x="259" y="582" width="77.666666666666686" height="83"/>
+                    <color key="backgroundColor" name="PrimaryColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="77.670000000000002" id="bEZ-Tg-zR9"/>
+                        <constraint firstAttribute="height" constant="83" id="gjm-x7-pYX"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain">
+                        <attributedString key="attributedTitle">
+                            <fragment content="Mulai">
+                                <attributes>
+                                    <font key="NSFont" size="20" name="Poppins-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </buttonConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="40"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="startButton:" destination="-1" eventType="touchUpInside" id="Km5-l4-Mt7"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ytv-Ce-JRA" userLabel="ProgressBar" customClass="ProgressBarView" customModule="Skripsi_AMIN" customModuleProvider="target">
                     <rect key="frame" x="21" y="212" width="348" height="348"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IY6-bY-roj">
+                            <rect key="frame" x="157" y="199" width="63" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="63" id="OgE-nf-7Eh"/>
+                                <constraint firstAttribute="height" constant="24" id="UW2-el-T5K"/>
+                            </constraints>
+                            <attributedString key="attributedText">
+                                <fragment content="Label">
+                                    <attributes>
+                                        <color key="NSColor" red="0.074509803920000006" green="0.1450980392" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <font key="NSFont" size="17" name="Poppins-Medium"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell" catalog="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DYN-3M-M66">
+                            <rect key="frame" x="128" y="203.99999999999997" width="21" height="16.000000000000014"/>
+                            <color key="tintColor" name="TextColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="17" id="gcZ-jY-l7e"/>
+                                <constraint firstAttribute="width" constant="21" id="jHX-R1-TlL"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="DYN-3M-M66" secondAttribute="bottom" constant="127.67" id="3Xj-PF-phe"/>
+                        <constraint firstItem="DYN-3M-M66" firstAttribute="top" secondItem="ytv-Ce-JRA" secondAttribute="top" constant="203.33000000000001" id="9si-Uh-uy7"/>
+                        <constraint firstItem="DYN-3M-M66" firstAttribute="leading" secondItem="ytv-Ce-JRA" secondAttribute="leading" constant="128" id="Vit-z1-3UX"/>
+                        <constraint firstAttribute="width" constant="348" id="YjZ-tz-vIg"/>
+                        <constraint firstItem="IY6-bY-roj" firstAttribute="leading" secondItem="DYN-3M-M66" secondAttribute="trailing" constant="8" id="dgA-j9-bT6"/>
+                        <constraint firstAttribute="bottom" secondItem="IY6-bY-roj" secondAttribute="bottom" constant="125" id="hga-ko-2an"/>
+                        <constraint firstItem="IY6-bY-roj" firstAttribute="top" secondItem="ytv-Ce-JRA" secondAttribute="top" constant="199" id="q6k-tV-JEF"/>
+                        <constraint firstAttribute="height" constant="348" id="tWs-jC-1t1"/>
+                        <constraint firstAttribute="trailing" secondItem="IY6-bY-roj" secondAttribute="trailing" constant="128" id="yUK-6N-fhL"/>
+                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="11e-Kd-AtG" firstAttribute="leading" secondItem="GlM-34-4LB" secondAttribute="trailing" constant="128" id="0bb-JG-am1"/>
+                <constraint firstItem="GlM-34-4LB" firstAttribute="top" secondItem="ytv-Ce-JRA" secondAttribute="bottom" constant="22" id="FTg-UI-FOx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ytv-Ce-JRA" secondAttribute="trailing" constant="21" id="K9x-Gd-B8o"/>
+                <constraint firstItem="11e-Kd-AtG" firstAttribute="top" secondItem="ytv-Ce-JRA" secondAttribute="bottom" constant="22" id="N4o-lO-3dc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="GlM-34-4LB" secondAttribute="bottom" constant="145" id="Zxk-UI-nvo"/>
+                <constraint firstItem="GlM-34-4LB" firstAttribute="top" secondItem="ytv-Ce-JRA" secondAttribute="bottom" constant="22" id="Zyr-jA-MgV"/>
+                <constraint firstItem="ytv-Ce-JRA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="21" id="gZ1-Ih-yi0"/>
+                <constraint firstItem="GlM-34-4LB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="48" id="osK-ia-lig"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="11e-Kd-AtG" secondAttribute="trailing" constant="53.329999999999998" id="qlf-3E-6d2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="11e-Kd-AtG" secondAttribute="bottom" constant="145" id="re2-1o-DMr"/>
+                <constraint firstItem="ytv-Ce-JRA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="168" id="wP7-uH-wWm"/>
+            </constraints>
             <point key="canvasLocation" x="130.76923076923077" y="91.706161137440759"/>
         </view>
     </objects>
     <resources>
+        <image name="bell" catalog="system" width="128" height="124"/>
         <namedColor name="PrimaryColor">
             <color red="0.22699999809265137" green="0.29399999976158142" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.075000002980232239" green="0.14499999582767487" blue="0.043000001460313797" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

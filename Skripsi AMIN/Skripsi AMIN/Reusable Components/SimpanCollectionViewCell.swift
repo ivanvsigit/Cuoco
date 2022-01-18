@@ -22,6 +22,8 @@ class SimpanCollectionViewCell: UICollectionViewCell {
         // Initialization code
         
         simpanLabelBG.backgroundColor = UIColor(named: "SecondaryColor")
+        simpanLabel.font = UIFont(name: "Poppins-Medium", size: 17)
+        simpanLabel.textColor = UIColor(named: "TextColor")
     }
 
 }

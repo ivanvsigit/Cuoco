@@ -28,7 +28,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         navigationController.tabBarItem.title = title
         navigationController.tabBarItem.image = image
         navigationController.navigationBar.prefersLargeTitles = true
-        // rootViewController.navigationItem.title = title
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-Medium", size: 10)!], for: .normal)
         
         return navigationController
     }

@@ -31,8 +31,8 @@ class SimpanViewController: UIViewController {
         
         navigationItem.title = "Simpan"
         navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")]
-        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-SemiBold", size: 17)!]
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-Bold", size: 32)!]
         //TODO: Navbar don't scroll
         
         filterBtn.tintColor = UIColor(named: "PrimaryColor")
@@ -51,7 +51,7 @@ class SimpanViewController: UIViewController {
         searchTextField.layer.borderColor = UIColor.white.cgColor
         searchTextField.clipsToBounds = true
         searchTextField.attributedPlaceholder = NSAttributedString(string: "Pencarian", attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "TextColor")!])
-        
+        searchTextField.font = UIFont(name: "Poppins-Regular", size: 17)
         
     }
     

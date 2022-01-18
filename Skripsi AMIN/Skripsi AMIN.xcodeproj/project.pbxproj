@@ -43,7 +43,8 @@
 		A83CB50527847EC300C4DFB8 /* imageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83CB50427847EC300C4DFB8 /* imageModel.swift */; };
 		A8AE3C9E278D862B00EF034B /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE3C9C278D862B00EF034B /* TimerViewController.swift */; };
 		A8AE3C9F278D862B00EF034B /* TimerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8AE3C9D278D862B00EF034B /* TimerViewController.xib */; };
-		A8AE3CA5278EE20800EF034B /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE3CA4278EE20800EF034B /* CircularProgressView.swift */; };
+		A8AE3CAD279020E000EF034B /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE3CAC279020E000EF034B /* ProgressBarView.swift */; };
+		A8AE3CB427948AA600EF034B /* Alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A8AE3CB327948AA600EF034B /* Alarm.mp3 */; };
 		A8C4C16C27844BFE00472491 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15927844BFE00472491 /* Poppins-ExtraLight.ttf */; };
 		A8C4C16D27844BFE00472491 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15A27844BFE00472491 /* Poppins-ThinItalic.ttf */; };
 		A8C4C16E27844BFE00472491 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15B27844BFE00472491 /* Poppins-ExtraLightItalic.ttf */; };
@@ -104,7 +105,8 @@
 		A83CB50427847EC300C4DFB8 /* imageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageModel.swift; sourceTree = "<group>"; };
 		A8AE3C9C278D862B00EF034B /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		A8AE3C9D278D862B00EF034B /* TimerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerViewController.xib; sourceTree = "<group>"; };
-		A8AE3CA4278EE20800EF034B /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		A8AE3CAC279020E000EF034B /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		A8AE3CB327948AA600EF034B /* Alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alarm.mp3; sourceTree = "<group>"; };
 		A8C4C15927844BFE00472491 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		A8C4C15A27844BFE00472491 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		A8C4C15B27844BFE00472491 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -175,9 +177,9 @@
 			isa = PBXGroup;
 			children = (
 				8783850D279012E300FA62CF /* Resep Detail Page */,
+				9C54B082277D9CF100E1939A /* Main Page */,
 				A8AE3C99278D847100EF034B /* Timer Page */,
 				A83CB4FF27847A3C00C4DFB8 /* Result Page */,
-				9C54B082277D9CF100E1939A /* Main Page */,
 				9C54B098277DA6B700E1939A /* Resep Page */,
 				9C54B099277DA6C400E1939A /* Identifikasi Page */,
 				9C54B09A277DA6D700E1939A /* Simpan Page */,
@@ -362,6 +364,7 @@
 				9C54B081277D9CB300E1939A /* Feature */,
 				9CD1231E277D9ABF00E5BE36 /* AppDelegate.swift */,
 				9CD12320277D9ABF00E5BE36 /* SceneDelegate.swift */,
+				A8AE3CB327948AA600EF034B /* Alarm.mp3 */,
 				9CD1232A277D9AC000E5BE36 /* Assets.xcassets */,
 				9CD1232C277D9AC000E5BE36 /* LaunchScreen.storyboard */,
 				9CD1232F277D9AC000E5BE36 /* Info.plist */,
@@ -402,7 +405,7 @@
 			children = (
 				A8AE3C9C278D862B00EF034B /* TimerViewController.swift */,
 				A8AE3C9D278D862B00EF034B /* TimerViewController.xib */,
-				A8AE3CA4278EE20800EF034B /* CircularProgressView.swift */,
+				A8AE3CAC279020E000EF034B /* ProgressBarView.swift */,
 			);
 			path = "Timer Page";
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				A8C4C17627844BFE00472491 /* OFL.txt in Resources */,
 				9CD1232E277D9AC000E5BE36 /* LaunchScreen.storyboard in Resources */,
 				9CD1232B277D9AC000E5BE36 /* Assets.xcassets in Resources */,
+				A8AE3CB427948AA600EF034B /* Alarm.mp3 in Resources */,
 				9C182A47278FE3B600C95B14 /* SimpanCollectionViewCell.xib in Resources */,
 				A8C4C16E27844BFE00472491 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				9C54B097277DA42100E1939A /* SimpanViewController.xib in Resources */,
@@ -546,6 +550,7 @@
 				9C4083E72784674D00F414E5 /* SectionModel.swift in Sources */,
 				9C3B0C2C278AFB1D00AD8F6A /* Networking.swift in Sources */,
 				9C6E1072278AEF6E002D679C /* Constant.swift in Sources */,
+				A8AE3CAD279020E000EF034B /* ProgressBarView.swift in Sources */,
 				9C4083E02784495400F414E5 /* HighlightCollectionViewCell.swift in Sources */,
 				9C182A46278FE3B600C95B14 /* SimpanCollectionViewCell.swift in Sources */,
 				9C4083E327845ED000F414E5 /* DataResep.swift in Sources */,
@@ -563,7 +568,6 @@
 				9C54B092277DA41200E1939A /* IdentifikasiViewController.swift in Sources */,
 				9C54B0AC277DAE0C00E1939A /* CardTableViewCell.swift in Sources */,
 				9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */,
-				A8AE3CA5278EE20800EF034B /* CircularProgressView.swift in Sources */,
 				A83CB50527847EC300C4DFB8 /* imageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
