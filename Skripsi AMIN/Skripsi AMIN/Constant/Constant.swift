@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
  // MARK: All property that can't be change
 struct Constant{
@@ -25,6 +26,7 @@ struct Constant{
     // MARK: Hold the API Search Data
     var search = [DataContent]()
     
+    var searchKey = ""
     
     enum Key: CodingKey{
         case desert

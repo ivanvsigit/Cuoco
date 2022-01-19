@@ -8,9 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SimpanViewController" customModule="Skripsi_AMIN" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchResultViewController" customModule="Skripsi_AMIN" customModuleProvider="target">
             <connections>
-                <outlet property="simpanCollection" destination="Pzc-nj-LTO" id="QsS-Ew-F0W"/>
+                <outlet property="searchResultCollection" destination="ZH3-DU-fES" id="5V3-f7-65X"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,30 +19,30 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Pzc-nj-LTO">
-                    <rect key="frame" x="20" y="44" width="374" height="818"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ZH3-DU-fES">
+                    <rect key="frame" x="20" y="60" width="374" height="802"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YgI-o8-Pn2">
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Zg-FF-bUL">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="uzt-BP-JlI"/>
-                        <outlet property="delegate" destination="-1" id="lwf-9I-fsB"/>
+                        <outlet property="dataSource" destination="-1" id="ubK-r2-Sho"/>
+                        <outlet property="delegate" destination="-1" id="feh-TF-z3U"/>
                     </connections>
                 </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Pzc-nj-LTO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="7HK-V9-coy"/>
-                <constraint firstItem="Pzc-nj-LTO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="T6y-ab-v0N"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pzc-nj-LTO" secondAttribute="trailing" constant="20" id="lJk-9G-Bvh"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Pzc-nj-LTO" secondAttribute="bottom" id="zwi-if-Kg4"/>
+                <constraint firstItem="ZH3-DU-fES" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="9L3-ru-vcp"/>
+                <constraint firstItem="ZH3-DU-fES" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="VzK-I7-LIM"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZH3-DU-fES" secondAttribute="bottom" id="Zrb-gZ-7fO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZH3-DU-fES" secondAttribute="trailing" constant="20" id="gnA-tW-clK"/>
             </constraints>
-            <point key="canvasLocation" x="132" y="63"/>
+            <point key="canvasLocation" x="132" y="101"/>
         </view>
     </objects>
     <resources>

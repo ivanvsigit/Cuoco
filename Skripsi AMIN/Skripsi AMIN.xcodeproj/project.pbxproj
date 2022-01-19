@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		872087C92796B0340022603D /* ResepDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087C72796B0340022603D /* ResepDetailViewController.swift */; };
+		872087CA2796B0340022603D /* ResepDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 872087C82796B0340022603D /* ResepDetailViewController.xib */; };
+		872087CE2796C0D70022603D /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087CD2796C0D70022603D /* DropDown.swift */; };
 		9C182A46278FE3B600C95B14 /* SimpanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C182A44278FE3B600C95B14 /* SimpanCollectionViewCell.swift */; };
 		9C182A47278FE3B600C95B14 /* SimpanCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C182A45278FE3B600C95B14 /* SimpanCollectionViewCell.xib */; };
 		9C1DE319278F019E009989B2 /* Vegetables Identifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DE318278F019E009989B2 /* Vegetables Identifier.mlmodel */; };
@@ -29,6 +32,8 @@
 		9C54B0AC277DAE0C00E1939A /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54B0AA277DAE0C00E1939A /* CardTableViewCell.swift */; };
 		9C54B0AD277DAE0C00E1939A /* CardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C54B0AB277DAE0C00E1939A /* CardTableViewCell.xib */; };
 		9C6E1072278AEF6E002D679C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6E1071278AEF6E002D679C /* Constant.swift */; };
+		9C6FD5342790299500932711 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6FD5322790299500932711 /* SearchResultViewController.swift */; };
+		9C6FD5352790299500932711 /* SearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C6FD5332790299500932711 /* SearchResultViewController.xib */; };
 		9CD1231F277D9ABF00E5BE36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD1231E277D9ABF00E5BE36 /* AppDelegate.swift */; };
 		9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD12320277D9ABF00E5BE36 /* SceneDelegate.swift */; };
 		9CD12329277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CD12327277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld */; };
@@ -67,6 +72,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		872087C72796B0340022603D /* ResepDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResepDetailViewController.swift; path = ../View/ResepDetailViewController.swift; sourceTree = "<group>"; };
+		872087C82796B0340022603D /* ResepDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResepDetailViewController.xib; sourceTree = "<group>"; };
+		872087CD2796C0D70022603D /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		9C182A44278FE3B600C95B14 /* SimpanCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpanCollectionViewCell.swift; sourceTree = "<group>"; };
 		9C182A45278FE3B600C95B14 /* SimpanCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpanCollectionViewCell.xib; sourceTree = "<group>"; };
 		9C1DE318278F019E009989B2 /* Vegetables Identifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Vegetables Identifier.mlmodel"; sourceTree = "<group>"; };
@@ -89,6 +97,8 @@
 		9C54B0AA277DAE0C00E1939A /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		9C54B0AB277DAE0C00E1939A /* CardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardTableViewCell.xib; sourceTree = "<group>"; };
 		9C6E1071278AEF6E002D679C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		9C6FD5322790299500932711 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		9C6FD5332790299500932711 /* SearchResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultViewController.xib; sourceTree = "<group>"; };
 		9CD1231B277D9ABF00E5BE36 /* Skripsi AMIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Skripsi AMIN.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD1231E277D9ABF00E5BE36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CD12320277D9ABF00E5BE36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,12 +149,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8783850D279012E300FA62CF /* Resep Detail Page */ = {
+			isa = PBXGroup;
+			children = (
+				87838510279013B600FA62CF /* Controller */,
+				8783850F279013B000FA62CF /* View */,
+				8783850E279013AA00FA62CF /* Model */,
+			);
+			path = "Resep Detail Page";
+			sourceTree = "<group>";
+		};
+		8783850E279013AA00FA62CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8783850F279013B000FA62CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				872087C82796B0340022603D /* ResepDetailViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		87838510279013B600FA62CF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				872087C72796B0340022603D /* ResepDetailViewController.swift */,
+				872087CD2796C0D70022603D /* DropDown.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		9C54B081277D9CB300E1939A /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				8783850D279012E300FA62CF /* Resep Detail Page */,
+				9C54B082277D9CF100E1939A /* Main Page */,
 				A8AE3C99278D847100EF034B /* Timer Page */,
 				A83CB4FF27847A3C00C4DFB8 /* Result Page */,
-				9C54B082277D9CF100E1939A /* Main Page */,
 				9C54B098277DA6B700E1939A /* Resep Page */,
 				9C54B099277DA6C400E1939A /* Identifikasi Page */,
 				9C54B09A277DA6D700E1939A /* Simpan Page */,
@@ -221,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				9C54B08C277DA3FB00E1939A /* ResepViewController.swift */,
+				9C6FD5322790299500932711 /* SearchResultViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -229,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				9C54B08D277DA3FB00E1939A /* ResepViewController.xib */,
+				9C6FD5332790299500932711 /* SearchResultViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -481,6 +528,7 @@
 				9C54B0A8277DADB400E1939A /* HighlightTableViewCell.xib in Resources */,
 				A8C4C17127844BFE00472491 /* Poppins-Medium.ttf in Resources */,
 				A83CB4FE2784793400C4DFB8 /* IdentifikasiViewController.xib in Resources */,
+				9C6FD5352790299500932711 /* SearchResultViewController.xib in Resources */,
 				A8C4C17027844BFE00472491 /* Poppins-Light.ttf in Resources */,
 				A8C4C17A27844BFE00472491 /* Poppins-Black.ttf in Resources */,
 				9C4083EB2784C98600F414E5 /* CardCollectionViewCell.xib in Resources */,
@@ -511,6 +559,7 @@
 				9C54B08F277DA3FB00E1939A /* ResepViewController.xib in Resources */,
 				A8C4C17727844BFE00472491 /* Poppins-Regular.ttf in Resources */,
 				9C4083E12784495400F414E5 /* HighlightCollectionViewCell.xib in Resources */,
+				872087CA2796B0340022603D /* ResepDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C54B096277DA42100E1939A /* SimpanViewController.swift in Sources */,
-				A8AE3CD92796AC0800EF034B /* ResepCobaCobaViewController.swift in Sources */,
+				9C6FD5342790299500932711 /* SearchResultViewController.swift in Sources */,
 				A83CB50227847A6000C4DFB8 /* ResultPageViewController.swift in Sources */,
 				9C4083E72784674D00F414E5 /* SectionModel.swift in Sources */,
 				9C3B0C2C278AFB1D00AD8F6A /* Networking.swift in Sources */,
@@ -534,9 +583,11 @@
 				9C4083EA2784C98600F414E5 /* CardCollectionViewCell.swift in Sources */,
 				9C54B08E277DA3FB00E1939A /* ResepViewController.swift in Sources */,
 				9C54B0A7277DADB400E1939A /* HighlightTableViewCell.swift in Sources */,
+				872087C92796B0340022603D /* ResepDetailViewController.swift in Sources */,
 				9CD1231F277D9ABF00E5BE36 /* AppDelegate.swift in Sources */,
 				A8AE3CDD2796AD2100EF034B /* DropDown.swift in Sources */,
 				9C1DE319278F019E009989B2 /* Vegetables Identifier.mlmodel in Sources */,
+				872087CE2796C0D70022603D /* DropDown.swift in Sources */,
 				9C54B08B277DA01A00E1939A /* TabBarController.swift in Sources */,
 				9CD12329277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld in Sources */,
 				A8AE3C9E278D862B00EF034B /* TimerViewController.swift in Sources */,
