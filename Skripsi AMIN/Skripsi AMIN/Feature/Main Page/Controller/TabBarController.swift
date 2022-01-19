@@ -9,13 +9,19 @@ import UIKit
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
+    let appearance = UINavigationBarAppearance()
+    
     // Mark: App Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+//        view.backgroundColor = .white
         
-        UITabBar.appearance().tintColor = UIColor(named: "PrimaryColor")
-        
+        tabBar.barTintColor = UIColor(named: "SecondaryColor")
+        tabBar.tintColor = UIColor(named: "PrimaryColor")
+        tabBar.unselectedItemTintColor = .white
+        tabBar.isTranslucent = false
+        tabBar.backgroundColor = UIColor(named: "SecondaryColor")
+//
         setupVC()
         setupIdentifikasiBtn()
         
@@ -27,7 +33,12 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let navigationController = UINavigationController(rootViewController: rootViewController)
         navigationController.tabBarItem.title = title
         navigationController.tabBarItem.image = image
-        navigationController.navigationBar.prefersLargeTitles = true
+        
+         // MARK: Navbar custom color
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(named: "SecondaryColor")
+        navigationController.navigationBar.standardAppearance = appearance;
+        navigationController.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.standardAppearance
         
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-Medium", size: 10)!], for: .normal)
         

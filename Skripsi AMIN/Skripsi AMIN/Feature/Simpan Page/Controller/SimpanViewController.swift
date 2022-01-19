@@ -19,34 +19,29 @@ class SimpanViewController: UIViewController {
 //        return image
 //    }()
     
-    let searchBar = UISearchController()
+    let searchBar = UISearchBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setUp()
+        self.hideKeyboardWhenTappedAround()
+    }
+    
+    func setUp() {
         simpanCollection.register(UINib(nibName: "\(SimpanCollectionViewCell.self)", bundle: nil), forCellWithReuseIdentifier: "simpanCollectionCell")
         simpanCollection.delegate = self
         simpanCollection.dataSource = self
         
-        navigationItem.title = "Simpan"
-        navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-SemiBold", size: 17)!]
-        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-Bold", size: 32)!]
-        //TODO: Navbar don't scroll
-        
-        setUpSearch()
-        self.hideKeyboardWhenTappedAround()
-    }
-    
-    func setUpSearch() {
-        navigationItem.searchController = searchBar
+      
+        navigationItem.titleView = searchBar
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(showFilter))
-        searchBar.searchBar.searchTextField.backgroundColor = UIColor(named: "SecondaryTintColor")
-        searchBar.searchBar.placeholder = "Pencarian"
-        searchBar.searchBar.tintColor = UIColor(named: "PrimaryColor")
         navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "PrimaryColor")
-        searchBar.searchResultsUpdater = self
-        searchBar.searchBar.delegate = self
+        
+        searchBar.delegate = self
+        searchBar.searchTextField.backgroundColor = UIColor(named: "SecondaryTintColor")
+        searchBar.placeholder = "Pencarian"
+        searchBar.tintColor = UIColor(named: "PrimaryColor")
 
          // MARK: Custom search
 //        searchTextField.delegate = self
@@ -64,7 +59,7 @@ class SimpanViewController: UIViewController {
     }
     
     @objc func showFilter() {
-        
+        //TODO: Show modal filter
     }
     
 }
@@ -88,8 +83,8 @@ extension SimpanViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
 }
 
-extension SimpanViewController: UISearchResultsUpdating, UISearchBarDelegate {
-    func updateSearchResults(for searchController: UISearchController) {
+extension SimpanViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         
     }
     

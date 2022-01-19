@@ -34,7 +34,6 @@
 		9C6E1072278AEF6E002D679C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6E1071278AEF6E002D679C /* Constant.swift */; };
 		9C6FD5342790299500932711 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6FD5322790299500932711 /* SearchResultViewController.swift */; };
 		9C6FD5352790299500932711 /* SearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C6FD5332790299500932711 /* SearchResultViewController.xib */; };
-		9C6FD5372790367D00932711 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6FD5362790367D00932711 /* testViewController.swift */; };
 		9CD1231F277D9ABF00E5BE36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD1231E277D9ABF00E5BE36 /* AppDelegate.swift */; };
 		9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD12320277D9ABF00E5BE36 /* SceneDelegate.swift */; };
 		9CD12329277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CD12327277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld */; };
@@ -97,7 +96,6 @@
 		9C6E1071278AEF6E002D679C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9C6FD5322790299500932711 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		9C6FD5332790299500932711 /* SearchResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultViewController.xib; sourceTree = "<group>"; };
-		9C6FD5362790367D00932711 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		9CD1231B277D9ABF00E5BE36 /* Skripsi AMIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Skripsi AMIN.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD1231E277D9ABF00E5BE36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CD12320277D9ABF00E5BE36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -262,7 +260,6 @@
 			children = (
 				9C54B08C277DA3FB00E1939A /* ResepViewController.swift */,
 				9C6FD5322790299500932711 /* SearchResultViewController.swift */,
-				9C6FD5362790367D00932711 /* testViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -576,7 +573,6 @@
 				9CD12329277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld in Sources */,
 				A8AE3C9E278D862B00EF034B /* TimerViewController.swift in Sources */,
 				9C3B0C2A278AF7FA00AD8F6A /* ContentModel.swift in Sources */,
-				9C6FD5372790367D00932711 /* testViewController.swift in Sources */,
 				9C54B092277DA41200E1939A /* IdentifikasiViewController.swift in Sources */,
 				9C54B0AC277DAE0C00E1939A /* CardTableViewCell.swift in Sources */,
 				9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */,
