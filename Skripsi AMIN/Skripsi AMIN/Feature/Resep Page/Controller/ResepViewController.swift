@@ -103,10 +103,18 @@ class ResepViewController: UIViewController {
     
 }
 
-extension ResepViewController: UITableViewDelegate, UITableViewDataSource, HighlightTableViewDelegate {
+extension ResepViewController: UITableViewDelegate, UITableViewDataSource, HighlightTableViewDelegate, CardTableViewDelegate {
+    func passData(key: String) {
+        let vc = ResepDetailViewController()
+        vc.resepKey = key
+        print(key)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func passDataDetail(key: String) {
         let vc = ResepDetailViewController()
         vc.resepKey = key
+        print(key)
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -132,6 +140,7 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
    
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell") as! CardTableViewCell
         cell.tempModelCTab = contentData[indexPath.section].content
+        cell.delegate = self
 
         
         return cell

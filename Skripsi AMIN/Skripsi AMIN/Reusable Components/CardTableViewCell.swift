@@ -7,11 +7,19 @@
 
 import UIKit
 
+protocol CardTableViewDelegate{
+    
+    func passData(key: String)
+    
+}
+
 class CardTableViewCell: UITableViewCell {
     
     
     @IBOutlet weak var cardCollection: UICollectionView!
     
+    var delegate: CardTableViewDelegate?
+    var vc: UIViewController!
     var tempModelCTab: [Content] = []
     
     override func awakeFromNib() {
@@ -50,6 +58,10 @@ extension CardTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 120, height: 150)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.passData(key: tempModelCTab[indexPath.row].detailKey)
     }
     
     

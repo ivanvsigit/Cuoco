@@ -35,7 +35,7 @@ struct ContentResep: Codable {
 
 struct DetailResep: Codable {
     let title: String
-    let thumb: String
+    let thumb: String?
     let servings: String
     let times: String
     let dificulty: String
