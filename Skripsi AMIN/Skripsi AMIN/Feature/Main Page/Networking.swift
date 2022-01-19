@@ -125,7 +125,6 @@ struct API{
                         Constant.shared.search.append(DataContent(title: data.title, thumb: data.thumb, key: data.key, times: data.times, serving: data.serving, dificulty: data.difficulty))
                     }
                     completion()
-                    Constant.shared.search.removeAll()
                 }
                 catch{
                     print(error)
