@@ -7,10 +7,18 @@
 
 import UIKit
 
+protocol HighlightTableViewDelegate{
+    
+    func passDataDetail(key: String)
+    
+}
+
 class HighlightTableViewCell: UITableViewCell {
 
     @IBOutlet weak var highlightCollection: UICollectionView!
     @IBOutlet weak var highlightPageController: UIPageControl!
+    var delegate: HighlightTableViewDelegate?
+    var vc: UIViewController!
     
     var tempModelHTab: [Content] = []
     
@@ -112,5 +120,20 @@ extension HighlightTableViewCell: UICollectionViewDelegate, UICollectionViewData
         self.highlightPageController.currentPage = indexPath.row
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+//        let vc = ResepDetailViewController()
+        delegate?.passDataDetail(key: tempModelHTab[indexPath.row].detailKey)
+        
+//        let resepKey = tempModelHTab[indexPath.row].detailKey
+//        print(indexPath.row, resepKey)
+        
+//        vc.performSegue(withIdentifier: "resepDetail", sender: nil)
+//        self.present(vc, animated: true)
+//        vc.modalPresentationStyle = .fullScreen
+        
+        
+        
+//        return resepKey
+    }
     
 }

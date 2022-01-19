@@ -28,6 +28,7 @@ class ResepViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         fetchData()
         tableView.register(UINib(nibName: "\(HighlightTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "highlightCell")
         tableView.register(UINib(nibName: "\(CardTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "cardCell")
@@ -66,21 +67,22 @@ class ResepViewController: UIViewController {
                             var highlight: [Content] = []
                             for _ in 0..<5 {
                                 let randomInt = Int.random(in: 0..<Constant.shared.data.count)
-                                let data = Content(image: UIImage(data: Constant.shared.getImage(urlKey: Constant.shared.data[randomInt].thumb))!, label: Constant.shared.data[randomInt].title)
+                                let data = Content(image: UIImage(data: Constant.shared.getImage(urlKey: Constant.shared.data[randomInt].thumb))!, label: Constant.shared.data[randomInt].title, detailKey: Constant.shared.data[randomInt].key)
                                 highlight.append(data)
                             }
                             self.contentData.append(SectionModel(title: "", content: highlight))
                             
                             var new: [Content] = []
                             for content in Constant.shared.newest {
-                                let data = Content(image: UIImage(data: Constant.shared.getImage(urlKey: content.thumb))!, label: content.title)
+                                let data = Content(image: UIImage(data: Constant.shared.getImage(urlKey: content.thumb))!, label: content.title, detailKey: content.key)
                                 new.append(data)
                             }
+                            print(new)
                             self.contentData.append(SectionModel(title: "Resep terbaru", content: new))
                             
                             self.contentData.append(SectionModel(title: "Terakhir Dilihat", content:
-                                                                    [Content(image: UIImage(systemName: "person.fill")!, label: "Cah Bayam"),
-                                                                    Content(image: UIImage(systemName: "chevron.left")!, label: "Sayur Asam")]
+                                                                    [Content(image: UIImage(systemName: "person.fill")!, label: "Cah Bayam", detailKey: "kosong"),
+                                                                     Content(image: UIImage(systemName: "chevron.left")!, label: "Sayur Asam", detailKey: "kosong")]
                                                                     )
                                          )
                             
@@ -98,7 +100,13 @@ class ResepViewController: UIViewController {
     
 }
 
-extension ResepViewController: UITableViewDelegate, UITableViewDataSource {
+extension ResepViewController: UITableViewDelegate, UITableViewDataSource, HighlightTableViewDelegate {
+    func passDataDetail(key: String) {
+        let vc = ResepDetailViewController()
+        vc.resepKey = key
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
 //        print(Constant.shared.data.count)
@@ -115,6 +123,7 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "highlightCell") as! HighlightTableViewCell
             cell.tempModelHTab = contentData[indexPath.section].content
             cell.highlightPageController.numberOfPages = 5
+            cell.delegate = self
             
             return cell
         }
@@ -122,6 +131,7 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell") as! CardTableViewCell
         cell.tempModelCTab = contentData[indexPath.section].content
 
+        
         return cell
     }
     
@@ -157,6 +167,8 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource {
         
         return 190
     }
+    
+    
 }
 
 extension ResepViewController: UISearchBarDelegate {

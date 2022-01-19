@@ -101,7 +101,7 @@ extension SearchResultViewController: UISearchBarDelegate {
         API.shared.fetchSearchResultDataAPI(urlKey: safe_text) {
             self.filteredData.removeAll()
                 for data in Constant.shared.search{
-                    self.filteredData.append(Content(image: UIImage(data: Constant.shared.getImage(urlKey: data.thumb))!, label: data.title))
+                    self.filteredData.append(Content(image: UIImage(data: Constant.shared.getImage(urlKey: data.thumb))!, label: data.title, detailKey: data.key))
                 }
             
             DispatchQueue.main.async {
