@@ -12,16 +12,17 @@ class TimerViewController: UIViewController {
     
     var isStarted = false
     var isPaused = false
-    var startValue = 3
+    var startValue = 20
     var audioPlayer: AVAudioPlayer?
+    
     
     @IBOutlet weak var timerLabel: UILabel!
     
     @IBOutlet weak var ProgressBar:ProgressBarView!
     @IBOutlet weak var startButton: UIButton!
     @IBAction func startButton(_ sender: UIButton) {
-        let pause = NSAttributedString(string: "Jeda", attributes: [.font: UIFont(name: "Poppins-Regular", size: 17)!])
-        let resume = NSAttributedString(string: "Lanjut", attributes: [.font: UIFont(name: "Poppins-Regular", size: 17)!])
+        let pause = NSAttributedString(string: "Jeda", attributes: [.font: UIFont(name: "Poppins-Regular", size: 14)!])
+        let resume = NSAttributedString(string: "Lanjut", attributes: [.font: UIFont(name: "Poppins-Regular", size: 14)!])
         
         if isStarted == false{
             self.ProgressBar.start(beginingValue: startValue, interval: 1.0)
@@ -44,11 +45,6 @@ class TimerViewController: UIViewController {
         }
     }
     
-//    var statusLabel: UILabel = {
-//      let label = UILabel()
-//      label.font = UIFont(name: "Poppins-Regular", size: 20)
-//      return label
-//    }()
     
     @IBOutlet weak var cancelButton: UIButton!
     @IBAction func cancelButton(_ sender: Any) {
@@ -97,10 +93,9 @@ class TimerViewController: UIViewController {
         timerLabel.text = alarmTime.alarm
         
         //Font
-        cancelButton.titleLabel?.font = UIFont(name: "Poppins-Regular", size: 17)
-        startButton.titleLabel?.font = UIFont(name: "Poppins-Regular", size: 17)
+        cancelButton.titleLabel?.font = UIFont(name: "Poppins-Regular", size: 14)
+        startButton.titleLabel?.font = UIFont(name: "Poppins-Regular", size: 14)
     }
-
 }
 
 extension TimeInterval{
@@ -111,17 +106,24 @@ extension TimeInterval{
 
 extension TimerViewController: TimerDelegate {
     func counterUpdateTimeValue(with sender: ProgressBarView, newValue: Int) {
-        //print("CURRENT VALUE IS: \(newValue)")
+        print("CURRENT VALUE IS: \(newValue)")
     }
     
     func didStartTimer(sender: ProgressBarView) {
-        //print("PROGRESS ANIMATION STARTED ")
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
+            
+        }
+        print("PROGRESS ANIMATION STARTED ")
     }
     
     func didEndTimer(sender: ProgressBarView) {
         playSound()
         
-        //print("PROGRESS ANIMATION FINISHED ")
+        let stop = NSAttributedString(string: "Selesai", attributes: [.font: UIFont(name: "Poppins-Regular", size: 14)!])
+        
+        cancelButton.setAttributedTitle(stop, for: .normal)
+        
+        print("PROGRESS ANIMATION FINISHED ")
     }
 }
 
