@@ -35,7 +35,6 @@
 		9C6E1072278AEF6E002D679C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6E1071278AEF6E002D679C /* Constant.swift */; };
 		9C6FD5342790299500932711 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6FD5322790299500932711 /* SearchResultViewController.swift */; };
 		9C6FD5352790299500932711 /* SearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C6FD5332790299500932711 /* SearchResultViewController.xib */; };
-		9C6FD5372790367D00932711 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6FD5362790367D00932711 /* testViewController.swift */; };
 		9CD1231F277D9ABF00E5BE36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD1231E277D9ABF00E5BE36 /* AppDelegate.swift */; };
 		9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD12320277D9ABF00E5BE36 /* SceneDelegate.swift */; };
 		9CD12329277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CD12327277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld */; };
@@ -49,6 +48,9 @@
 		A8AE3C9F278D862B00EF034B /* TimerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8AE3C9D278D862B00EF034B /* TimerViewController.xib */; };
 		A8AE3CAD279020E000EF034B /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE3CAC279020E000EF034B /* ProgressBarView.swift */; };
 		A8AE3CB427948AA600EF034B /* Alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A8AE3CB327948AA600EF034B /* Alarm.mp3 */; };
+		A8AE3CD92796AC0800EF034B /* ResepCobaCobaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE3CD72796AC0800EF034B /* ResepCobaCobaViewController.swift */; };
+		A8AE3CDA2796AC0800EF034B /* ResepCobaCobaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8AE3CD82796AC0800EF034B /* ResepCobaCobaViewController.xib */; };
+		A8AE3CDD2796AD2100EF034B /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE3CDC2796AD2100EF034B /* DropDown.swift */; };
 		A8C4C16C27844BFE00472491 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15927844BFE00472491 /* Poppins-ExtraLight.ttf */; };
 		A8C4C16D27844BFE00472491 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15A27844BFE00472491 /* Poppins-ThinItalic.ttf */; };
 		A8C4C16E27844BFE00472491 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15B27844BFE00472491 /* Poppins-ExtraLightItalic.ttf */; };
@@ -99,7 +101,6 @@
 		9C6E1071278AEF6E002D679C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9C6FD5322790299500932711 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		9C6FD5332790299500932711 /* SearchResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultViewController.xib; sourceTree = "<group>"; };
-		9C6FD5362790367D00932711 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		9CD1231B277D9ABF00E5BE36 /* Skripsi AMIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Skripsi AMIN.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD1231E277D9ABF00E5BE36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CD12320277D9ABF00E5BE36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +116,9 @@
 		A8AE3C9D278D862B00EF034B /* TimerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerViewController.xib; sourceTree = "<group>"; };
 		A8AE3CAC279020E000EF034B /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		A8AE3CB327948AA600EF034B /* Alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alarm.mp3; sourceTree = "<group>"; };
+		A8AE3CD72796AC0800EF034B /* ResepCobaCobaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResepCobaCobaViewController.swift; sourceTree = "<group>"; };
+		A8AE3CD82796AC0800EF034B /* ResepCobaCobaViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResepCobaCobaViewController.xib; sourceTree = "<group>"; };
+		A8AE3CDC2796AD2100EF034B /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		A8C4C15927844BFE00472491 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		A8C4C15A27844BFE00472491 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		A8C4C15B27844BFE00472491 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 				9C54B098277DA6B700E1939A /* Resep Page */,
 				9C54B099277DA6C400E1939A /* Identifikasi Page */,
 				9C54B09A277DA6D700E1939A /* Simpan Page */,
+				A8AE3CDB2796AC1200EF034B /* Resep Coba Coba */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -265,7 +270,6 @@
 			children = (
 				9C54B08C277DA3FB00E1939A /* ResepViewController.swift */,
 				9C6FD5322790299500932711 /* SearchResultViewController.swift */,
-				9C6FD5362790367D00932711 /* testViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -422,6 +426,16 @@
 			path = "Timer Page";
 			sourceTree = "<group>";
 		};
+		A8AE3CDB2796AC1200EF034B /* Resep Coba Coba */ = {
+			isa = PBXGroup;
+			children = (
+				A8AE3CD72796AC0800EF034B /* ResepCobaCobaViewController.swift */,
+				A8AE3CD82796AC0800EF034B /* ResepCobaCobaViewController.xib */,
+				A8AE3CDC2796AD2100EF034B /* DropDown.swift */,
+			);
+			path = "Resep Coba Coba";
+			sourceTree = "<group>";
+		};
 		A8C4C15727844BC600472491 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -535,6 +549,7 @@
 				9C182A47278FE3B600C95B14 /* SimpanCollectionViewCell.xib in Resources */,
 				A8C4C16E27844BFE00472491 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				9C54B097277DA42100E1939A /* SimpanViewController.xib in Resources */,
+				A8AE3CDA2796AC0800EF034B /* ResepCobaCobaViewController.xib in Resources */,
 				A8AE3C9F278D862B00EF034B /* TimerViewController.xib in Resources */,
 				A8C4C16D27844BFE00472491 /* Poppins-ThinItalic.ttf in Resources */,
 				A8C4C17427844BFE00472491 /* Poppins-ExtraBold.ttf in Resources */,
@@ -573,6 +588,7 @@
 				9C54B0A7277DADB400E1939A /* HighlightTableViewCell.swift in Sources */,
 				872087C92796B0340022603D /* ResepDetailViewController.swift in Sources */,
 				9CD1231F277D9ABF00E5BE36 /* AppDelegate.swift in Sources */,
+				A8AE3CDD2796AD2100EF034B /* DropDown.swift in Sources */,
 				9C1DE319278F019E009989B2 /* Vegetables Identifier.mlmodel in Sources */,
 				872087CE2796C0D70022603D /* DropDown.swift in Sources */,
 				9C54B08B277DA01A00E1939A /* TabBarController.swift in Sources */,
@@ -580,7 +596,6 @@
 				A8AE3C9E278D862B00EF034B /* TimerViewController.swift in Sources */,
 				9C3B0C2A278AF7FA00AD8F6A /* ContentModel.swift in Sources */,
 				872087D02796CD900022603D /* DetailModel.swift in Sources */,
-				9C6FD5372790367D00932711 /* testViewController.swift in Sources */,
 				9C54B092277DA41200E1939A /* IdentifikasiViewController.swift in Sources */,
 				9C54B0AC277DAE0C00E1939A /* CardTableViewCell.swift in Sources */,
 				9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */,
@@ -725,9 +740,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2TL9KQ5GNH;
+				DEVELOPMENT_TEAM = MPQCX5SMBW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Skripsi AMIN/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow to take photo.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please allow to save photo.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -754,9 +771,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2TL9KQ5GNH;
+				DEVELOPMENT_TEAM = MPQCX5SMBW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Skripsi AMIN/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow to take photo.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please allow to save photo.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

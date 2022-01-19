@@ -13,7 +13,7 @@ class ResepViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let searchBar = UISearchBar()
-//    let searchBar = UISearchController()
+//    let searchBar = UISearchController(searchResultsController: SearchResultViewController())
     
     let vc = SearchResultViewController()
     
@@ -30,32 +30,29 @@ class ResepViewController: UIViewController {
         super.viewDidLoad()
 
         fetchData()
-        tableView.register(UINib(nibName: "\(HighlightTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "highlightCell")
-        tableView.register(UINib(nibName: "\(CardTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "cardCell")
-        navigationController?.navigationBar.isTranslucent = false
-        navigationItem.title = "Resep"
-        navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-SemiBold", size: 17)!]
-        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-Bold", size: 32)!]
-
-        searchBar.delegate = self
-        searchBar.sizeToFit()
-        navigationItem.titleView = searchBar
-//        navigationItem.searchController = searchBar
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(showFilter))
-        searchBar.searchTextField.backgroundColor = UIColor(named: "SecondaryTintColor")
-        searchBar.placeholder = "Pencarian"
-        searchBar.tintColor = UIColor(named: "PrimaryColor")
-        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "PrimaryColor")
-//        UISearchBar.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        
-        
-        
+        setUp()
        
     }
     
-    @objc func showFilter() {
+    func setUp() {
+        tableView.register(UINib(nibName: "\(HighlightTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "highlightCell")
+        tableView.register(UINib(nibName: "\(CardTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "cardCell")
         
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-SemiBold", size: 17)!]
+        
+        navigationItem.titleView = searchBar
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(showFilter))
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "PrimaryColor")
+        
+        searchBar.delegate = self
+        searchBar.searchTextField.backgroundColor = UIColor(named: "SecondaryTintColor")
+        searchBar.placeholder = "Pencarian"
+        searchBar.tintColor = UIColor(named: "PrimaryColor")
+
+    }
+    
+    @objc func showFilter() {
+        //TODO: Show modal filter
     }
     
     func fetchData() {
@@ -65,8 +62,14 @@ class ResepViewController: UIViewController {
                     API.shared.fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.makan_malam)){
                         API.shared.fetchNewestResepDataAPI {
                             var highlight: [Content] = []
+                            var tempIndex = 0
                             for _ in 0..<5 {
-                                let randomInt = Int.random(in: 0..<Constant.shared.data.count)
+                                var randomInt = Int.random(in: 0..<Constant.shared.data.count)
+                                 // MARK: Randomize var randomInt when tempIndex value is equal to randomInt
+                                if randomInt == tempIndex {
+                                    randomInt = Int.random(in: 0..<Constant.shared.data.count)
+                                }
+                                tempIndex = randomInt
                                 let data = Content(image: UIImage(data: Constant.shared.getImage(urlKey: Constant.shared.data[randomInt].thumb))!, label: Constant.shared.data[randomInt].title, detailKey: Constant.shared.data[randomInt].key)
                                 highlight.append(data)
                             }
@@ -109,7 +112,6 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-//        print(Constant.shared.data.count)
         return contentData.count
     }
     
@@ -162,7 +164,7 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 234
+            return 244
         }
         
         return 190
@@ -172,11 +174,17 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
 }
 
 extension ResepViewController: UISearchBarDelegate {
+     // MARK: Func notify if the text field is edited
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         let vc = SearchResultViewController()
-        navigationController?.pushViewController(vc, animated: false)
-        searchBar.endEditing(true)
+        
+         // MARK: Wrap vc searchResult with navbar
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .fullScreen
+        self.present(navVC, animated: false, completion: nil)
+//        searchBar.endEditing(true)
     }
+    
 //    func updateSearchResults(for searchController: UISearchController) {
 //        guard let safeText = searchBar.searchBar.text else {
 //            return

@@ -14,51 +14,37 @@ class SearchResultViewController: UIViewController {
     var filteredData: [Content] = []
     let searchBar = UISearchBar()
     
+    let emptyState: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "transparent-background-pattern")
+
+        return image
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.backgroundColor = .systemPink
+        
+        setUp()
+        
+        hideKeyboardWhenTappedAround()
+    }
+    
+    func setUp() {
         searchResultCollection.register(UINib(nibName: "\(CardCollectionViewCell.self)", bundle: nil), forCellWithReuseIdentifier: "cardCollectionCell")
       
-//        self.hideKeyboardWhenTappedAround()
-        
-        searchBar.sizeToFit()
-        navigationItem.title = "hasil"
         navigationItem.titleView = searchBar
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(showFilter))
-        searchBar.backgroundColor = UIColor(named: "SecondaryTintColor")
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "PrimaryColor")
+        
         searchBar.placeholder = "Pencarian"
         searchBar.tintColor = UIColor(named: "PrimaryColor")
-        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "PrimaryColor")
         searchBar.delegate = self
-        
-//        API.shared.fetchSearchResultDataAPI(urlKey: Constant.shared.searchKey) {
-//            for data in Constant.shared.search {
-//                self.filteredData.append(Content(image: UIImage(data: Constant.shared.getImage(urlKey: data.thumb))!, label: data.title))
-//            }
-//            DispatchQueue.main.async {
-//                self.searchResultCollection.reloadData()
-//            }
-//        }
-
         
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//
-//        API.shared.fetchSearchResultDataAPI(urlKey: Constant.shared.searchKey) {
-//            for data in Constant.shared.search {
-//                self.filteredData.append(Content(image: UIImage(data: Constant.shared.getImage(urlKey: data.thumb))!, label: data.title))
-//            }
-//            DispatchQueue.main.async {
-//                self.searchResultCollection.reloadData()
-//            }
-//            Constant.shared.searchKey = ""
-//        }
-//    }
-    
-    @objc func showFilter() {
-        
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        searchBar.becomeFirstResponder()
     }
 
 }
@@ -82,49 +68,61 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
 
 }
 
-extension SearchResultViewController: UISearchBarDelegate {
+extension SearchResultViewController: UISearchBarDelegate, UITextFieldDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
-        navigationItem.setHidesBackButton(true, animated: false)
-        searchBar.becomeFirstResponder()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty{
             filteredData.removeAll()
             searchResultCollection.reloadData()
+            emptyState.removeFromSuperview()
         }
+        emptyState.removeFromSuperview()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let safe_text = searchBar.text else { return  }
-        API.shared.fetchSearchResultDataAPI(urlKey: safe_text) {
+        let trimText = safe_text.replacingOccurrences(of: " ", with: "%20")
+        
+        API.shared.fetchSearchResultDataAPI(urlKey: trimText) {
             self.filteredData.removeAll()
                 for data in Constant.shared.search{
                     self.filteredData.append(Content(image: UIImage(data: Constant.shared.getImage(urlKey: data.thumb))!, label: data.title, detailKey: data.key))
                 }
             
             DispatchQueue.main.async {
-                self.searchResultCollection.reloadData()
+                if self.filteredData.count == 0 {
+                    self.view.addSubview(self.emptyState)
+                    self.emptyState.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+                    self.emptyState.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+                    self.emptyState.heightAnchor.constraint(equalToConstant: 200).isActive = true
+                    self.emptyState.widthAnchor.constraint(equalToConstant: 200).isActive = true
+                }
+                else {
+                    self.searchResultCollection.reloadData()
+                }
             }
         }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        navigationController?.popViewController(animated: false)
+        self.dismiss(animated: false, completion: nil)
     }
     
-//    func hideKeyboardWhenTappedAround() {
-//         // MARK: Looks for single or multiple taps
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(SearchResultViewController.dismissKeyboard))
-//        tap.cancelsTouchesInView = false
-//        view.addGestureRecognizer(tap)
-//    }
-//
-//     // MARK: Calls this function when the tap is recognized
-//    @objc func dismissKeyboard() {
-//         // MARK: Causes the view (or one of its embedded text fields) to resign the first responder status
-//        view.endEditing(true)
-//    }
+    func hideKeyboardWhenTappedAround() {
+         // MARK: Looks for single or multiple taps
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SearchResultViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+     // MARK: Calls this function when the tap is recognized
+    @objc func dismissKeyboard() {
+         // MARK: Causes the view (or one of its embedded text fields) to resign the first responder status
+        view.endEditing(true)
+    }
+    
 }
 
