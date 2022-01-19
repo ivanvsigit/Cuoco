@@ -22,7 +22,7 @@ import Foundation
 
 struct DetailContent{
     let title: String
-    let thumb: String
+    let thumb: String?
     let servings: String
     let times: String
     let dificulty: String

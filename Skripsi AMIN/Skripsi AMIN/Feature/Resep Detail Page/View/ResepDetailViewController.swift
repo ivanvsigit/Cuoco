@@ -34,7 +34,11 @@ class ResepDetailViewController: UIViewController {
             return
         }
         
-        resepImage.image = UIImage(data: Constant.shared.getImage(urlKey: detail.thumb))
+        guard let image = detail.thumb else{
+            return
+        }
+        
+        resepImage.image = UIImage(data: Constant.shared.getImage(urlKey: image))
         titleResep.text = detail.title
         durasi.text = detail.times
         porsi.text = detail.servings
@@ -65,10 +69,11 @@ class ResepDetailViewController: UIViewController {
     func fetchData(){
         API.shared.fetchDetailAPI(urlKey: resepKey) { data in
             self.detailData = data
-            guard let detail = self.detailData else{
-                return
-            }
-            print(detail)
+//            guard let detail = self.detailData else{
+//                return
+//            }
+//            print(detail)
+//            print(self.resepKey)
             DispatchQueue.main.async {
                 self.loadDetail()
                 self.tableView.reloadData()

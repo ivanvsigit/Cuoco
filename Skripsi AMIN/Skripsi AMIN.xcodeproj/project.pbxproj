@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		872087C92796B0340022603D /* ResepDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087C72796B0340022603D /* ResepDetailViewController.swift */; };
 		872087CA2796B0340022603D /* ResepDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 872087C82796B0340022603D /* ResepDetailViewController.xib */; };
-		872087CE2796C0D70022603D /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087CD2796C0D70022603D /* DropDown.swift */; };
 		872087D02796CD900022603D /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087CF2796CD900022603D /* DetailModel.swift */; };
+		872087D42798756B0022603D /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087D32798756B0022603D /* DropDown.swift */; };
 		9C182A46278FE3B600C95B14 /* SimpanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C182A44278FE3B600C95B14 /* SimpanCollectionViewCell.swift */; };
 		9C182A47278FE3B600C95B14 /* SimpanCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C182A45278FE3B600C95B14 /* SimpanCollectionViewCell.xib */; };
 		9C1DE319278F019E009989B2 /* Vegetables Identifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DE318278F019E009989B2 /* Vegetables Identifier.mlmodel */; };
@@ -48,9 +48,6 @@
 		A8AE3C9F278D862B00EF034B /* TimerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8AE3C9D278D862B00EF034B /* TimerViewController.xib */; };
 		A8AE3CAD279020E000EF034B /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE3CAC279020E000EF034B /* ProgressBarView.swift */; };
 		A8AE3CB427948AA600EF034B /* Alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A8AE3CB327948AA600EF034B /* Alarm.mp3 */; };
-		A8AE3CD92796AC0800EF034B /* ResepCobaCobaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE3CD72796AC0800EF034B /* ResepCobaCobaViewController.swift */; };
-		A8AE3CDA2796AC0800EF034B /* ResepCobaCobaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8AE3CD82796AC0800EF034B /* ResepCobaCobaViewController.xib */; };
-		A8AE3CDD2796AD2100EF034B /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE3CDC2796AD2100EF034B /* DropDown.swift */; };
 		A8C4C16C27844BFE00472491 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15927844BFE00472491 /* Poppins-ExtraLight.ttf */; };
 		A8C4C16D27844BFE00472491 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15A27844BFE00472491 /* Poppins-ThinItalic.ttf */; };
 		A8C4C16E27844BFE00472491 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15B27844BFE00472491 /* Poppins-ExtraLightItalic.ttf */; };
@@ -75,8 +72,8 @@
 /* Begin PBXFileReference section */
 		872087C72796B0340022603D /* ResepDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResepDetailViewController.swift; path = ../View/ResepDetailViewController.swift; sourceTree = "<group>"; };
 		872087C82796B0340022603D /* ResepDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResepDetailViewController.xib; sourceTree = "<group>"; };
-		872087CD2796C0D70022603D /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		872087CF2796CD900022603D /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
+		872087D32798756B0022603D /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		9C182A44278FE3B600C95B14 /* SimpanCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpanCollectionViewCell.swift; sourceTree = "<group>"; };
 		9C182A45278FE3B600C95B14 /* SimpanCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpanCollectionViewCell.xib; sourceTree = "<group>"; };
 		9C1DE318278F019E009989B2 /* Vegetables Identifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Vegetables Identifier.mlmodel"; sourceTree = "<group>"; };
@@ -116,9 +113,6 @@
 		A8AE3C9D278D862B00EF034B /* TimerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerViewController.xib; sourceTree = "<group>"; };
 		A8AE3CAC279020E000EF034B /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		A8AE3CB327948AA600EF034B /* Alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alarm.mp3; sourceTree = "<group>"; };
-		A8AE3CD72796AC0800EF034B /* ResepCobaCobaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResepCobaCobaViewController.swift; sourceTree = "<group>"; };
-		A8AE3CD82796AC0800EF034B /* ResepCobaCobaViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResepCobaCobaViewController.xib; sourceTree = "<group>"; };
-		A8AE3CDC2796AD2100EF034B /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		A8C4C15927844BFE00472491 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		A8C4C15A27844BFE00472491 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		A8C4C15B27844BFE00472491 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -181,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				872087C72796B0340022603D /* ResepDetailViewController.swift */,
-				872087CD2796C0D70022603D /* DropDown.swift */,
+				872087D32798756B0022603D /* DropDown.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -196,7 +190,6 @@
 				9C54B098277DA6B700E1939A /* Resep Page */,
 				9C54B099277DA6C400E1939A /* Identifikasi Page */,
 				9C54B09A277DA6D700E1939A /* Simpan Page */,
-				A8AE3CDB2796AC1200EF034B /* Resep Coba Coba */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -426,16 +419,6 @@
 			path = "Timer Page";
 			sourceTree = "<group>";
 		};
-		A8AE3CDB2796AC1200EF034B /* Resep Coba Coba */ = {
-			isa = PBXGroup;
-			children = (
-				A8AE3CD72796AC0800EF034B /* ResepCobaCobaViewController.swift */,
-				A8AE3CD82796AC0800EF034B /* ResepCobaCobaViewController.xib */,
-				A8AE3CDC2796AD2100EF034B /* DropDown.swift */,
-			);
-			path = "Resep Coba Coba";
-			sourceTree = "<group>";
-		};
 		A8C4C15727844BC600472491 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -549,7 +532,6 @@
 				9C182A47278FE3B600C95B14 /* SimpanCollectionViewCell.xib in Resources */,
 				A8C4C16E27844BFE00472491 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				9C54B097277DA42100E1939A /* SimpanViewController.xib in Resources */,
-				A8AE3CDA2796AC0800EF034B /* ResepCobaCobaViewController.xib in Resources */,
 				A8AE3C9F278D862B00EF034B /* TimerViewController.xib in Resources */,
 				A8C4C16D27844BFE00472491 /* Poppins-ThinItalic.ttf in Resources */,
 				A8C4C17427844BFE00472491 /* Poppins-ExtraBold.ttf in Resources */,
@@ -581,6 +563,7 @@
 				9C6E1072278AEF6E002D679C /* Constant.swift in Sources */,
 				A8AE3CAD279020E000EF034B /* ProgressBarView.swift in Sources */,
 				9C4083E02784495400F414E5 /* HighlightCollectionViewCell.swift in Sources */,
+				872087D42798756B0022603D /* DropDown.swift in Sources */,
 				9C182A46278FE3B600C95B14 /* SimpanCollectionViewCell.swift in Sources */,
 				9C4083E327845ED000F414E5 /* DataResep.swift in Sources */,
 				9C4083EA2784C98600F414E5 /* CardCollectionViewCell.swift in Sources */,
@@ -588,9 +571,7 @@
 				9C54B0A7277DADB400E1939A /* HighlightTableViewCell.swift in Sources */,
 				872087C92796B0340022603D /* ResepDetailViewController.swift in Sources */,
 				9CD1231F277D9ABF00E5BE36 /* AppDelegate.swift in Sources */,
-				A8AE3CDD2796AD2100EF034B /* DropDown.swift in Sources */,
 				9C1DE319278F019E009989B2 /* Vegetables Identifier.mlmodel in Sources */,
-				872087CE2796C0D70022603D /* DropDown.swift in Sources */,
 				9C54B08B277DA01A00E1939A /* TabBarController.swift in Sources */,
 				9CD12329277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld in Sources */,
 				A8AE3C9E278D862B00EF034B /* TimerViewController.swift in Sources */,
@@ -738,9 +719,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MPQCX5SMBW;
+				DEVELOPMENT_TEAM = 2TL9KQ5GNH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Skripsi AMIN/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow to take photo.";
@@ -758,6 +740,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Apple-Academy.Skripsi-AMIN";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -769,9 +752,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MPQCX5SMBW;
+				DEVELOPMENT_TEAM = 2TL9KQ5GNH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Skripsi AMIN/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow to take photo.";
@@ -789,6 +773,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Apple-Academy.Skripsi-AMIN";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
