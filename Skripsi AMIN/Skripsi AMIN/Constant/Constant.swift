@@ -16,6 +16,7 @@ struct Constant{
     let urlCategory = "https://masak-apa.tomorisakura.vercel.app/api/categorys/recipes/"
     let urlSearch = "https://masak-apa.tomorisakura.vercel.app/api/search/?q="
     let urlNewest = "https://masak-apa.tomorisakura.vercel.app/api/recipes"
+    let urlDetail = "https://masak-apa.tomorisakura.vercel.app/api/recipe/"
     
     // MARK: Hold the API Resep Category Data
     var data = [DataContent]()
@@ -25,6 +26,9 @@ struct Constant{
     
     // MARK: Hold the API Search Data
     var search = [DataContent]()
+    
+    //MARK: Hold the API Recipe Detail Data
+//    var detail = [DetailModel]()
     
     var searchKey = ""
     

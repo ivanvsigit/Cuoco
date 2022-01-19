@@ -16,12 +16,31 @@ class ResepDetailViewController: UIViewController {
     @IBOutlet weak var level: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    //MARK: Hold API Detail Resep Data
+    var detailData: DetailContent?
+    
+    var resepKey: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tabBarController?.tabBar.isHidden = true
         tableView.translatesAutoresizingMaskIntoConstraints = false
         setupTableView()
+        fetchData()
+    }
+    
+    func loadDetail(){
+        guard let detail = detailData else{
+            return
+        }
+        
+        resepImage.image = UIImage(data: Constant.shared.getImage(urlKey: detail.thumb))
+        titleResep.text = detail.title
+        durasi.text = detail.times
+        porsi.text = detail.servings
+        level.text = detail.dificulty
+        
+        
     }
 
     fileprivate func setupTableView(){
@@ -42,6 +61,20 @@ class ResepDetailViewController: UIViewController {
     ]
     
     var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
+    
+    func fetchData(){
+        API.shared.fetchDetailAPI(urlKey: resepKey) { data in
+            self.detailData = data
+            guard let detail = self.detailData else{
+                return
+            }
+            print(detail)
+            DispatchQueue.main.async {
+                self.loadDetail()
+                self.tableView.reloadData()
+            }
+        }
+    }
 }
 
 struct DropData{
