@@ -14,17 +14,19 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     // Mark: App Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.backgroundColor = .white
+
+        setUp()
+        setupVC()
+        setupIdentifikasiBtn()
         
+    }
+    
+    func setUp() {
         tabBar.barTintColor = UIColor(named: "SecondaryColor")
         tabBar.tintColor = UIColor(named: "PrimaryColor")
         tabBar.unselectedItemTintColor = .white
         tabBar.isTranslucent = false
         tabBar.backgroundColor = UIColor(named: "SecondaryColor")
-//
-        setupVC()
-        setupIdentifikasiBtn()
-        
     }
     
     // Mark: Create Navigation Controller for Main Page with Tab Bar
@@ -40,7 +42,15 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         navigationController.navigationBar.standardAppearance = appearance;
         navigationController.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.standardAppearance
         
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "SecondaryColor")!, NSAttributedString.Key.font: UIFont(name: "Poppins-SemiBold", size: 17)!]
+        navigationController.navigationBar.barTintColor = UIColor(named: "TextColor")
+        navigationController.navigationBar.tintColor = UIColor(named: "TextColor")
+
+        
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-Medium", size: 10)!], for: .normal)
+        
+         // MARK: custom left right navbar
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "TextColor")!, NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 17)!], for: .normal)
         
         return navigationController
     }
