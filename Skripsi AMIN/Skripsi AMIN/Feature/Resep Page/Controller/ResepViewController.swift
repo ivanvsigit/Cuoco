@@ -53,7 +53,7 @@ class ResepViewController: UIViewController {
         
         navigationItem.titleView = searchBar
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(showFilter))
-        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "PrimaryColor")
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "TextColor")
         
         searchBar.delegate = self
         searchBar.searchTextField.backgroundColor = UIColor(named: "SecondaryTintColor")
@@ -63,7 +63,10 @@ class ResepViewController: UIViewController {
     }
     
     @objc func showFilter() {
-        //TODO: Show modal filter
+        let vc = FilterViewController()
+        vc.modalPresentationStyle = .custom
+        vc.transitioningDelegate = self
+        self.present(vc, animated: true, completion: nil)
     }
     
     func fetchData() {
@@ -161,7 +164,6 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell") as! CardTableViewCell
         cell.tempModelCTab = contentData[indexPath.section].content
         cell.delegate = self
-
         
         return cell
     }
@@ -198,8 +200,6 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
         
         return 190
     }
-    
-    
 }
 
 extension ResepViewController: UISearchBarDelegate {
@@ -213,75 +213,10 @@ extension ResepViewController: UISearchBarDelegate {
         self.present(navVC, animated: false, completion: nil)
 //        searchBar.endEditing(true)
     }
-    
-//    func updateSearchResults(for searchController: UISearchController) {
-//        guard let safeText = searchBar.searchBar.text else {
-//            return
-//        }
-//
-//        if safeText.count > 0 {
-////            Constant.shared.searchKey = safeText
-////            searchController.viewDidLoad()
-//            API.shared.fetchSearchResultDataAPI(urlKey: safeText) {
-//                for data in Constant.shared.search {
-//                    self.filteredData.append(Content(image: UIImage(data: Constant.shared.getImage(urlKey: data.thumb))!, label: data.title))
-//                }
-//                let vc = SearchResultViewController()
-//                vc.filteredData = self.filteredData
-//                DispatchQueue.main.async {
-//                    searchController.viewDidLoad()
-//                }
-//            }
-//        }
-        
-//    }
-    
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        if searchTextField.text?.count!= 0 {
-//            self.filteredData.removeAll()
-//        }
-        
-//        searchTextField.endEditing(true)
-//        return true
-//    }
-    
-     // MARK: while editing will display another view
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        addChild(vc)
-//        vc.view.frame.size = view.sizeThatFits(CGSize(width: 350, height: 500))
-//        view.addSubview(vc.view)
-//        vc.didMove(toParent: self)
-//        searchTextField.endEditing(true)
-//        vc.view.translatesAutoresizingMaskIntoConstraints = false
-//        vc.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-//        vc.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//        vc.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//    }
-    
-     
-//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-//        if searchTextField.text != "" {
-//            return true
-//        }
-//        else {
-//            searchTextField.placeholder = "Masukan Kata Kunci"
-//            return false
-//        }
-//    }
-    
-     // MARK: Func after done editing
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//
-//        if let data = searchTextField.text {
-//            //TODO: Func fetch data
-//            data.lowercased().range(of: searchTextField.text!, options: .caseInsensitive, range: nil, locale: nil)
-//        }
-//
-//        searchTextField.text = ""
-//
-//         // MARK: after editing will remove the other view and back to previous view
-//        willMove(toParent: nil)
-//        vc.view.removeFromSuperview()
-//
-//    }
+}
+
+extension ResepViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+            return PresentationController(presentedViewController: presented, presenting: presenting)
+        }
 }
