@@ -43,16 +43,22 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         navigationController.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.standardAppearance
         
         navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "SecondaryColor")!, NSAttributedString.Key.font: UIFont(name: "Poppins-SemiBold", size: 17)!]
-        navigationController.navigationBar.barTintColor = UIColor(named: "TextColor")
+    
+         // MARK: custom left right navbar
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 17)!], for: .normal)
         navigationController.navigationBar.tintColor = UIColor(named: "TextColor")
-
+         // MARK: blm berfungsi
+        navigationController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(backBtn))
+        navigationController.navigationItem.backButtonTitle = "Kembali"
+        navigationController.navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "TextColor")
         
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Poppins-Medium", size: 10)!], for: .normal)
         
-         // MARK: custom left right navbar
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "TextColor")!, NSAttributedString.Key.font: UIFont(name: "Poppins-Regular", size: 17)!], for: .normal)
-        
         return navigationController
+    }
+    
+    @objc func backBtn() {
+        navigationController?.popToRootViewController(animated: true)
     }
     
     //Mark: Setup ViewController for Page

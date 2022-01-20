@@ -40,6 +40,9 @@
 		9CD12329277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CD12327277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld */; };
 		9CD1232B277D9AC000E5BE36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1232A277D9AC000E5BE36 /* Assets.xcassets */; };
 		9CD1232E277D9AC000E5BE36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1232C277D9AC000E5BE36 /* LaunchScreen.storyboard */; };
+		9CD6502527996A6C00997171 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6502327996A6C00997171 /* FilterViewController.swift */; };
+		9CD6502627996A6C00997171 /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CD6502427996A6C00997171 /* FilterViewController.xib */; };
+		9CD650282799771E00997171 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD650272799771E00997171 /* PresentationController.swift */; };
 		A83CB4FE2784793400C4DFB8 /* IdentifikasiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83CB4FD2784793400C4DFB8 /* IdentifikasiViewController.xib */; };
 		A83CB50227847A6000C4DFB8 /* ResultPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83CB50027847A6000C4DFB8 /* ResultPageViewController.swift */; };
 		A83CB50327847A6000C4DFB8 /* ResultPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83CB50127847A6000C4DFB8 /* ResultPageViewController.xib */; };
@@ -108,6 +111,9 @@
 		9CD1232A277D9AC000E5BE36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CD1232D277D9AC000E5BE36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CD1232F277D9AC000E5BE36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CD6502327996A6C00997171 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		9CD6502427996A6C00997171 /* FilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
+		9CD650272799771E00997171 /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
 		A83CB4FD2784793400C4DFB8 /* IdentifikasiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IdentifikasiViewController.xib; sourceTree = "<group>"; };
 		A83CB50027847A6000C4DFB8 /* ResultPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPageViewController.swift; sourceTree = "<group>"; };
 		A83CB50127847A6000C4DFB8 /* ResultPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultPageViewController.xib; sourceTree = "<group>"; };
@@ -154,9 +160,9 @@
 		8783850D279012E300FA62CF /* Resep Detail Page */ = {
 			isa = PBXGroup;
 			children = (
-				87838510279013B600FA62CF /* Controller */,
-				8783850F279013B000FA62CF /* View */,
 				8783850E279013AA00FA62CF /* Model */,
+				8783850F279013B000FA62CF /* View */,
+				87838510279013B600FA62CF /* Controller */,
 			);
 			path = "Resep Detail Page";
 			sourceTree = "<group>";
@@ -190,14 +196,15 @@
 			isa = PBXGroup;
 			children = (
 				A8BCBD48279961920032AFB5 /* Launch Screen */,
-				A8B11C9527987AB400A50B36 /* Notifikasi Page */,
-				8783850D279012E300FA62CF /* Resep Detail Page */,
 				9C54B082277D9CF100E1939A /* Main Page */,
-				A8AE3C99278D847100EF034B /* Timer Page */,
-				A83CB4FF27847A3C00C4DFB8 /* Result Page */,
 				9C54B098277DA6B700E1939A /* Resep Page */,
+				9CD6501F27996A0F00997171 /* FilterPage */,
+				8783850D279012E300FA62CF /* Resep Detail Page */,
 				9C54B099277DA6C400E1939A /* Identifikasi Page */,
+				A83CB4FF27847A3C00C4DFB8 /* Result Page */,
+				A8AE3C99278D847100EF034B /* Timer Page */,
 				9C54B09A277DA6D700E1939A /* Simpan Page */,
+				A8B11C9527987AB400A50B36 /* Notifikasi Page */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -406,6 +413,40 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		9CD6501F27996A0F00997171 /* FilterPage */ = {
+			isa = PBXGroup;
+			children = (
+				9CD6502227996A5600997171 /* Model */,
+				9CD6502127996A5000997171 /* View */,
+				9CD6502027996A4900997171 /* Controller */,
+			);
+			path = FilterPage;
+			sourceTree = "<group>";
+		};
+		9CD6502027996A4900997171 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9CD6502327996A6C00997171 /* FilterViewController.swift */,
+				9CD650272799771E00997171 /* PresentationController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9CD6502127996A5000997171 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9CD6502427996A6C00997171 /* FilterViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9CD6502227996A5600997171 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A83CB4FF27847A3C00C4DFB8 /* Result Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -570,6 +611,7 @@
 				A8C4C17727844BFE00472491 /* Poppins-Regular.ttf in Resources */,
 				A8BCBD4C279961A60032AFB5 /* LaunchViewController.xib in Resources */,
 				9C4083E12784495400F414E5 /* HighlightCollectionViewCell.xib in Resources */,
+				9CD6502627996A6C00997171 /* FilterViewController.xib in Resources */,
 				872087CA2796B0340022603D /* ResepDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -597,6 +639,7 @@
 				9C4083EA2784C98600F414E5 /* CardCollectionViewCell.swift in Sources */,
 				9C54B08E277DA3FB00E1939A /* ResepViewController.swift in Sources */,
 				9C54B0A7277DADB400E1939A /* HighlightTableViewCell.swift in Sources */,
+				9CD6502527996A6C00997171 /* FilterViewController.swift in Sources */,
 				872087C92796B0340022603D /* ResepDetailViewController.swift in Sources */,
 				9CD1231F277D9ABF00E5BE36 /* AppDelegate.swift in Sources */,
 				9C1DE319278F019E009989B2 /* Vegetables Identifier.mlmodel in Sources */,
@@ -609,6 +652,7 @@
 				9C54B0AC277DAE0C00E1939A /* CardTableViewCell.swift in Sources */,
 				9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */,
 				A83CB50527847EC300C4DFB8 /* imageModel.swift in Sources */,
+				9CD650282799771E00997171 /* PresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,7 +794,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MPQCX5SMBW;
+				DEVELOPMENT_TEAM = VL4WA3LJ69;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Skripsi AMIN/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow to take photo.";
@@ -783,7 +827,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MPQCX5SMBW;
+				DEVELOPMENT_TEAM = VL4WA3LJ69;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Skripsi AMIN/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow to take photo.";
