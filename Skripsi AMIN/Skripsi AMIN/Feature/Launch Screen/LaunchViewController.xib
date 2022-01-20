@@ -15,6 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LaunchViewController" customModule="Skripsi_AMIN" customModuleProvider="target">
             <connections>
+                <outlet property="appName" destination="ObP-RW-WIB" id="5dv-qx-dZR"/>
                 <outlet property="image" destination="B3K-8S-Hzf" id="8se-K5-TDH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -35,9 +36,20 @@
                     <color key="textColor" name="TextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ObP-RW-WIB">
+                    <rect key="frame" x="120" y="502" width="151" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="sO6-Li-Bat"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="SecondaryColor"/>
+            <constraints>
+                <constraint firstItem="ObP-RW-WIB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="120" id="PUY-xE-E3E"/>
+                <constraint firstAttribute="bottom" secondItem="ObP-RW-WIB" secondAttribute="bottom" constant="286" id="aDD-w0-vTS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ObP-RW-WIB" secondAttribute="trailing" constant="119" id="vAz-Yi-Z6j"/>
+            </constraints>
             <point key="canvasLocation" x="132" y="83"/>
         </view>
     </objects>

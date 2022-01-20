@@ -10,6 +10,7 @@ import UIKit
 class LaunchViewController: UIViewController {
 
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var appName: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,9 @@ class LaunchViewController: UIViewController {
         image.animationRepeatCount = -1
         image.animationDuration = 1
         image.startAnimating()
+        
+        appName.image = UIImage(named: "CUOCO")
+        
     }
 
 
