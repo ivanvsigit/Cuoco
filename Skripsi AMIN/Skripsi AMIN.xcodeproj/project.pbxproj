@@ -47,9 +47,7 @@
 		A8AE3C9F278D862B00EF034B /* TimerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8AE3C9D278D862B00EF034B /* TimerViewController.xib */; };
 		A8AE3CAD279020E000EF034B /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE3CAC279020E000EF034B /* ProgressBarView.swift */; };
 		A8AE3CB427948AA600EF034B /* Alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A8AE3CB327948AA600EF034B /* Alarm.mp3 */; };
-		A8AE3CD92796AC0800EF034B /* ResepCobaCobaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE3CD72796AC0800EF034B /* ResepCobaCobaViewController.swift */; };
-		A8AE3CDA2796AC0800EF034B /* ResepCobaCobaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8AE3CD82796AC0800EF034B /* ResepCobaCobaViewController.xib */; };
-		A8AE3CDD2796AD2100EF034B /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE3CDC2796AD2100EF034B /* DropDown.swift */; };
+		A8B11C9727987ACB00A50B36 /* NotifikasiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B11C9627987ACB00A50B36 /* NotifikasiViewController.swift */; };
 		A8C4C16C27844BFE00472491 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15927844BFE00472491 /* Poppins-ExtraLight.ttf */; };
 		A8C4C16D27844BFE00472491 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15A27844BFE00472491 /* Poppins-ThinItalic.ttf */; };
 		A8C4C16E27844BFE00472491 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15B27844BFE00472491 /* Poppins-ExtraLightItalic.ttf */; };
@@ -114,9 +112,7 @@
 		A8AE3C9D278D862B00EF034B /* TimerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerViewController.xib; sourceTree = "<group>"; };
 		A8AE3CAC279020E000EF034B /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		A8AE3CB327948AA600EF034B /* Alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alarm.mp3; sourceTree = "<group>"; };
-		A8AE3CD72796AC0800EF034B /* ResepCobaCobaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResepCobaCobaViewController.swift; sourceTree = "<group>"; };
-		A8AE3CD82796AC0800EF034B /* ResepCobaCobaViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResepCobaCobaViewController.xib; sourceTree = "<group>"; };
-		A8AE3CDC2796AD2100EF034B /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
+		A8B11C9627987ACB00A50B36 /* NotifikasiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifikasiViewController.swift; sourceTree = "<group>"; };
 		A8C4C15927844BFE00472491 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		A8C4C15A27844BFE00472491 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		A8C4C15B27844BFE00472491 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -186,6 +182,7 @@
 		9C54B081277D9CB300E1939A /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				A8B11C9527987AB400A50B36 /* Notifikasi Page */,
 				8783850D279012E300FA62CF /* Resep Detail Page */,
 				9C54B082277D9CF100E1939A /* Main Page */,
 				A8AE3C99278D847100EF034B /* Timer Page */,
@@ -193,7 +190,6 @@
 				9C54B098277DA6B700E1939A /* Resep Page */,
 				9C54B099277DA6C400E1939A /* Identifikasi Page */,
 				9C54B09A277DA6D700E1939A /* Simpan Page */,
-				A8AE3CDB2796AC1200EF034B /* Resep Coba Coba */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -423,14 +419,12 @@
 			path = "Timer Page";
 			sourceTree = "<group>";
 		};
-		A8AE3CDB2796AC1200EF034B /* Resep Coba Coba */ = {
+		A8B11C9527987AB400A50B36 /* Notifikasi Page */ = {
 			isa = PBXGroup;
 			children = (
-				A8AE3CD72796AC0800EF034B /* ResepCobaCobaViewController.swift */,
-				A8AE3CD82796AC0800EF034B /* ResepCobaCobaViewController.xib */,
-				A8AE3CDC2796AD2100EF034B /* DropDown.swift */,
+				A8B11C9627987ACB00A50B36 /* NotifikasiViewController.swift */,
 			);
-			path = "Resep Coba Coba";
+			path = "Notifikasi Page";
 			sourceTree = "<group>";
 		};
 		A8C4C15727844BC600472491 /* Fonts */ = {
@@ -546,7 +540,6 @@
 				9C182A47278FE3B600C95B14 /* SimpanCollectionViewCell.xib in Resources */,
 				A8C4C16E27844BFE00472491 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				9C54B097277DA42100E1939A /* SimpanViewController.xib in Resources */,
-				A8AE3CDA2796AC0800EF034B /* ResepCobaCobaViewController.xib in Resources */,
 				A8AE3C9F278D862B00EF034B /* TimerViewController.xib in Resources */,
 				A8C4C16D27844BFE00472491 /* Poppins-ThinItalic.ttf in Resources */,
 				A8C4C17427844BFE00472491 /* Poppins-ExtraBold.ttf in Resources */,
@@ -573,6 +566,7 @@
 				9C54B096277DA42100E1939A /* SimpanViewController.swift in Sources */,
 				9C6FD5342790299500932711 /* SearchResultViewController.swift in Sources */,
 				A83CB50227847A6000C4DFB8 /* ResultPageViewController.swift in Sources */,
+				A8B11C9727987ACB00A50B36 /* NotifikasiViewController.swift in Sources */,
 				9C4083E72784674D00F414E5 /* SectionModel.swift in Sources */,
 				9C3B0C2C278AFB1D00AD8F6A /* Networking.swift in Sources */,
 				9C6E1072278AEF6E002D679C /* Constant.swift in Sources */,
@@ -585,7 +579,6 @@
 				9C54B0A7277DADB400E1939A /* HighlightTableViewCell.swift in Sources */,
 				872087C92796B0340022603D /* ResepDetailViewController.swift in Sources */,
 				9CD1231F277D9ABF00E5BE36 /* AppDelegate.swift in Sources */,
-				A8AE3CDD2796AD2100EF034B /* DropDown.swift in Sources */,
 				9C1DE319278F019E009989B2 /* Vegetables Identifier.mlmodel in Sources */,
 				872087CE2796C0D70022603D /* DropDown.swift in Sources */,
 				9C54B08B277DA01A00E1939A /* TabBarController.swift in Sources */,
