@@ -26,8 +26,7 @@ class SearchResultViewController: UIViewController {
         super.viewDidLoad()
         
         setUp()
-        
-        hideKeyboardWhenTappedAround()
+//        self.hideKeyboardWhenTappedAround()
     }
     
     func setUp() {
@@ -39,6 +38,8 @@ class SearchResultViewController: UIViewController {
         searchBar.placeholder = "Pencarian"
         searchBar.tintColor = UIColor(named: "PrimaryColor")
         searchBar.delegate = self
+        
+        searchResultCollection.keyboardDismissMode = .onDrag
         
     }
     
@@ -105,6 +106,8 @@ extension SearchResultViewController: UISearchBarDelegate, UITextFieldDelegate {
                 }
             }
         }
+        
+        searchBar.resignFirstResponder()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -113,7 +116,7 @@ extension SearchResultViewController: UISearchBarDelegate, UITextFieldDelegate {
     
     func hideKeyboardWhenTappedAround() {
          // MARK: Looks for single or multiple taps
-        let tap = UITapGestureRecognizer(target: self, action: #selector(SearchResultViewController.dismissKeyboard))
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(SearchResultViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
@@ -121,7 +124,8 @@ extension SearchResultViewController: UISearchBarDelegate, UITextFieldDelegate {
      // MARK: Calls this function when the tap is recognized
     @objc func dismissKeyboard() {
          // MARK: Causes the view (or one of its embedded text fields) to resign the first responder status
-        view.endEditing(true)
+//        view.endEditing(true)
+        searchBar.endEditing(true)
     }
     
 }
