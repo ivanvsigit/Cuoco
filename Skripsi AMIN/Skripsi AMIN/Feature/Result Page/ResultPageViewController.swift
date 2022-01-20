@@ -202,6 +202,13 @@ extension ResultPageViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 120, height: 150)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ResepDetailViewController()
+        vc.resepKey = filteredData[indexPath.row].detailKey
+        print(vc.resepKey)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
 }
 

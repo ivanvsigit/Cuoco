@@ -23,11 +23,22 @@ class ResepDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Kembali", style: .plain, target: self, action: #selector(addTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simpan", style: .plain, target: self, action: #selector(addTapped))
         self.tabBarController?.tabBar.isHidden = true
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         setupTableView()
         fetchData()
     }
+    
+    @objc func addTapped(sender: AnyObject){
+        self.tabBarController?.tabBar.isHidden = false
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
     
     func loadDetail(){
         guard let detail = detailData else{
