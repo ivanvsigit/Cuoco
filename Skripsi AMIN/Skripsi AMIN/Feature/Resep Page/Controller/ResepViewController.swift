@@ -12,6 +12,8 @@ class ResepViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    
+    
     let searchBar = UISearchBar()
 //    let searchBar = UISearchController(searchResultsController: SearchResultViewController())
     
@@ -28,10 +30,19 @@ class ResepViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(contentData.count)
+        launchScreen()
         fetchData()
         setUp()
+        print(contentData.count)
+
        
+    }
+    
+    func launchScreen(){
+        let launch = LaunchViewController()
+        launch.modalPresentationStyle = .fullScreen
+        self.present(launch, animated: true)
     }
     
     func setUp() {
@@ -108,7 +119,9 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
         let vc = ResepDetailViewController()
         vc.resepKey = key
         print(key)
+        vc.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(vc, animated: true)
+//        navigationController?.pushViewController(vc, animated: true)
     }
     
     func passDataDetail(key: String) {
@@ -120,7 +133,14 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        if contentData.count > 0 {
+            self.dismiss(animated: true)
+        }
+        
+        print(contentData.count)
+        
         return contentData.count
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
