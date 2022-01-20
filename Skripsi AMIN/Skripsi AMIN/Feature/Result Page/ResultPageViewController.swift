@@ -38,9 +38,13 @@ class ResultPageViewController: UIViewController {
         rekomenResep.font = UIFont(name: "Poppins-SemiBold", size: 20)
         
         
-        //Nav Bar
+        //Nav Bar Title
         self.navigationItem.title = "Hasil"
         self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-SemiBold", size: 17)!]
+        
+        //Nav Bar LeftRight
+        self.navigationController!.navigationBar.tintColor = UIColor(named: "TextColor")
+        
         
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Selesai", style: .plain, target: self, action: #selector(addTapped))
