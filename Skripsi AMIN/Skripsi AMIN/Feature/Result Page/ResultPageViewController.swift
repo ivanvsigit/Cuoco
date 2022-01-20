@@ -11,6 +11,7 @@ import CoreML
 
 class ResultPageViewController: UIViewController {
     
+    @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var rekomenResep: UILabel!
     @IBOutlet weak var resultName: UILabel!
     
@@ -24,13 +25,26 @@ class ResultPageViewController: UIViewController {
         
         super.viewDidLoad()
         
+        //Animasi
+        image.animationImages = (0...5).map ({
+            value in return UIImage(named: "animated-1-\(value)") ?? UIImage()
+        })
+        image.animationRepeatCount = -1
+        image.animationDuration = 1
+        image.startAnimating()
+        
         //Font
         resultName.font = UIFont(name: "Poppins-Medium", size: 22)
         rekomenResep.font = UIFont(name: "Poppins-SemiBold", size: 20)
         
         
         //Nav Bar
-        navigationController?.title = "Hasil"
+        self.navigationItem.title = "Hasil"
+        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Poppins-SemiBold", size: 17)!]
+        
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Selesai", style: .plain, target: self, action: #selector(addTapped))
+        
         
         //PassingData & Analyze Image
         let image = ImageModel.shared.image
@@ -45,6 +59,12 @@ class ResultPageViewController: UIViewController {
         fetchSearchData()
     }
     
+    //NavBar RightButton
+    @objc func addTapped(sender: AnyObject) {
+        let selesai = TabBarController()
+        selesai.modalPresentationStyle = .fullScreen
+        self.present(selesai, animated: true, completion: nil)
+    }
     private func analyzeImage(image: UIImage?){
         let image = ImageModel.shared.image
         guard let buffer = image?.resize(size: CGSize(width: 299, height: 299))?.getCVPixelBuffer() else {
@@ -162,6 +182,11 @@ extension UIImage {
 
 extension ResultPageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        //Kondisi DataLoaded -> imageRemoved
+        if filteredData.count > 0 {
+            image.removeFromSuperview()
+        }
         
         return filteredData.count
     }

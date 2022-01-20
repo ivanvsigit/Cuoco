@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="captureResult" destination="MGd-xJ-ejm" id="ueR-gD-5u2"/>
                 <outlet property="collectionView" destination="94s-Tc-BJc" id="NpM-uH-0kt"/>
+                <outlet property="image" destination="nz2-kl-W7Q" id="6Yo-SH-Oak"/>
                 <outlet property="rekomenResep" destination="KXx-yN-0El" id="v9w-jb-75m"/>
                 <outlet property="resultName" destination="Fsw-mL-3KE" id="XPE-fv-Cke"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -75,6 +76,10 @@
                             </attributedString>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nz2-kl-W7Q">
+                            <rect key="frame" x="104" y="516" width="172" height="172"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
