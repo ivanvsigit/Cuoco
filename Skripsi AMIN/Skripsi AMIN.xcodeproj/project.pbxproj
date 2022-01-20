@@ -49,6 +49,8 @@
 		A8AE3CAD279020E000EF034B /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AE3CAC279020E000EF034B /* ProgressBarView.swift */; };
 		A8AE3CB427948AA600EF034B /* Alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A8AE3CB327948AA600EF034B /* Alarm.mp3 */; };
 		A8B11C9727987ACB00A50B36 /* NotifikasiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B11C9627987ACB00A50B36 /* NotifikasiViewController.swift */; };
+		A8BCBD4B279961A60032AFB5 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BCBD49279961A60032AFB5 /* LaunchViewController.swift */; };
+		A8BCBD4C279961A60032AFB5 /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BCBD4A279961A60032AFB5 /* LaunchViewController.xib */; };
 		A8C4C16C27844BFE00472491 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15927844BFE00472491 /* Poppins-ExtraLight.ttf */; };
 		A8C4C16D27844BFE00472491 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15A27844BFE00472491 /* Poppins-ThinItalic.ttf */; };
 		A8C4C16E27844BFE00472491 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8C4C15B27844BFE00472491 /* Poppins-ExtraLightItalic.ttf */; };
@@ -115,6 +117,8 @@
 		A8AE3CAC279020E000EF034B /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		A8AE3CB327948AA600EF034B /* Alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alarm.mp3; sourceTree = "<group>"; };
 		A8B11C9627987ACB00A50B36 /* NotifikasiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifikasiViewController.swift; sourceTree = "<group>"; };
+		A8BCBD49279961A60032AFB5 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		A8BCBD4A279961A60032AFB5 /* LaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
 		A8C4C15927844BFE00472491 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		A8C4C15A27844BFE00472491 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		A8C4C15B27844BFE00472491 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 		9C54B081277D9CB300E1939A /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				A8BCBD48279961920032AFB5 /* Launch Screen */,
 				A8B11C9527987AB400A50B36 /* Notifikasi Page */,
 				8783850D279012E300FA62CF /* Resep Detail Page */,
 				9C54B082277D9CF100E1939A /* Main Page */,
@@ -430,6 +435,15 @@
 			path = "Notifikasi Page";
 			sourceTree = "<group>";
 		};
+		A8BCBD48279961920032AFB5 /* Launch Screen */ = {
+			isa = PBXGroup;
+			children = (
+				A8BCBD49279961A60032AFB5 /* LaunchViewController.swift */,
+				A8BCBD4A279961A60032AFB5 /* LaunchViewController.xib */,
+			);
+			path = "Launch Screen";
+			sourceTree = "<group>";
+		};
 		A8C4C15727844BC600472491 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -554,6 +568,7 @@
 				A8C4C17B27844BFE00472491 /* Poppins-Thin.ttf in Resources */,
 				9C54B08F277DA3FB00E1939A /* ResepViewController.xib in Resources */,
 				A8C4C17727844BFE00472491 /* Poppins-Regular.ttf in Resources */,
+				A8BCBD4C279961A60032AFB5 /* LaunchViewController.xib in Resources */,
 				9C4083E12784495400F414E5 /* HighlightCollectionViewCell.xib in Resources */,
 				872087CA2796B0340022603D /* ResepDetailViewController.xib in Resources */,
 			);
@@ -576,6 +591,7 @@
 				A8AE3CAD279020E000EF034B /* ProgressBarView.swift in Sources */,
 				9C4083E02784495400F414E5 /* HighlightCollectionViewCell.swift in Sources */,
 				872087D42798756B0022603D /* DropDown.swift in Sources */,
+				A8BCBD4B279961A60032AFB5 /* LaunchViewController.swift in Sources */,
 				9C182A46278FE3B600C95B14 /* SimpanCollectionViewCell.swift in Sources */,
 				9C4083E327845ED000F414E5 /* DataResep.swift in Sources */,
 				9C4083EA2784C98600F414E5 /* CardCollectionViewCell.swift in Sources */,
@@ -734,7 +750,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2TL9KQ5GNH;
+				DEVELOPMENT_TEAM = MPQCX5SMBW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Skripsi AMIN/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow to take photo.";
@@ -767,7 +783,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2TL9KQ5GNH;
+				DEVELOPMENT_TEAM = MPQCX5SMBW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Skripsi AMIN/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow to take photo.";
