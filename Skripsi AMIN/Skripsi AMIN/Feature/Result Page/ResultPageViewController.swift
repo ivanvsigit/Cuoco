@@ -65,9 +65,7 @@ class ResultPageViewController: UIViewController {
     
     //NavBar RightButton
     @objc func addTapped(sender: AnyObject) {
-        let selesai = TabBarController()
-        selesai.modalPresentationStyle = .fullScreen
-        self.present(selesai, animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     private func analyzeImage(image: UIImage?){
         let image = ImageModel.shared.image
