@@ -17,16 +17,33 @@ class SearchResultViewController: UIViewController {
     let emptyState: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "transparent-background-pattern")
+        image.animationImages = (0...4).map ({
+            value in return UIImage(named: "animated-2-\(value)") ?? UIImage()
+        })
+        image.animationRepeatCount = -1
+        image.animationDuration = 1
+        image.startAnimating()
 
+        return image
+    }()
+    
+    let imgLoad: UIImageView = {
+       let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.animationImages = (0...5).map ({
+            value in return UIImage(named: "animated-1-\(value)") ?? UIImage()
+        })
+        image.animationRepeatCount = -1
+        image.animationDuration = 1
+        image.startAnimating()
+        
         return image
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUp()
-//        self.hideKeyboardWhenTappedAround()
+        self.hideKeyboardWhenTappedAround()
     }
     
     func setUp() {
@@ -66,6 +83,13 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 164, height: 200)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ResepDetailViewController()
+        vc.resepKey = filteredData[indexPath.row].detailKey
+        print(vc.resepKey)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
 }
 
@@ -87,6 +111,18 @@ extension SearchResultViewController: UISearchBarDelegate, UITextFieldDelegate {
         guard let safe_text = searchBar.text else { return  }
         let trimText = safe_text.replacingOccurrences(of: " ", with: "%20")
         
+        DispatchQueue.main.async {
+            self.emptyState.removeFromSuperview()
+            self.view.addSubview(self.imgLoad)
+            self.imgLoad.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+            self.imgLoad.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+            self.imgLoad.heightAnchor.constraint(equalToConstant: 200).isActive = true
+            self.imgLoad.widthAnchor.constraint(equalToConstant: 200).isActive = true
+            
+            self.filteredData.removeAll()
+            self.searchResultCollection.reloadData()
+        }
+       
         API.shared.fetchSearchResultDataAPI(urlKey: trimText) {
             self.filteredData.removeAll()
                 for data in Constant.shared.search{
@@ -101,9 +137,8 @@ extension SearchResultViewController: UISearchBarDelegate, UITextFieldDelegate {
                     self.emptyState.heightAnchor.constraint(equalToConstant: 200).isActive = true
                     self.emptyState.widthAnchor.constraint(equalToConstant: 200).isActive = true
                 }
-                else {
-                    self.searchResultCollection.reloadData()
-                }
+                self.searchResultCollection.reloadData()
+                self.imgLoad.removeFromSuperview()
             }
         }
         
@@ -116,7 +151,7 @@ extension SearchResultViewController: UISearchBarDelegate, UITextFieldDelegate {
     
     func hideKeyboardWhenTappedAround() {
          // MARK: Looks for single or multiple taps
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(SearchResultViewController.dismissKeyboard))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
