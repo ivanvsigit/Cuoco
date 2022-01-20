@@ -88,9 +88,9 @@ extension SearchResultViewController: UISearchBarDelegate, UITextFieldDelegate {
         
         API.shared.fetchSearchResultDataAPI(urlKey: trimText) {
             self.filteredData.removeAll()
-            for data in Constant.shared.search{
-                self.filteredData.append(Content(image: UIImage(data: Constant.shared.getImage(urlKey: data.thumb))!, label: data.title))
-            }
+                for data in Constant.shared.search{
+                    self.filteredData.append(Content(image: UIImage(data: Constant.shared.getImage(urlKey: data.thumb))!, label: data.title, detailKey: data.key))
+                }
             
             DispatchQueue.main.async {
                 if self.filteredData.count == 0 {

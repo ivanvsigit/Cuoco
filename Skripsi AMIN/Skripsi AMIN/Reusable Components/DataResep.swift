@@ -20,6 +20,10 @@ struct ResepTerbaru: Codable {
     let results: [ContentResep]
 }
 
+struct DataDetail: Codable {
+    let results: DetailResep
+}
+
 struct ContentResep: Codable {
     let title: String
     let thumb: String
@@ -31,11 +35,11 @@ struct ContentResep: Codable {
 
 struct DetailResep: Codable {
     let title: String
-    let thumb: String
+    let thumb: String?
     let servings: String
     let times: String
     let dificulty: String
-    let author: [DetailAuthor]
+    let author: DetailAuthor
     let desc: String
     let needItem: [DetailItem]
     let ingredient: [String]

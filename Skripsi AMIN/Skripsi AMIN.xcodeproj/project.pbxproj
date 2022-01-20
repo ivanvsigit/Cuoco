@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		872087C92796B0340022603D /* ResepDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087C72796B0340022603D /* ResepDetailViewController.swift */; };
 		872087CA2796B0340022603D /* ResepDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 872087C82796B0340022603D /* ResepDetailViewController.xib */; };
-		872087CE2796C0D70022603D /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087CD2796C0D70022603D /* DropDown.swift */; };
+		872087D02796CD900022603D /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087CF2796CD900022603D /* DetailModel.swift */; };
+		872087D42798756B0022603D /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087D32798756B0022603D /* DropDown.swift */; };
 		9C182A46278FE3B600C95B14 /* SimpanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C182A44278FE3B600C95B14 /* SimpanCollectionViewCell.swift */; };
 		9C182A47278FE3B600C95B14 /* SimpanCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C182A45278FE3B600C95B14 /* SimpanCollectionViewCell.xib */; };
 		9C1DE319278F019E009989B2 /* Vegetables Identifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DE318278F019E009989B2 /* Vegetables Identifier.mlmodel */; };
@@ -72,7 +73,8 @@
 /* Begin PBXFileReference section */
 		872087C72796B0340022603D /* ResepDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResepDetailViewController.swift; path = ../View/ResepDetailViewController.swift; sourceTree = "<group>"; };
 		872087C82796B0340022603D /* ResepDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResepDetailViewController.xib; sourceTree = "<group>"; };
-		872087CD2796C0D70022603D /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
+		872087CF2796CD900022603D /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
+		872087D32798756B0022603D /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		9C182A44278FE3B600C95B14 /* SimpanCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpanCollectionViewCell.swift; sourceTree = "<group>"; };
 		9C182A45278FE3B600C95B14 /* SimpanCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpanCollectionViewCell.xib; sourceTree = "<group>"; };
 		9C1DE318278F019E009989B2 /* Vegetables Identifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Vegetables Identifier.mlmodel"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		8783850E279013AA00FA62CF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				872087CF2796CD900022603D /* DetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,7 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				872087C72796B0340022603D /* ResepDetailViewController.swift */,
-				872087CD2796C0D70022603D /* DropDown.swift */,
+				872087D32798756B0022603D /* DropDown.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				9C6E1072278AEF6E002D679C /* Constant.swift in Sources */,
 				A8AE3CAD279020E000EF034B /* ProgressBarView.swift in Sources */,
 				9C4083E02784495400F414E5 /* HighlightCollectionViewCell.swift in Sources */,
+				872087D42798756B0022603D /* DropDown.swift in Sources */,
 				9C182A46278FE3B600C95B14 /* SimpanCollectionViewCell.swift in Sources */,
 				9C4083E327845ED000F414E5 /* DataResep.swift in Sources */,
 				9C4083EA2784C98600F414E5 /* CardCollectionViewCell.swift in Sources */,
@@ -580,11 +584,11 @@
 				872087C92796B0340022603D /* ResepDetailViewController.swift in Sources */,
 				9CD1231F277D9ABF00E5BE36 /* AppDelegate.swift in Sources */,
 				9C1DE319278F019E009989B2 /* Vegetables Identifier.mlmodel in Sources */,
-				872087CE2796C0D70022603D /* DropDown.swift in Sources */,
 				9C54B08B277DA01A00E1939A /* TabBarController.swift in Sources */,
 				9CD12329277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld in Sources */,
 				A8AE3C9E278D862B00EF034B /* TimerViewController.swift in Sources */,
 				9C3B0C2A278AF7FA00AD8F6A /* ContentModel.swift in Sources */,
+				872087D02796CD900022603D /* DetailModel.swift in Sources */,
 				9C54B092277DA41200E1939A /* IdentifikasiViewController.swift in Sources */,
 				9C54B0AC277DAE0C00E1939A /* CardTableViewCell.swift in Sources */,
 				9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */,
@@ -727,9 +731,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MPQCX5SMBW;
+				DEVELOPMENT_TEAM = 2TL9KQ5GNH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Skripsi AMIN/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow to take photo.";
@@ -747,6 +752,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Apple-Academy.Skripsi-AMIN";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -758,9 +764,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MPQCX5SMBW;
+				DEVELOPMENT_TEAM = 2TL9KQ5GNH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Skripsi AMIN/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow to take photo.";
@@ -778,6 +785,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Apple-Academy.Skripsi-AMIN";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

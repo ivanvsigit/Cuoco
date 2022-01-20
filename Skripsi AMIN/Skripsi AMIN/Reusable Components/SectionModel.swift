@@ -16,6 +16,7 @@ struct SectionModel {
 struct Content {
     let image: UIImage
     let label: String
+    let detailKey: String
 }
 
 

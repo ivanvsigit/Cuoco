@@ -133,6 +133,40 @@ struct API{
         }
         task.resume()
     }
+    
+    func fetchDetailAPI(urlKey: String, completion: @escaping (DetailContent)->()) {
+         // MARK: Create a URL
+        let url = URL(string: Constant.shared.urlDetail+urlKey)
+        
+         // MARK: URLSession bertujuan untuk mengelola sekelompok tugas yang berhubungan dengan network data transfer (buat ngebuka pintunya)
+        let session = URLSession(configuration: .default)
+        
+         // MARK: Give the session a task
+        let task = session.dataTask(with: url!) { data, resp, error in
+            if error != nil{
+                print(error!)
+            }
+            if let safe_data = data {
+                let decoder = JSONDecoder()
+                var detail: DetailContent?
+                do{
+                    let result = try decoder.decode(DataDetail.self, from: safe_data)
+//                    print(result)
+                    
+                    detail = DetailContent(title: result.results.title, thumb: result.results.thumb, servings: result.results.servings, times: result.results.times, dificulty: result.results.dificulty, ingredient: result.results.ingredient, step: result.results.step)
+                    
+                    guard let data = detail else {
+                        return
+                    }
+                        completion(data)
+                }
+                catch{
+                    print(error)
+                }
+            }
+        }
+        task.resume()
+    }
 
 }
 
