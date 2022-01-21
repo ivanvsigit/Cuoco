@@ -43,7 +43,6 @@
 		9CD1232B277D9AC000E5BE36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1232A277D9AC000E5BE36 /* Assets.xcassets */; };
 		9CD1232E277D9AC000E5BE36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1232C277D9AC000E5BE36 /* LaunchScreen.storyboard */; };
 		9CD6502527996A6C00997171 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6502327996A6C00997171 /* FilterViewController.swift */; };
-		9CD6502627996A6C00997171 /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CD6502427996A6C00997171 /* FilterViewController.xib */; };
 		9CD650282799771E00997171 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD650272799771E00997171 /* PresentationController.swift */; };
 		A83CB4FE2784793400C4DFB8 /* IdentifikasiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83CB4FD2784793400C4DFB8 /* IdentifikasiViewController.xib */; };
 		A83CB50227847A6000C4DFB8 /* ResultPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83CB50027847A6000C4DFB8 /* ResultPageViewController.swift */; };
@@ -116,7 +115,6 @@
 		9CD1232D277D9AC000E5BE36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CD1232F277D9AC000E5BE36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CD6502327996A6C00997171 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
-		9CD6502427996A6C00997171 /* FilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
 		9CD650272799771E00997171 /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
 		A83CB4FD2784793400C4DFB8 /* IdentifikasiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IdentifikasiViewController.xib; sourceTree = "<group>"; };
 		A83CB50027847A6000C4DFB8 /* ResultPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPageViewController.swift; sourceTree = "<group>"; };
@@ -441,7 +439,6 @@
 		9CD6502127996A5000997171 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9CD6502427996A6C00997171 /* FilterViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -618,7 +615,6 @@
 				A8C4C17727844BFE00472491 /* Poppins-Regular.ttf in Resources */,
 				A8BCBD4C279961A60032AFB5 /* LaunchViewController.xib in Resources */,
 				9C4083E12784495400F414E5 /* HighlightCollectionViewCell.xib in Resources */,
-				9CD6502627996A6C00997171 /* FilterViewController.xib in Resources */,
 				872087CA2796B0340022603D /* ResepDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
