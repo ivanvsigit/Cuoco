@@ -30,11 +30,9 @@ class ResepViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(contentData.count)
         launchScreen()
         fetchData()
         setUp()
-        print(contentData.count)
 
        
     }
@@ -64,9 +62,11 @@ class ResepViewController: UIViewController {
     
     @objc func showFilter() {
         let vc = FilterViewController()
-        vc.modalPresentationStyle = .custom
+        vc.modalPresentationStyle = .overCurrentContext
+        
+//        tabBarController?.tabBar.isHidden = true
         vc.transitioningDelegate = self
-        self.present(vc, animated: true, completion: nil)
+        self.present(vc, animated: false, completion: nil)
     }
     
     func fetchData() {
@@ -138,9 +138,6 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
         if contentData.count > 0 {
             self.dismiss(animated: false)
         }
-        
-        print(contentData.count)
-        
         return contentData.count
         
     }
@@ -172,7 +169,6 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25))
         let sectionLabel = UILabel(frame: CGRect(x: 20.0, y: 0, width: sectionView.frame.width, height: 25))
         
@@ -185,12 +181,15 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
         return sectionView
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 0.0
-        }
-        return UITableView.automaticDimension
-    }
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        if section == 0 {
+//            return 0.0
+//        }
+//        else {
+//            return UITableView.automaticDimension
+//        }
+//        return 0.0
+//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
