@@ -11,6 +11,8 @@
 		872087CA2796B0340022603D /* ResepDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 872087C82796B0340022603D /* ResepDetailViewController.xib */; };
 		872087D02796CD900022603D /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087CF2796CD900022603D /* DetailModel.swift */; };
 		872087D42798756B0022603D /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087D32798756B0022603D /* DropDown.swift */; };
+		872087FF279A2D500022603D /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087FD279A2D500022603D /* DetailTableViewCell.swift */; };
+		87208800279A2D500022603D /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 872087FE279A2D500022603D /* DetailTableViewCell.xib */; };
 		9C182A46278FE3B600C95B14 /* SimpanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C182A44278FE3B600C95B14 /* SimpanCollectionViewCell.swift */; };
 		9C182A47278FE3B600C95B14 /* SimpanCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C182A45278FE3B600C95B14 /* SimpanCollectionViewCell.xib */; };
 		9C1DE319278F019E009989B2 /* Vegetables Identifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9C1DE318278F019E009989B2 /* Vegetables Identifier.mlmodel */; };
@@ -80,6 +82,8 @@
 		872087C82796B0340022603D /* ResepDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResepDetailViewController.xib; sourceTree = "<group>"; };
 		872087CF2796CD900022603D /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		872087D32798756B0022603D /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
+		872087FD279A2D500022603D /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		872087FE279A2D500022603D /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		9C182A44278FE3B600C95B14 /* SimpanCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpanCollectionViewCell.swift; sourceTree = "<group>"; };
 		9C182A45278FE3B600C95B14 /* SimpanCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpanCollectionViewCell.xib; sourceTree = "<group>"; };
 		9C1DE318278F019E009989B2 /* Vegetables Identifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "Vegetables Identifier.mlmodel"; sourceTree = "<group>"; };
@@ -358,6 +362,8 @@
 				9C4083E92784C98600F414E5 /* CardCollectionViewCell.xib */,
 				9C182A44278FE3B600C95B14 /* SimpanCollectionViewCell.swift */,
 				9C182A45278FE3B600C95B14 /* SimpanCollectionViewCell.xib */,
+				872087FD279A2D500022603D /* DetailTableViewCell.swift */,
+				872087FE279A2D500022603D /* DetailTableViewCell.xib */,
 			);
 			path = "Reusable Components";
 			sourceTree = "<group>";
@@ -605,6 +611,7 @@
 				A8C4C17D27844BFE00472491 /* Poppins-Italic.ttf in Resources */,
 				A8C4C17C27844BFE00472491 /* Poppins-SemiBold.ttf in Resources */,
 				A8C4C17527844BFE00472491 /* Poppins-BlackItalic.ttf in Resources */,
+				87208800279A2D500022603D /* DetailTableViewCell.xib in Resources */,
 				A83CB50327847A6000C4DFB8 /* ResultPageViewController.xib in Resources */,
 				A8C4C17B27844BFE00472491 /* Poppins-Thin.ttf in Resources */,
 				9C54B08F277DA3FB00E1939A /* ResepViewController.xib in Resources */,
@@ -653,6 +660,7 @@
 				9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */,
 				A83CB50527847EC300C4DFB8 /* imageModel.swift in Sources */,
 				9CD650282799771E00997171 /* PresentationController.swift in Sources */,
+				872087FF279A2D500022603D /* DetailTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

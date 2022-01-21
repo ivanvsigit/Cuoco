@@ -7,6 +7,12 @@
 
 import UIKit
 
+struct DropData{
+    var opened: Bool
+    var title: String
+    var desc: [String]
+}
+
 class ResepDetailViewController: UIViewController {
 
     @IBOutlet weak var resepImage: UIImageView!
@@ -18,6 +24,7 @@ class ResepDetailViewController: UIViewController {
     
     //MARK: Hold API Detail Resep Data
     var detailData: DetailContent?
+    var tableViewData: [DropData] = []
     
     var resepKey: String = ""
     
@@ -54,6 +61,10 @@ class ResepDetailViewController: UIViewController {
         durasi.text = detail.times
         porsi.text = detail.servings
         level.text = detail.dificulty
+        tableViewData = [
+            DropData(opened: false, title: "Bahan", desc: detail.ingredient),
+            DropData(opened: false, title: "Langkah", desc: detail.step)
+        ]
         
         
     }
@@ -65,15 +76,11 @@ class ResepDetailViewController: UIViewController {
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
         
-        tableView.register(DropDown.self, forCellReuseIdentifier: "cell")
+        tableView.register(UINib(nibName: "\(DetailTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "dropDown")
         tableView.delegate = self
         tableView.dataSource = self
     }
 
-    let data = [
-        DropData(title: "Bahan", desc: "Bawang Putih 10 g\nMerica 1 sdt\n"),
-        DropData(title: "Langkah", desc: "1. Nyalakan Api Kecil\n2. Rebus Air")
-    ]
     
     var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
     
@@ -93,36 +100,59 @@ class ResepDetailViewController: UIViewController {
     }
 }
 
-struct DropData{
-    var title: String
-    var desc: String
-}
-
 extension ResepDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return tableViewData.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        if tableViewData[section].opened == true {
+            return tableViewData[section].desc.count + 1
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DropDown
-        cell.data = data[indexPath.row]
-        cell.selectionStyle = .none
-        cell.animate()
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if selectedIndex == indexPath { return 200 }
-        return 60
+        let dataIndex = indexPath.row - 1
+        if indexPath.row == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "dropDown") as! DetailTableViewCell
+            cell.textLabel?.text = tableViewData[indexPath.section].title
+            cell.textLabel?.font = UIFont(name: "Poppins-Medium", size: 20)
+            cell.dropBtn.isHidden = false
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "dropDown") as! DetailTableViewCell
+            cell.textLabel?.text = tableViewData[indexPath.section].desc[dataIndex]
+            cell.textLabel?.font = UIFont(name: "Poppins-Regular", size: 14)
+            cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.textAlignment = .justified
+            cell.dropBtn.isHidden = true
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "dropDown") as! DetailTableViewCell
+            if tableViewData[indexPath.section].opened == true {
+                tableViewData[indexPath.section].opened = false
+                let sections = IndexSet.init(integer: indexPath.section)
+                tableView.reloadSections(sections, with: .none)
+                cell.dropBtn.image = UIImage(named: "chevron.up")
+            } else {
+                tableViewData[indexPath.section].opened = true
+                let sections = IndexSet.init(integer: indexPath.section)
+                tableView.reloadSections(sections, with: .none)
+                cell.dropBtn.image = UIImage(named: "chevron.up")
+            }
+        }
         
-        tableView.beginUpdates()
-        tableView.reloadRows(at: [selectedIndex], with: .none)
-        tableView.endUpdates()
+//        selectedIndex = indexPath
+//
+//        tableView.beginUpdates()
+//        tableView.reloadRows(at: [selectedIndex], with: .none)
+//        tableView.endUpdates()
     }
 }
 
