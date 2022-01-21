@@ -42,7 +42,7 @@ class ResepViewController: UIViewController {
     func launchScreen(){
         let launch = LaunchViewController()
         launch.modalPresentationStyle = .fullScreen
-        self.present(launch, animated: true)
+        self.present(launch, animated: false)
     }
     
     func setUp() {
@@ -137,7 +137,7 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if contentData.count > 0 {
-            self.dismiss(animated: true)
+            self.dismiss(animated: false)
         }
         
         print(contentData.count)
