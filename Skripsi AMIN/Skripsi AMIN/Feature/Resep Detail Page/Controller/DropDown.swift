@@ -14,7 +14,7 @@ class DropDown: UITableViewCell {
                 return
             }
             self.title.text = data.title
-            self.desc.text = data.desc
+//            self.desc.text = data.desc
         }
     }
     

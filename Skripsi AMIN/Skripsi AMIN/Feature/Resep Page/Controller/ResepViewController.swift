@@ -122,7 +122,6 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
         let vc = ResepDetailViewController()
         vc.resepKey = key
         print(key)
-        vc.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(vc, animated: true)
 //        navigationController?.pushViewController(vc, animated: true)
     }
