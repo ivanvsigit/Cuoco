@@ -14,6 +14,11 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     // Mark: App Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let notif = NotifikasiViewController()
+        notif.userNotificationCenter.delegate = notif
+        notif.requestNotificationAuthorization()
+        notif.scheduleNotification(body: "Wah ada menu baru nih!", titles: "Mari masak bersama")
 
         setUp()
         setupVC()
