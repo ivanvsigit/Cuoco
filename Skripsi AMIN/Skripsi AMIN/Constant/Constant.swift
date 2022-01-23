@@ -48,7 +48,7 @@ struct Constant{
      // MARK: Get the API Key
     func getKey(key: Key) -> String{
         if key == Key.desert{
-            return "resep-desert"
+            return "resep-dessert"
         }
         else if key == Key.hari_raya{
             return "masakan-hari-raya"

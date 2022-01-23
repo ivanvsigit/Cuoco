@@ -44,6 +44,12 @@
 		9CD1232E277D9AC000E5BE36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1232C277D9AC000E5BE36 /* LaunchScreen.storyboard */; };
 		9CD6502527996A6C00997171 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6502327996A6C00997171 /* FilterViewController.swift */; };
 		9CD650282799771E00997171 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD650272799771E00997171 /* PresentationController.swift */; };
+		9CDA0F10279DB36C0079CA90 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDA0F0E279DB36C0079CA90 /* CategoryTableViewCell.swift */; };
+		9CDA0F11279DB36C0079CA90 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CDA0F0F279DB36C0079CA90 /* CategoryTableViewCell.xib */; };
+		9CDA0F14279DB5320079CA90 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDA0F12279DB5320079CA90 /* CategoryCollectionViewCell.swift */; };
+		9CDA0F15279DB5320079CA90 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CDA0F13279DB5320079CA90 /* CategoryCollectionViewCell.xib */; };
+		9CDA0F18279DD43D0079CA90 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDA0F16279DD43D0079CA90 /* CategoryViewController.swift */; };
+		9CDA0F19279DD43D0079CA90 /* CategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CDA0F17279DD43D0079CA90 /* CategoryViewController.xib */; };
 		A83CB4FE2784793400C4DFB8 /* IdentifikasiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83CB4FD2784793400C4DFB8 /* IdentifikasiViewController.xib */; };
 		A83CB50227847A6000C4DFB8 /* ResultPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83CB50027847A6000C4DFB8 /* ResultPageViewController.swift */; };
 		A83CB50327847A6000C4DFB8 /* ResultPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83CB50127847A6000C4DFB8 /* ResultPageViewController.xib */; };
@@ -116,6 +122,12 @@
 		9CD1232F277D9AC000E5BE36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CD6502327996A6C00997171 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		9CD650272799771E00997171 /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
+		9CDA0F0E279DB36C0079CA90 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		9CDA0F0F279DB36C0079CA90 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		9CDA0F12279DB5320079CA90 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		9CDA0F13279DB5320079CA90 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		9CDA0F16279DD43D0079CA90 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		9CDA0F17279DD43D0079CA90 /* CategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryViewController.xib; sourceTree = "<group>"; };
 		A83CB4FD2784793400C4DFB8 /* IdentifikasiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IdentifikasiViewController.xib; sourceTree = "<group>"; };
 		A83CB50027847A6000C4DFB8 /* ResultPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPageViewController.swift; sourceTree = "<group>"; };
 		A83CB50127847A6000C4DFB8 /* ResultPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultPageViewController.xib; sourceTree = "<group>"; };
@@ -280,6 +292,9 @@
 			children = (
 				9C54B08C277DA3FB00E1939A /* ResepViewController.swift */,
 				9C6FD5322790299500932711 /* SearchResultViewController.swift */,
+				9CDA0F16279DD43D0079CA90 /* CategoryViewController.swift */,
+				9CDA0F0E279DB36C0079CA90 /* CategoryTableViewCell.swift */,
+				9CDA0F12279DB5320079CA90 /* CategoryCollectionViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -289,6 +304,9 @@
 			children = (
 				9C54B08D277DA3FB00E1939A /* ResepViewController.xib */,
 				9C6FD5332790299500932711 /* SearchResultViewController.xib */,
+				9CDA0F17279DD43D0079CA90 /* CategoryViewController.xib */,
+				9CDA0F0F279DB36C0079CA90 /* CategoryTableViewCell.xib */,
+				9CDA0F13279DB5320079CA90 /* CategoryCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -584,6 +602,7 @@
 				A8C4C17127844BFE00472491 /* Poppins-Medium.ttf in Resources */,
 				A83CB4FE2784793400C4DFB8 /* IdentifikasiViewController.xib in Resources */,
 				9C6FD5352790299500932711 /* SearchResultViewController.xib in Resources */,
+				9CDA0F15279DB5320079CA90 /* CategoryCollectionViewCell.xib in Resources */,
 				A8C4C17027844BFE00472491 /* Poppins-Light.ttf in Resources */,
 				A8C4C17A27844BFE00472491 /* Poppins-Black.ttf in Resources */,
 				9C4083EB2784C98600F414E5 /* CardCollectionViewCell.xib in Resources */,
@@ -591,6 +610,7 @@
 				A8C4C17227844BFE00472491 /* Poppins-SemiBoldItalic.ttf in Resources */,
 				A8C4C17E27844BFE00472491 /* Poppins-MediumItalic.ttf in Resources */,
 				A8C4C16F27844BFE00472491 /* Poppins-BoldItalic.ttf in Resources */,
+				9CDA0F11279DB36C0079CA90 /* CategoryTableViewCell.xib in Resources */,
 				A8C4C17927844BFE00472491 /* Poppins-Bold.ttf in Resources */,
 				A8C4C16C27844BFE00472491 /* Poppins-ExtraLight.ttf in Resources */,
 				A8C4C17327844BFE00472491 /* Poppins-ExtraBoldItalic.ttf in Resources */,
@@ -607,6 +627,7 @@
 				A8C4C17827844BFE00472491 /* Poppins-LightItalic.ttf in Resources */,
 				A8C4C17D27844BFE00472491 /* Poppins-Italic.ttf in Resources */,
 				A8C4C17C27844BFE00472491 /* Poppins-SemiBold.ttf in Resources */,
+				9CDA0F19279DD43D0079CA90 /* CategoryViewController.xib in Resources */,
 				A8C4C17527844BFE00472491 /* Poppins-BlackItalic.ttf in Resources */,
 				87208800279A2D500022603D /* DetailTableViewCell.xib in Resources */,
 				A83CB50327847A6000C4DFB8 /* ResultPageViewController.xib in Resources */,
@@ -628,6 +649,7 @@
 			files = (
 				9C54B096277DA42100E1939A /* SimpanViewController.swift in Sources */,
 				9C6FD5342790299500932711 /* SearchResultViewController.swift in Sources */,
+				9CDA0F18279DD43D0079CA90 /* CategoryViewController.swift in Sources */,
 				A83CB50227847A6000C4DFB8 /* ResultPageViewController.swift in Sources */,
 				A8B11C9727987ACB00A50B36 /* NotifikasiViewController.swift in Sources */,
 				9C4083E72784674D00F414E5 /* SectionModel.swift in Sources */,
@@ -645,10 +667,12 @@
 				9CD6502527996A6C00997171 /* FilterViewController.swift in Sources */,
 				872087C92796B0340022603D /* ResepDetailViewController.swift in Sources */,
 				9CD1231F277D9ABF00E5BE36 /* AppDelegate.swift in Sources */,
+				9CDA0F14279DB5320079CA90 /* CategoryCollectionViewCell.swift in Sources */,
 				9C1DE319278F019E009989B2 /* Vegetables Identifier.mlmodel in Sources */,
 				9C54B08B277DA01A00E1939A /* TabBarController.swift in Sources */,
 				9CD12329277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld in Sources */,
 				A8AE3C9E278D862B00EF034B /* TimerViewController.swift in Sources */,
+				9CDA0F10279DB36C0079CA90 /* CategoryTableViewCell.swift in Sources */,
 				9C3B0C2A278AF7FA00AD8F6A /* ContentModel.swift in Sources */,
 				872087D02796CD900022603D /* DetailModel.swift in Sources */,
 				9C54B092277DA41200E1939A /* IdentifikasiViewController.swift in Sources */,

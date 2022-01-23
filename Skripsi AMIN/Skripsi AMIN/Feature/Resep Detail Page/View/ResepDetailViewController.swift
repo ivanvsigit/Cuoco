@@ -34,6 +34,7 @@ class ResepDetailViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Kembali", style: .plain, target: self, action: #selector(addTapped))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simpan", style: .plain, target: self, action: #selector(addTapped))
         self.tabBarController?.tabBar.isHidden = true
+        tabBarController?.tabBar.isTranslucent = true
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         setupTableView()
@@ -41,7 +42,6 @@ class ResepDetailViewController: UIViewController {
     }
     
     @objc func addTapped(sender: AnyObject){
-        self.tabBarController?.tabBar.isHidden = false
         navigationController?.popToRootViewController(animated: true)
     }
     

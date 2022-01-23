@@ -12,6 +12,8 @@ struct API{
     static var shared = API()
     
     func fetchDataAPI(urlKey: String, completion: @escaping ()->()) {
+        Constant.shared.data.removeAll()
+        
          // MARK: Create a URL
         let url = URL(string: Constant.shared.urlCategory+urlKey)
         

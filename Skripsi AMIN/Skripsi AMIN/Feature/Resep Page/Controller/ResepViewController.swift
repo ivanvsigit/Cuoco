@@ -22,9 +22,6 @@ class ResepViewController: UIViewController {
      // MARK: THIS IS DUMMY DATA
     var contentData: [SectionModel] = []
     
-     // MARK: to store filtered data
-    var filteredData: [Content] = []
-    
      // MARK: to store random index data
     var randomIndex: [Int] = []
     
@@ -33,8 +30,10 @@ class ResepViewController: UIViewController {
         launchScreen()
         fetchData()
         setUp()
-
-       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
     }
     
     func launchScreen(){
@@ -46,27 +45,17 @@ class ResepViewController: UIViewController {
     func setUp() {
         tableView.register(UINib(nibName: "\(HighlightTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "highlightCell")
         tableView.register(UINib(nibName: "\(CardTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "cardCell")
+        tableView.register(UINib(nibName: "\(CategoryTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "categoryCell")
         
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-SemiBold", size: 17)!]
         
         navigationItem.titleView = searchBar
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(showFilter))
-        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "TextColor")
         
         searchBar.delegate = self
         searchBar.searchTextField.backgroundColor = UIColor(named: "SecondaryTintColor")
         searchBar.placeholder = "Pencarian"
         searchBar.tintColor = UIColor(named: "PrimaryColor")
 
-    }
-    
-    @objc func showFilter() {
-        let vc = FilterViewController()
-        vc.modalPresentationStyle = .overCurrentContext
-        
-//        tabBarController?.tabBar.isHidden = true
-        vc.transitioningDelegate = self
-        self.present(vc, animated: false, completion: nil)
     }
     
     func fetchData() {
@@ -87,7 +76,21 @@ class ResepViewController: UIViewController {
                                 let data = Content(image: UIImage(data: Constant.shared.getImage(urlKey: Constant.shared.data[randomInt].thumb))!, label: Constant.shared.data[randomInt].title, detailKey: Constant.shared.data[randomInt].key)
                                 highlight.append(data)
                             }
-                            self.contentData.append(SectionModel(title: "", content: highlight))
+                            self.contentData.append(SectionModel(title: "Rekomendasi", content: highlight))
+                            
+                            self.contentData.append(SectionModel(title: "Kategori", content: [Content(image: UIImage(systemName: "person.fill")!, label: "Sayuran", detailKey: Constant.shared.getKey(key:                                                               Constant.Key.sayuran)),
+                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Daging", detailKey: Constant.shared.getKey(key: Constant.Key.daging)),
+                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Seafood", detailKey: Constant.shared.getKey(key: Constant.Key.seafood)),
+                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Ayam", detailKey: Constant.shared.getKey(key: Constant.Key.ayam)),
+                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Sarapan", detailKey: Constant.shared.getKey(key: Constant.Key.sarapan)),
+                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Makan Siang", detailKey: Constant.shared.getKey(key: Constant.Key.makan_siang)),
+                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Makan Malam", detailKey: Constant.shared.getKey(key: Constant.Key.makan_malam)),
+                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Makanan Penutup", detailKey: Constant.shared.getKey(key: Constant.Key.desert)),
+                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Hari Raya", detailKey: Constant.shared.getKey(key: Constant.Key.hari_raya)),
+                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Tradisional", detailKey: Constant.shared.getKey(key: Constant.Key.tradisional))
+                                                                                     ]
+                                                                )
+                                                    )
                             
                             var new: [Content] = []
                             for content in Constant.shared.newest {
@@ -117,11 +120,17 @@ class ResepViewController: UIViewController {
     
 }
 
-extension ResepViewController: UITableViewDelegate, UITableViewDataSource, HighlightTableViewDelegate, CardTableViewDelegate {
+extension ResepViewController: UITableViewDelegate, UITableViewDataSource, HighlightTableViewDelegate, CardTableViewDelegate, CategoryTableViewDelegate {
+    func passDataCategory(key: String, index: Int) {
+        let vc = CategoryViewController()
+        vc.categoryKey = key
+        vc.categoryTitle = contentData[1].content[index].label
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func passData(key: String) {
         let vc = ResepDetailViewController()
         vc.resepKey = key
-        print(key)
         navigationController?.pushViewController(vc, animated: true)
 //        navigationController?.pushViewController(vc, animated: true)
     }
@@ -156,12 +165,20 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
             
             return cell
         }
-   
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell") as! CardTableViewCell
-        cell.tempModelCTab = contentData[indexPath.section].content
-        cell.delegate = self
-        
-        return cell
+        else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell") as! CategoryTableViewCell
+            cell.categoryData = contentData[indexPath.section].content
+            cell.delegate = self
+            
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell") as! CardTableViewCell
+            cell.tempModelCTab = contentData[indexPath.section].content
+            cell.delegate = self
+            
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -169,6 +186,9 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 || section == 1 {
+            return UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        }
         let sectionView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25))
         let sectionLabel = UILabel(frame: CGRect(x: 20.0, y: 0, width: sectionView.frame.width, height: 25))
         
@@ -195,8 +215,12 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
         if indexPath.section == 0 {
             return 244
         }
-        
-        return 190
+        if indexPath.section == 1 {
+            return 90
+        }
+       
+            return 206
+       
     }
 }
 
