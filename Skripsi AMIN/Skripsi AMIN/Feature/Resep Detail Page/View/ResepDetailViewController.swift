@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 struct DropData{
     var opened: Bool
@@ -21,6 +22,10 @@ class ResepDetailViewController: UIViewController {
     @IBOutlet weak var porsi: UILabel!
     @IBOutlet weak var level: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    
+    //MARK: Sava Detail to Core Data
+    let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var models = [SimpanResepDetail]()
     
     //MARK: Hold API Detail Resep Data
     var detailData: DetailContent?
@@ -38,8 +43,7 @@ class ResepDetailViewController: UIViewController {
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         setupTableView()
-        fetchData()
-    }
+        fetchData()    }
     
     @objc func addTapped(sender: AnyObject){
         navigationController?.popToRootViewController(animated: true)
@@ -94,8 +98,45 @@ class ResepDetailViewController: UIViewController {
 //            print(self.resepKey)
             DispatchQueue.main.async {
                 self.loadDetail()
+                self.createItem()
                 self.tableView.reloadData()
             }
+        }
+    }
+    
+    func getAllItems(){
+        do{
+            models = try context.fetch(SimpanResepDetail.fetchRequest())
+            DispatchQueue.main.async {
+                print("ambil data")
+            }
+        } catch {
+            
+        }
+    }
+    
+    func createItem(){
+        guard let detail = detailData else{
+            return
+        }
+        
+        guard let image = detail.thumb else{
+            return
+        }
+        
+        let newItem = SimpanResepDetail(context: context)
+        newItem.title = detail.title
+        newItem.thumb = image
+        newItem.key = resepKey
+        newItem.saved = false
+        
+        do{
+            try context.save()
+            getAllItems()
+            print("berhasil")
+            print(models)
+        } catch{
+            
         }
     }
 }

@@ -7,12 +7,16 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class ResepViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     
+    //MARK: Sava Detail to Core Data
+    let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var models = [SimpanResepDetail]()
     
     let searchBar = UISearchBar()
 //    let searchBar = UISearchController(searchResultsController: SearchResultViewController())
@@ -28,6 +32,7 @@ class ResepViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         launchScreen()
+        getAllItems()
         fetchData()
         setUp()
     }
@@ -100,11 +105,12 @@ class ResepViewController: UIViewController {
                             print(new)
                             self.contentData.append(SectionModel(title: "Resep terbaru", content: new))
                             
-                            self.contentData.append(SectionModel(title: "Terakhir Dilihat", content:
-                                                                    [Content(image: UIImage(systemName: "person.fill")!, label: "Cah Bayam", detailKey: "kosong"),
-                                                                     Content(image: UIImage(systemName: "chevron.left")!, label: "Sayur Asam", detailKey: "kosong")]
-                                                                    )
-                                         )
+//                            var history: [Content] = []
+//                            for model in self.models{
+//                                let data = Content(image: UIImage(data: Constant.shared.getImage(urlKey: model.thumb!))!, label: model.title!, detailKey: model.key!)
+//                                history.append(data)
+//                            }
+//                            self.contentData.append(SectionModel(title: "Terakhir Dilihat", content: history))
                             
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
@@ -117,6 +123,17 @@ class ResepViewController: UIViewController {
             }
         }
 //    }
+    
+    func getAllItems(){
+        do{
+            models = try context.fetch(SimpanResepDetail.fetchRequest())
+            DispatchQueue.main.async {
+                print("ambil data")
+            }
+        } catch {
+            
+        }
+    }
     
 }
 

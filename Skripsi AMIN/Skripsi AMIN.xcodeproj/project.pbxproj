@@ -10,7 +10,6 @@
 		872087C92796B0340022603D /* ResepDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087C72796B0340022603D /* ResepDetailViewController.swift */; };
 		872087CA2796B0340022603D /* ResepDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 872087C82796B0340022603D /* ResepDetailViewController.xib */; };
 		872087D02796CD900022603D /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087CF2796CD900022603D /* DetailModel.swift */; };
-		872087D42798756B0022603D /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087D32798756B0022603D /* DropDown.swift */; };
 		872087FF279A2D500022603D /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087FD279A2D500022603D /* DetailTableViewCell.swift */; };
 		87208800279A2D500022603D /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 872087FE279A2D500022603D /* DetailTableViewCell.xib */; };
 		9C182A46278FE3B600C95B14 /* SimpanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C182A44278FE3B600C95B14 /* SimpanCollectionViewCell.swift */; };
@@ -39,7 +38,6 @@
 		9C6FD5352790299500932711 /* SearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C6FD5332790299500932711 /* SearchResultViewController.xib */; };
 		9CD1231F277D9ABF00E5BE36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD1231E277D9ABF00E5BE36 /* AppDelegate.swift */; };
 		9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD12320277D9ABF00E5BE36 /* SceneDelegate.swift */; };
-		9CD12329277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CD12327277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld */; };
 		9CD1232B277D9AC000E5BE36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1232A277D9AC000E5BE36 /* Assets.xcassets */; };
 		9CD1232E277D9AC000E5BE36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1232C277D9AC000E5BE36 /* LaunchScreen.storyboard */; };
 		9CD6502527996A6C00997171 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6502327996A6C00997171 /* FilterViewController.swift */; };
@@ -86,7 +84,6 @@
 		872087C72796B0340022603D /* ResepDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResepDetailViewController.swift; path = ../View/ResepDetailViewController.swift; sourceTree = "<group>"; };
 		872087C82796B0340022603D /* ResepDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResepDetailViewController.xib; sourceTree = "<group>"; };
 		872087CF2796CD900022603D /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
-		872087D32798756B0022603D /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
 		872087FD279A2D500022603D /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		872087FE279A2D500022603D /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		9C182A44278FE3B600C95B14 /* SimpanCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpanCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -116,7 +113,6 @@
 		9CD1231B277D9ABF00E5BE36 /* Cuoco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cuoco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD1231E277D9ABF00E5BE36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CD12320277D9ABF00E5BE36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9CD12328277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Skripsi_AMIN.xcdatamodel; sourceTree = "<group>"; };
 		9CD1232A277D9AC000E5BE36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CD1232D277D9AC000E5BE36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CD1232F277D9AC000E5BE36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -201,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				872087C72796B0340022603D /* ResepDetailViewController.swift */,
-				872087D32798756B0022603D /* DropDown.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -414,7 +409,6 @@
 				9CD1232A277D9AC000E5BE36 /* Assets.xcassets */,
 				9CD1232C277D9AC000E5BE36 /* LaunchScreen.storyboard */,
 				9CD1232F277D9AC000E5BE36 /* Info.plist */,
-				9CD12327277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld */,
 			);
 			path = "Skripsi AMIN";
 			sourceTree = "<group>";
@@ -657,7 +651,6 @@
 				9C6E1072278AEF6E002D679C /* Constant.swift in Sources */,
 				A8AE3CAD279020E000EF034B /* ProgressBarView.swift in Sources */,
 				9C4083E02784495400F414E5 /* HighlightCollectionViewCell.swift in Sources */,
-				872087D42798756B0022603D /* DropDown.swift in Sources */,
 				A8BCBD4B279961A60032AFB5 /* LaunchViewController.swift in Sources */,
 				9C182A46278FE3B600C95B14 /* SimpanCollectionViewCell.swift in Sources */,
 				9C4083E327845ED000F414E5 /* DataResep.swift in Sources */,
@@ -670,7 +663,6 @@
 				9CDA0F14279DB5320079CA90 /* CategoryCollectionViewCell.swift in Sources */,
 				9C1DE319278F019E009989B2 /* Vegetables Identifier.mlmodel in Sources */,
 				9C54B08B277DA01A00E1939A /* TabBarController.swift in Sources */,
-				9CD12329277D9ABF00E5BE36 /* Skripsi_AMIN.xcdatamodeld in Sources */,
 				A8AE3C9E278D862B00EF034B /* TimerViewController.swift in Sources */,
 				9CDA0F10279DB36C0079CA90 /* CategoryTableViewCell.swift in Sources */,
 				9C3B0C2A278AF7FA00AD8F6A /* ContentModel.swift in Sources */,
