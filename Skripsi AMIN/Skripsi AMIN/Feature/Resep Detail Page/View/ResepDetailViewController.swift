@@ -31,25 +31,71 @@ class ResepDetailViewController: UIViewController {
     var detailData: DetailContent?
     var tableViewData: [DropData] = []
     
+    //MARK: Loading Animation
+    let imgLoad: UIImageView = {
+       let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.animationImages = (0...5).map ({
+            value in return UIImage(named: "animated-1-\(value)") ?? UIImage()
+        })
+        image.animationRepeatCount = -1
+        image.animationDuration = 1
+        image.startAnimating()
+        
+        return image
+    }()
+    
+    
     var resepKey: String = ""
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Kembali", style: .plain, target: self, action: #selector(addTapped))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simpan", style: .plain, target: self, action: #selector(addTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simpan", style: .plain, target: self, action: #selector(savedTapped))
         self.tabBarController?.tabBar.isHidden = true
         tabBarController?.tabBar.isTranslucent = true
         
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         setupTableView()
-        fetchData()    }
+        fetchData()
+        
+    }
     
     @objc func addTapped(sender: AnyObject){
         navigationController?.popToRootViewController(animated: true)
     }
     
-    
+    @objc func savedTapped(sender: AnyObject){
+        for model in models {
+            if model.key == resepKey{
+                if model.saved == false {
+                    model.saved = true
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hapus", style: .plain, target: self, action: #selector(savedTapped))
+                    let alert = UIAlertController(title: "Simpan Resep", message: "Resep telah tersimpan", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    model.saved = false
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simpan", style: .plain, target: self, action: #selector(savedTapped))
+                    let alert = UIAlertController(title: "Hapus Resep", message: "Resep telah dihapus", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
+        do{
+            try context.save()
+            getAllItems()
+            print("simpan")
+            print(models)
+        } catch{
+            
+        }
+    }
     
     func loadDetail(){
         guard let detail = detailData else{
@@ -89,6 +135,20 @@ class ResepDetailViewController: UIViewController {
     var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
     
     func fetchData(){
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        DispatchQueue.main.async {
+            blurEffectView.frame = self.view.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            
+            self.view.addSubview(blurEffectView)
+            self.view.addSubview(self.imgLoad)
+            self.imgLoad.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+            self.imgLoad.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+            self.imgLoad.heightAnchor.constraint(equalToConstant: 200).isActive = true
+            self.imgLoad.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        }
+        
         API.shared.fetchDetailAPI(urlKey: resepKey) { data in
             self.detailData = data
 //            guard let detail = self.detailData else{
@@ -100,6 +160,8 @@ class ResepDetailViewController: UIViewController {
                 self.loadDetail()
                 self.createItem()
                 self.tableView.reloadData()
+                self.imgLoad.removeFromSuperview()
+                blurEffectView.removeFromSuperview()
             }
         }
     }
