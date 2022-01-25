@@ -27,9 +27,16 @@ class ResepViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        launchScreen()
-        fetchData()
-        setUp()
+        if OnboardingState.shared.isNewUser() == true {
+            let vc = OnboardingViewController()
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+        else {
+            launchScreen()
+            fetchData()
+            setUp()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
