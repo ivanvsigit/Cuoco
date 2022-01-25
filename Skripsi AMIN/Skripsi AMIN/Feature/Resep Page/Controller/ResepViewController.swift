@@ -78,16 +78,16 @@ class ResepViewController: UIViewController {
                             }
                             self.contentData.append(SectionModel(title: "Rekomendasi", content: highlight))
                             
-                            self.contentData.append(SectionModel(title: "Kategori", content: [Content(image: UIImage(systemName: "person.fill")!, label: "Sayuran", detailKey: Constant.shared.getKey(key:                                                               Constant.Key.sayuran)),
-                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Daging", detailKey: Constant.shared.getKey(key: Constant.Key.daging)),
-                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Seafood", detailKey: Constant.shared.getKey(key: Constant.Key.seafood)),
-                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Ayam", detailKey: Constant.shared.getKey(key: Constant.Key.ayam)),
-                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Sarapan", detailKey: Constant.shared.getKey(key: Constant.Key.sarapan)),
-                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Makan Siang", detailKey: Constant.shared.getKey(key: Constant.Key.makan_siang)),
-                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Makan Malam", detailKey: Constant.shared.getKey(key: Constant.Key.makan_malam)),
-                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Makanan Penutup", detailKey: Constant.shared.getKey(key: Constant.Key.desert)),
-                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Hari Raya", detailKey: Constant.shared.getKey(key: Constant.Key.hari_raya)),
-                                                                                      Content(image: UIImage(systemName: "person.fill")!, label: "Tradisional", detailKey: Constant.shared.getKey(key: Constant.Key.tradisional))
+                            self.contentData.append(SectionModel(title: "Kategori", content: [Content(image: UIImage(named: "Vege")!, label: "Sayuran", detailKey: Constant.shared.getKey(key:                                                               Constant.Key.sayuran)),
+                                                                                      Content(image: UIImage(named: "Beef")!, label: "Daging", detailKey: Constant.shared.getKey(key: Constant.Key.daging)),
+                                                                                      Content(image: UIImage(named: "Seafood")!, label: "Seafood", detailKey: Constant.shared.getKey(key: Constant.Key.seafood)),
+                                                                                      Content(image: UIImage(named: "Chiken")!, label: "Ayam", detailKey: Constant.shared.getKey(key: Constant.Key.ayam)),
+                                                                                      Content(image: UIImage(named: "Breakfast")!, label: "Sarapan", detailKey: Constant.shared.getKey(key: Constant.Key.sarapan)),
+                                                                                      Content(image: UIImage(named: "Lunch")!, label: "Makan Siang", detailKey: Constant.shared.getKey(key: Constant.Key.makan_siang)),
+                                                                                      Content(image: UIImage(named: "Dinner")!, label: "Makan Malam", detailKey: Constant.shared.getKey(key: Constant.Key.makan_malam)),
+                                                                                      Content(image: UIImage(named: "Desert")!, label: "Makanan Penutup", detailKey: Constant.shared.getKey(key: Constant.Key.desert)),
+                                                                                      Content(image: UIImage(named: "Feast")!, label: "Hari Raya", detailKey: Constant.shared.getKey(key: Constant.Key.hari_raya)),
+                                                                                      Content(image: UIImage(named: "Traditional")!, label: "Tradisional", detailKey: Constant.shared.getKey(key: Constant.Key.tradisional))
                                                                                      ]
                                                                 )
                                                     )
