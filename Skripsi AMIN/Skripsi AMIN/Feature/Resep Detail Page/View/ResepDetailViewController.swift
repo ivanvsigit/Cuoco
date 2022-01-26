@@ -196,6 +196,10 @@ extension ResepDetailViewController: UITableViewDelegate, UITableViewDataSource 
         } else {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "dropDown") as! DetailTableViewCell
+            if tableViewData[indexPath.section].desc[dataIndex].contains("menit") {
+                print("kasih timer")
+//                view.addSubview(timerBtn)
+            }
             cell.textLabel?.text = tableViewData[indexPath.section].desc[dataIndex]
             cell.textLabel?.font = UIFont(name: "Poppins-Regular", size: 14)
             cell.textLabel?.numberOfLines = 0
@@ -208,14 +212,14 @@ extension ResepDetailViewController: UITableViewDelegate, UITableViewDataSource 
             timerBtn.tintColor = .white
             timerBtn.layer.cornerRadius = 10
             
-            for i in 0..<detail.step.count {
-                if detail.step[i].contains("menit") {
-                    print("kasih timer")
-                    view.addSubview(timerBtn)
-                } else {
-                    print("gaperlu timer")
-                }
-            }
+//            for i in 0..<detail.step.count {
+//                if detail.step[i].contains("menit") {
+//                    print("kasih timer")
+//                    view.addSubview(timerBtn)
+//                } else {
+//                    print("gaperlu timer")
+//                }
+//            }
             
             return cell
         }

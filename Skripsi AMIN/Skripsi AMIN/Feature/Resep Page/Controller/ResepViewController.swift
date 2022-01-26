@@ -43,9 +43,12 @@ class ResepViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if OnboardingState.shared.isNewUser() {
+        if OnboardingState.shared.isNewUser() == false {
             launchScreen()
+            print(OnboardingState.shared.isNewUser())
         }
+//        OnboardingState.shared.setIsNotNewUser()
+        print(OnboardingState.shared.isNewUser())
         DataManipulation.shared.getItem()
         fetchData()
         setUp()
@@ -85,7 +88,7 @@ class ResepViewController: UIViewController {
             self.imgLoad.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
             self.imgLoad.heightAnchor.constraint(equalToConstant: 200).isActive = true
             self.imgLoad.widthAnchor.constraint(equalToConstant: 200).isActive = true
-            
+
             self.tableView.reloadData()
         }
 //        API.shared.fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.desert)){
@@ -140,10 +143,9 @@ class ResepViewController: UIViewController {
                             
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
-                                if OnboardingState.shared.isNewUser() == true {
-                                    self.dismiss(animated: false, completion: nil)
-                                }
                                 self.imgLoad.removeFromSuperview()
+                                OnboardingState.shared.setIsNotNewUser()
+                                print(OnboardingState.shared.isNewUser())
                             }
                         }
                       
@@ -180,9 +182,10 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if OnboardingState.shared.isNewUser() {
+        if OnboardingState.shared.isNewUser() == false {
             if contentData.count > 0 {
                 self.dismiss(animated: false)
+                print(OnboardingState.shared.isNewUser())
             }
         }
         return contentData.count

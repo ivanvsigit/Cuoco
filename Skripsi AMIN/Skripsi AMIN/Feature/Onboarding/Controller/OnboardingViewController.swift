@@ -41,6 +41,7 @@ class OnboardingViewController: UIViewController {
     
     @IBAction func didNextBtnTap(_ sender: UIButton) {
         if currentIndex ==  3 {
+//            OnboardingState.shared.setIsNotNewUser()
             let vc = TabBarController()
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: false, completion: nil)
@@ -50,7 +51,9 @@ class OnboardingViewController: UIViewController {
 //            appDelegate?.window.rootv
             
 //            navigationController?.pushViewController(nav, animated: true)
-            OnboardingState.shared.setIsNotNewUser()
+            
+//            self.dismiss(animated: false, completion: nil)
+            print(OnboardingState.shared.isNewUser())
         }
         else {
             currentIndex += 1
