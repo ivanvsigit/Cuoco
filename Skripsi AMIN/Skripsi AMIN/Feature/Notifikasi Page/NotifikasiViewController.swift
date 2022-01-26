@@ -97,10 +97,10 @@ class NotifikasiViewController: UIViewController, UNUserNotificationCenterDelega
     func scheduleNotification(body: String, titles:String) {
         
         var calendarComponents = DateComponents()
-            calendarComponents.weekday = 7
-            calendarComponents.hour = 23
+            calendarComponents.weekday = 1
+            calendarComponents.hour = 10
             calendarComponents.second = 00
-            calendarComponents.minute = 50
+            calendarComponents.minute = 00
 
         let trigger = UNCalendarNotificationTrigger(dateMatching: calendarComponents, repeats: true)
 

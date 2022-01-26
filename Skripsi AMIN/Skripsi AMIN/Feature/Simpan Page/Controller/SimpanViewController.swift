@@ -18,13 +18,20 @@ class SimpanViewController: UIViewController {
 //
 //        return image
 //    }()
+    var simpanDetail: [CoreDetail] = []
     
     let searchBar = UISearchBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DataManipulation.shared.getItem()
         setUp()
+        fetchData()
         self.hideKeyboardWhenTappedAround()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
     }
     
     func setUp() {
@@ -62,23 +69,41 @@ class SimpanViewController: UIViewController {
         //TODO: Show modal filter
     }
     
+    func fetchData(){
+        for model in DataManipulation.shared.model {
+            if model.saved == true {
+                let data = CoreDetail(image: model.image, label: model.label!, key: model.key, saved: model.saved)
+                self.simpanDetail.append(data)
+            }
+        }
+        
+        print("print history")
+        print(simpanDetail)
+    }
 }
 
 extension SimpanViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        print(simpanDetail.count)
+        return simpanDetail.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = simpanCollection.dequeueReusableCell(withReuseIdentifier: "simpanCollectionCell", for: indexPath) as! SimpanCollectionViewCell
-        
         cell.layer.cornerRadius = 10
-        
+        cell.tempModelSCol = simpanDetail[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 164, height: 200)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ResepDetailViewController()
+        vc.resepKey = simpanDetail[indexPath.row].key
+        print(vc.resepKey)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
