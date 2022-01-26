@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class ResepViewController: UIViewController {
     
@@ -24,6 +25,10 @@ class ResepViewController: UIViewController {
         
         return image
     }()
+  
+    //MARK: Sava Detail to Core Data
+    let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var models = [SimpanResepDetail]()
     
     let searchBar = UISearchBar()
 //    let searchBar = UISearchController(searchResultsController: SearchResultViewController())
@@ -41,6 +46,7 @@ class ResepViewController: UIViewController {
         if OnboardingState.shared.isNewUser() {
             launchScreen()
         }
+        DataManipulation.shared.getItem()
         fetchData()
         setUp()
       
@@ -122,12 +128,15 @@ class ResepViewController: UIViewController {
                             }
                             print(new)
                             self.contentData.append(SectionModel(title: "Resep terbaru", content: new))
-                            
-                            self.contentData.append(SectionModel(title: "Terakhir Dilihat", content:
-                                                                    [Content(image: UIImage(systemName: "person.fill")!, label: "Cah Bayam", detailKey: "kosong"),
-                                                                     Content(image: UIImage(systemName: "chevron.left")!, label: "Sayur Asam", detailKey: "kosong")]
-                                                                    )
-                                         )
+
+                            var history: [Content] = []
+                            for model in DataManipulation.shared.model {
+                                let data = Content(image: (UIImage(data: Constant.shared.getImage(urlKey: model.image!)))!, label: model.label!, detailKey: model.key)
+                                history.append(data)
+                            }
+                            self.contentData.append(SectionModel(title: "Terakhir Dilihat", content: history))
+                            print("print history")
+                            print(history)
                             
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
@@ -148,6 +157,14 @@ class ResepViewController: UIViewController {
 }
 
 extension ResepViewController: UITableViewDelegate, UITableViewDataSource, HighlightTableViewDelegate, CardTableViewDelegate, CategoryTableViewDelegate {
+    func passDataDetail(key: String) {
+        let vc = ResepDetailViewController()
+        vc.resepKey = key
+//        DataManipulation.shared.createItem(title: model.label, thumb: model.image, key: model.detailKey, saved: false)
+        print(key)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func passDataCategory(key: String, index: Int) {
         let vc = CategoryViewController()
         vc.categoryKey = key
@@ -161,14 +178,6 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
         navigationController?.pushViewController(vc, animated: true)
 //        navigationController?.pushViewController(vc, animated: true)
     }
-    
-    func passDataDetail(key: String) {
-        let vc = ResepDetailViewController()
-        vc.resepKey = key
-        print(key)
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if OnboardingState.shared.isNewUser() {

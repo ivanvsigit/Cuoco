@@ -16,6 +16,13 @@ class SimpanCollectionViewCell: UICollectionViewCell {
     @IBAction func simpanBtn(_ sender: Any) {
     }
     
+    // MARK: Property Observer
+    var tempModelSCol: CoreDetail? {
+        didSet {
+            setupContent()
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,5 +32,15 @@ class SimpanCollectionViewCell: UICollectionViewCell {
         simpanLabel.font = UIFont(name: "Poppins-Medium", size: 17)
         simpanLabel.textColor = UIColor(named: "TextColor")
     }
+    
+    func setupContent() {
+        guard let data = tempModelSCol else {
+            return
+        }
+        
+        simpanImage.image = UIImage(data: Constant.shared.getImage(urlKey: data.image!))
+        simpanLabel.text = data.label
+    }
+
 
 }
