@@ -22,14 +22,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.rootViewController = launcScreen
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene
-//        print(OnboardingState.shared.isNewUser())
+        print(OnboardingState.shared.isNewUser())
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+4) {
             let vc = OnboardingViewController()
             if OnboardingState.shared.isNewUser() == true {
                 self.window?.rootViewController = vc
-                OnboardingState.shared.setIsNotNewUser()
-//                print(OnboardingState.shared.isNewUser())
+//                OnboardingState.shared.setIsNotNewUser()
+                print(OnboardingState.shared.isNewUser())
             }
             else {
                 self.window?.rootViewController = tabbar

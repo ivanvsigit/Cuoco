@@ -45,8 +45,10 @@ class ResepViewController: UIViewController {
         super.viewDidLoad()
         if OnboardingState.shared.isNewUser() == false {
             launchScreen()
+            print(OnboardingState.shared.isNewUser())
         }
 //        OnboardingState.shared.setIsNotNewUser()
+        print(OnboardingState.shared.isNewUser())
         DataManipulation.shared.getItem()
         fetchData()
         setUp()
@@ -141,12 +143,9 @@ class ResepViewController: UIViewController {
                             
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
-                                if OnboardingState.shared.isNewUser() == true {
-                                    self.dismiss(animated: false, completion: nil)
-                                    print(OnboardingState.shared.isNewUser())
-//                                OnboardingState.shared.setIsNotNewUser()
-                                }
                                 self.imgLoad.removeFromSuperview()
+                                OnboardingState.shared.setIsNotNewUser()
+                                print(OnboardingState.shared.isNewUser())
                             }
                         }
                       
@@ -186,6 +185,7 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
         if OnboardingState.shared.isNewUser() == false {
             if contentData.count > 0 {
                 self.dismiss(animated: false)
+                print(OnboardingState.shared.isNewUser())
             }
         }
         return contentData.count
