@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hXu-L9-ckA">
-                    <rect key="frame" x="20" y="232" width="374" height="357"/>
+                    <rect key="frame" x="20" y="204" width="374" height="357"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="357" id="pcw-Z8-eFU"/>
@@ -35,7 +35,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heE-jO-iQG">
-                    <rect key="frame" x="20" y="695" width="374" height="50"/>
+                    <rect key="frame" x="20" y="667" width="374" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="hAB-xm-emu"/>
                     </constraints>
@@ -46,7 +46,7 @@
                     </connections>
                 </button>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="85w-o6-zox">
-                    <rect key="frame" x="20" y="637" width="374" height="26"/>
+                    <rect key="frame" x="20" y="609" width="374" height="26"/>
                     <color key="pageIndicatorTintColor" red="1" green="0.59450464030000005" blue="0.69873282130000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <color key="currentPageIndicatorTintColor" red="0.42352941179999998" green="0.32549019610000002" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 </pageControl>
@@ -58,7 +58,7 @@
                 <constraint firstItem="heE-jO-iQG" firstAttribute="top" secondItem="85w-o6-zox" secondAttribute="bottom" constant="32" id="3XN-sN-kZY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="85w-o6-zox" secondAttribute="trailing" constant="20" id="CPZ-pi-HHJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="heE-jO-iQG" secondAttribute="trailing" constant="20" id="G3e-Gl-YIF"/>
-                <constraint firstItem="hXu-L9-ckA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="188" id="LS7-V5-bgp"/>
+                <constraint firstItem="hXu-L9-ckA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="160" id="LS7-V5-bgp"/>
                 <constraint firstItem="heE-jO-iQG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Wtl-Kd-XxQ"/>
                 <constraint firstItem="hXu-L9-ckA" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-20" id="qvZ-dH-9B8"/>
                 <constraint firstItem="hXu-L9-ckA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="rSF-Zy-hlP"/>

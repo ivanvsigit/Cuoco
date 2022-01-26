@@ -20,6 +20,6 @@ struct OnboardingState {
     }
     
     func setIsNotNewUser() {
-        UserDefaults.standard.setValue(false, forKey: "newUser")
+        UserDefaults.standard.setValue(true, forKey: "newUser")
     }
 }

@@ -219,8 +219,8 @@
 		9C54B081277D9CB300E1939A /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				9CD13CDE27A0642D0069D667 /* Onboarding */,
 				A8BCBD48279961920032AFB5 /* Launch Screen */,
+				9CD13CDE27A0642D0069D667 /* Onboarding */,
 				9C54B082277D9CF100E1939A /* Main Page */,
 				9C54B098277DA6B700E1939A /* Resep Page */,
 				9CD6501F27996A0F00997171 /* FilterPage */,
