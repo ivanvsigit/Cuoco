@@ -32,7 +32,7 @@ class ResepViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         launchScreen()
-        getAllItems()
+        DataManipulation.shared.getItem()
         fetchData()
         setUp()
     }
@@ -104,13 +104,15 @@ class ResepViewController: UIViewController {
                             }
                             print(new)
                             self.contentData.append(SectionModel(title: "Resep terbaru", content: new))
-                            
-//                            var history: [Content] = []
-//                            for model in self.models{
-//                                let data = Content(image: UIImage(data: Constant.shared.getImage(urlKey: model.thumb!))!, label: model.title!, detailKey: model.key!)
-//                                history.append(data)
-//                            }
-//                            self.contentData.append(SectionModel(title: "Terakhir Dilihat", content: history))
+
+                            var history: [Content] = []
+                            for model in DataManipulation.shared.model {
+                                let data = Content(image: (UIImage(data: Constant.shared.getImage(urlKey: model.image!)))!, label: model.label!, detailKey: model.key)
+                                history.append(data)
+                            }
+                            self.contentData.append(SectionModel(title: "Terakhir Dilihat", content: history))
+                            print("print history")
+                            print(history)
                             
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
@@ -124,20 +126,17 @@ class ResepViewController: UIViewController {
         }
 //    }
     
-    func getAllItems(){
-        do{
-            models = try context.fetch(SimpanResepDetail.fetchRequest())
-            DispatchQueue.main.async {
-                print("ambil data")
-            }
-        } catch {
-            
-        }
-    }
-    
 }
 
 extension ResepViewController: UITableViewDelegate, UITableViewDataSource, HighlightTableViewDelegate, CardTableViewDelegate, CategoryTableViewDelegate {
+    func passDataDetail(key: String) {
+        let vc = ResepDetailViewController()
+        vc.resepKey = key
+//        DataManipulation.shared.createItem(title: model.label, thumb: model.image, key: model.detailKey, saved: false)
+        print(key)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func passDataCategory(key: String, index: Int) {
         let vc = CategoryViewController()
         vc.categoryKey = key
@@ -151,14 +150,6 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
         navigationController?.pushViewController(vc, animated: true)
 //        navigationController?.pushViewController(vc, animated: true)
     }
-    
-    func passDataDetail(key: String) {
-        let vc = ResepDetailViewController()
-        vc.resepKey = key
-        print(key)
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if contentData.count > 0 {

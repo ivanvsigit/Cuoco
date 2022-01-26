@@ -19,4 +19,14 @@ struct Content {
     let detailKey: String
 }
 
+struct CoreModel {
+    let detail: [CoreDetail]
+}
+
+struct CoreDetail {
+    let image: String?
+    let label: String?
+    let key: String
+    let saved: Bool
+}
 
