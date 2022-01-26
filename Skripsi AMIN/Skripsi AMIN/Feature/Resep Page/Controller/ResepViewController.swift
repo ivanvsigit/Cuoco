@@ -13,7 +13,19 @@ class ResepViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    
+    let imgLoad: UIImageView = {
+       let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.animationImages = (0...5).map ({
+            value in return UIImage(named: "animated-1-\(value)") ?? UIImage()
+        })
+        image.animationRepeatCount = -1
+        image.animationDuration = 1
+        image.startAnimating()
+        
+        return image
+    }()
+  
     //MARK: Sava Detail to Core Data
     let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var models = [SimpanResepDetail]()
@@ -31,10 +43,13 @@ class ResepViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        launchScreen()
+        if OnboardingState.shared.isNewUser() {
+            launchScreen()
+        }
         DataManipulation.shared.getItem()
         fetchData()
         setUp()
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +79,15 @@ class ResepViewController: UIViewController {
     }
     
     func fetchData() {
+        DispatchQueue.main.async {
+            self.view.addSubview(self.imgLoad)
+            self.imgLoad.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+            self.imgLoad.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+            self.imgLoad.heightAnchor.constraint(equalToConstant: 200).isActive = true
+            self.imgLoad.widthAnchor.constraint(equalToConstant: 200).isActive = true
+            
+            self.tableView.reloadData()
+        }
 //        API.shared.fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.desert)){
             API.shared.fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.hari_raya)){
                 API.shared.fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.tradisional)){
@@ -116,6 +140,10 @@ class ResepViewController: UIViewController {
                             
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
+                                if OnboardingState.shared.isNewUser() == true {
+                                    self.dismiss(animated: false, completion: nil)
+                                }
+                                self.imgLoad.removeFromSuperview()
                             }
                         }
                       
@@ -152,8 +180,10 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if contentData.count > 0 {
-            self.dismiss(animated: false)
+        if OnboardingState.shared.isNewUser() {
+            if contentData.count > 0 {
+                self.dismiss(animated: false)
+            }
         }
         return contentData.count
         

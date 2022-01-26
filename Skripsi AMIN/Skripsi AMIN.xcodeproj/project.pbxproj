@@ -44,6 +44,11 @@
 		9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD12320277D9ABF00E5BE36 /* SceneDelegate.swift */; };
 		9CD1232B277D9AC000E5BE36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1232A277D9AC000E5BE36 /* Assets.xcassets */; };
 		9CD1232E277D9AC000E5BE36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1232C277D9AC000E5BE36 /* LaunchScreen.storyboard */; };
+		9CD13CE427A066290069D667 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD13CE227A066290069D667 /* OnboardingViewController.swift */; };
+		9CD13CE527A066290069D667 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CD13CE327A066290069D667 /* OnboardingViewController.xib */; };
+		9CD13CE827A06C110069D667 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD13CE627A06C110069D667 /* OnboardingCollectionViewCell.swift */; };
+		9CD13CE927A06C110069D667 /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CD13CE727A06C110069D667 /* OnboardingCollectionViewCell.xib */; };
+		9CD13CEB27A06CDD0069D667 /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD13CEA27A06CDD0069D667 /* OnboardingModel.swift */; };
 		9CD6502527996A6C00997171 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6502327996A6C00997171 /* FilterViewController.swift */; };
 		9CD650282799771E00997171 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD650272799771E00997171 /* PresentationController.swift */; };
 		9CDA0F10279DB36C0079CA90 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDA0F0E279DB36C0079CA90 /* CategoryTableViewCell.swift */; };
@@ -124,6 +129,11 @@
 		9CD1232A277D9AC000E5BE36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CD1232D277D9AC000E5BE36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CD1232F277D9AC000E5BE36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CD13CE227A066290069D667 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		9CD13CE327A066290069D667 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		9CD13CE627A06C110069D667 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		9CD13CE727A06C110069D667 /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
+		9CD13CEA27A06CDD0069D667 /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
 		9CD6502327996A6C00997171 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		9CD650272799771E00997171 /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
 		9CDA0F0E279DB36C0079CA90 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -224,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				A8BCBD48279961920032AFB5 /* Launch Screen */,
+				9CD13CDE27A0642D0069D667 /* Onboarding */,
 				9C54B082277D9CF100E1939A /* Main Page */,
 				9C54B098277DA6B700E1939A /* Resep Page */,
 				9CD6501F27996A0F00997171 /* FilterPage */,
@@ -449,6 +460,42 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		9CD13CDE27A0642D0069D667 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				9CD13CE127A064470069D667 /* Model */,
+				9CD13CE027A064400069D667 /* View */,
+				9CD13CDF27A064360069D667 /* Controller */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		9CD13CDF27A064360069D667 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9CD13CE227A066290069D667 /* OnboardingViewController.swift */,
+				9CD13CE627A06C110069D667 /* OnboardingCollectionViewCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9CD13CE027A064400069D667 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9CD13CE327A066290069D667 /* OnboardingViewController.xib */,
+				9CD13CE727A06C110069D667 /* OnboardingCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9CD13CE127A064470069D667 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9CD13CEA27A06CDD0069D667 /* OnboardingModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9CD6501F27996A0F00997171 /* FilterPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,6 +666,7 @@
 				9CDA0F15279DB5320079CA90 /* CategoryCollectionViewCell.xib in Resources */,
 				A8C4C17027844BFE00472491 /* Poppins-Light.ttf in Resources */,
 				A8C4C17A27844BFE00472491 /* Poppins-Black.ttf in Resources */,
+				9CD13CE527A066290069D667 /* OnboardingViewController.xib in Resources */,
 				9C4083EB2784C98600F414E5 /* CardCollectionViewCell.xib in Resources */,
 				9C54B0AD277DAE0C00E1939A /* CardTableViewCell.xib in Resources */,
 				A8C4C17227844BFE00472491 /* Poppins-SemiBoldItalic.ttf in Resources */,
@@ -635,6 +683,7 @@
 				9C182A47278FE3B600C95B14 /* SimpanCollectionViewCell.xib in Resources */,
 				A8C4C16E27844BFE00472491 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				9C54B097277DA42100E1939A /* SimpanViewController.xib in Resources */,
+				9CD13CE927A06C110069D667 /* OnboardingCollectionViewCell.xib in Resources */,
 				A8AE3C9F278D862B00EF034B /* TimerViewController.xib in Resources */,
 				A8C4C16D27844BFE00472491 /* Poppins-ThinItalic.ttf in Resources */,
 				A8C4C17427844BFE00472491 /* Poppins-ExtraBold.ttf in Resources */,
@@ -675,6 +724,7 @@
 				A8BCBD4B279961A60032AFB5 /* LaunchViewController.swift in Sources */,
 				9C182A46278FE3B600C95B14 /* SimpanCollectionViewCell.swift in Sources */,
 				9C4083E327845ED000F414E5 /* DataResep.swift in Sources */,
+				9CD13CEB27A06CDD0069D667 /* OnboardingModel.swift in Sources */,
 				9C4083EA2784C98600F414E5 /* CardCollectionViewCell.swift in Sources */,
 				9C54B08E277DA3FB00E1939A /* ResepViewController.swift in Sources */,
 				9C54B0A7277DADB400E1939A /* HighlightTableViewCell.swift in Sources */,
@@ -695,8 +745,10 @@
 				877D20C5279E74D100318D1D /* SimpanResep.xcdatamodeld in Sources */,
 				9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */,
 				A83CB50527847EC300C4DFB8 /* imageModel.swift in Sources */,
+				9CD13CE427A066290069D667 /* OnboardingViewController.swift in Sources */,
 				9CD650282799771E00997171 /* PresentationController.swift in Sources */,
 				872087FF279A2D500022603D /* DetailTableViewCell.swift in Sources */,
+				9CD13CE827A06C110069D667 /* OnboardingCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
