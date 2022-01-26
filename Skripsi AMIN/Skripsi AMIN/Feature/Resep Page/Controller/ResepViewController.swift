@@ -29,6 +29,21 @@ class ResepViewController: UIViewController {
      // MARK: to store random index data
     var randomIndex: [Int] = []
     
+    var history: [Content] = []
+    
+    let emptyState: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.animationImages = (0...4).map ({
+            value in return UIImage(named: "animated-2-\(value)") ?? UIImage()
+        })
+        image.animationRepeatCount = -1
+        image.animationDuration = 1
+        image.startAnimating()
+
+        return image
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         launchScreen()
@@ -63,12 +78,14 @@ class ResepViewController: UIViewController {
 
     }
     
+    //MARK: Fetch Data from API
     func fetchData() {
 //        API.shared.fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.desert)){
             API.shared.fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.hari_raya)){
                 API.shared.fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.tradisional)){
                     API.shared.fetchDataAPI(urlKey: Constant.shared.getKey(key: Constant.Key.makan_malam)){
                         API.shared.fetchNewestResepDataAPI {
+                            //MARK: Highlight Section
                             var highlight: [Content] = []
                             var tempIndex = 0
                             for _ in 0..<5 {
@@ -83,6 +100,7 @@ class ResepViewController: UIViewController {
                             }
                             self.contentData.append(SectionModel(title: "Rekomendasi", content: highlight))
                             
+                            //MARK: Category Section
                             self.contentData.append(SectionModel(title: "Kategori", content: [Content(image: UIImage(named: "Vege")!, label: "Sayuran", detailKey: Constant.shared.getKey(key:                                                               Constant.Key.sayuran)),
                                                                                       Content(image: UIImage(named: "Beef")!, label: "Daging", detailKey: Constant.shared.getKey(key: Constant.Key.daging)),
                                                                                       Content(image: UIImage(named: "Seafood")!, label: "Seafood", detailKey: Constant.shared.getKey(key: Constant.Key.seafood)),
@@ -97,6 +115,7 @@ class ResepViewController: UIViewController {
                                                                 )
                                                     )
                             
+                            //MARK: Resep Terbaru
                             var new: [Content] = []
                             for content in Constant.shared.newest {
                                 let data = Content(image: UIImage(data: Constant.shared.getImage(urlKey: content.thumb))!, label: content.title, detailKey: content.key)
@@ -105,16 +124,18 @@ class ResepViewController: UIViewController {
                             print(new)
                             self.contentData.append(SectionModel(title: "Resep terbaru", content: new))
 
-                            var history: [Content] = []
+                            //MARK: Terakhir Dilihat
+                            self.history = []
                             for model in DataManipulation.shared.model {
                                 let data = Content(image: (UIImage(data: Constant.shared.getImage(urlKey: model.image!)))!, label: model.label!, detailKey: model.key)
-                                history.append(data)
+                                self.history.append(data)
                             }
-                            self.contentData.append(SectionModel(title: "Terakhir Dilihat", content: history))
+                            self.contentData.append(SectionModel(title: "Terakhir Dilihat", content: self.history))
                             print("print history")
-                            print(history)
+                            print(self.history)
                             
                             DispatchQueue.main.async {
+                                
                                 self.tableView.reloadData()
                             }
                         }
@@ -129,10 +150,10 @@ class ResepViewController: UIViewController {
 }
 
 extension ResepViewController: UITableViewDelegate, UITableViewDataSource, HighlightTableViewDelegate, CardTableViewDelegate, CategoryTableViewDelegate {
+    //MARK: Push to Resep Detail
     func passDataDetail(key: String) {
         let vc = ResepDetailViewController()
         vc.resepKey = key
-//        DataManipulation.shared.createItem(title: model.label, thumb: model.image, key: model.detailKey, saved: false)
         print(key)
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -182,6 +203,13 @@ extension ResepViewController: UITableViewDelegate, UITableViewDataSource, Highl
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell") as! CardTableViewCell
+            if history.count == 0 { //MARK: Load Empty State
+                cell.addSubview(self.emptyState)
+                self.emptyState.centerYAnchor.constraint(equalTo: cell.centerYAnchor).isActive = true
+                self.emptyState.centerXAnchor.constraint(equalTo: cell.centerXAnchor).isActive = true
+                self.emptyState.heightAnchor.constraint(equalToConstant: 200).isActive = true
+                self.emptyState.widthAnchor.constraint(equalToConstant: 200).isActive = true
+            }
             cell.tempModelCTab = contentData[indexPath.section].content
             cell.delegate = self
             

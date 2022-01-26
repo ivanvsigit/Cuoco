@@ -53,7 +53,7 @@ class ResepDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Kembali", style: .plain, target: self, action: #selector(addTapped))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simpan", style: .plain, target: self, action: #selector(savedTapped))
+        
         self.tabBarController?.tabBar.isHidden = true
         tabBarController?.tabBar.isTranslucent = true
         
@@ -64,36 +64,74 @@ class ResepDetailViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         setupTableView()
         fetchData()
-        DataManipulation.shared.getItem()
-    }
-    
-    @objc func addTapped(sender: AnyObject){
-        navigationController?.popToRootViewController(animated: true)
-    }
-    
-    @objc func savedTapped(sender: AnyObject){
+//        DataManipulation.shared.getItem()
+        
         for data in DataManipulation.shared.model{
             if data.key == resepKey{
+                print(data.key)
                 if data.saved == false {
-                    DataManipulation.shared.updateItem(key: resepKey, value: true)
+                    print(data.saved)
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simpan", style: .plain, target: self, action: #selector(savedTapped))
+                    return
+                } else {
+                    print(data.saved)
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hapus", style: .plain, target: self, action: #selector(savedTapped))
+                    return
+                }
+            }
+        }
+
+    }
+    
+    //MARK: Back Button
+    @objc func addTapped(sender: AnyObject){
+        navigationController?.popViewController(animated: true)
+    }
+    
+    //MARK: Save Recipe - Boolean
+    @objc func savedTapped(sender: AnyObject){
+        DataManipulation.shared.getItem()
+        print(DataManipulation.shared.model)
+        for data in DataManipulation.shared.model{
+            print(data)
+            if data.key == self.resepKey{
+                if data.saved == false { //Simpan Recipe
+                    
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hapus", style: .plain, target: self, action: #selector(savedTapped))
                     let alert = UIAlertController(title: "Simpan Resep", message: "Resep telah tersimpan", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+                        DataManipulation.shared.updateItem(key: self.resepKey, value: true)
+                        print("Menyimpan resep...")
+                    }))
                     self.present(alert, animated: true, completion: nil)
-                } else if data.saved == true{
+                    print("Resep tersimpan!")
+                    
+                    return
+                } else if data.saved == true{ //Hapus Resep
 //                    self.dismiss(animated: false, completion: nil)
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simpan", style: .plain, target: self, action: #selector(savedTapped))
                     let alert = UIAlertController(title: "Hapus Resep", message: "Anda yakin ingin menghapus resep ini?", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ya", style: .destructive, handler: { _ in
-                        DataManipulation.shared.updateItem(key: self.resepKey, value: false)
+                        DataManipulation.shared.updateItem(key: self.resepKey, value: true)
+                        print("Menghapus...")
                     }))
                     alert.addAction(UIAlertAction(title: "Tidak", style: .cancel, handler: nil))
                     self.present(alert, animated: true, completion: nil)
+                    print("Resep Dihapus!")
+                    
+                    return
                 }
             }
         }
     }
     
+    //MARK: Timer
+    @objc func goToTimer(sender: AnyObject){
+        let vc = TimerViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    //MARK: Load Detail Data
     func loadDetail(){
         guard let detail = detailData else{
             return
@@ -104,7 +142,7 @@ class ResepDetailViewController: UIViewController {
         }
         
         resepImage.image = UIImage(data: Constant.shared.getImage(urlKey: image))
-        titleResep.numberOfLines = 5
+        titleResep.numberOfLines = 0
         titleResep.text = detail.title
         durasi.text = detail.times
         porsi.text = detail.servings
@@ -115,6 +153,7 @@ class ResepDetailViewController: UIViewController {
         ]
     }
 
+    //MARK: Setting up Table View
     func setupTableView(){
         view.addSubview(tableView)
         tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 423).isActive = true
@@ -130,6 +169,7 @@ class ResepDetailViewController: UIViewController {
     
     var selectedIndex: IndexPath = IndexPath(row: 0, section: 0)
     
+    //MARK: Fetch Detail from API
     func fetchData(){
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -137,6 +177,7 @@ class ResepDetailViewController: UIViewController {
             blurEffectView.frame = self.view.bounds
             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             
+            //MARK: Load Animation
             self.view.addSubview(blurEffectView)
             self.view.addSubview(self.imgLoad)
             self.imgLoad.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
@@ -144,13 +185,13 @@ class ResepDetailViewController: UIViewController {
             self.imgLoad.heightAnchor.constraint(equalToConstant: 200).isActive = true
             self.imgLoad.widthAnchor.constraint(equalToConstant: 200).isActive = true
         }
-        
         API.shared.fetchDetailAPI(urlKey: resepKey) { data in
             self.detailData = data
             guard let image = data.thumb else{
                 return
             }
             
+            //MARK: Create Item on Core Data
             DataManipulation.shared.createItem(title: data.title, thumb: image, key: self.resepKey, saved: false)
 //            guard let detail = self.detailData else{
 //                return
@@ -188,13 +229,14 @@ extension ResepDetailViewController: UITableViewDelegate, UITableViewDataSource 
         }
         
         if indexPath.row == 0{
+            //MARK: Title Section
             let cell = tableView.dequeueReusableCell(withIdentifier: "dropDown") as! DetailTableViewCell
             cell.textLabel?.text = tableViewData[indexPath.section].title
             cell.textLabel?.font = UIFont(name: "Poppins-Medium", size: 20)
             cell.dropBtn.isHidden = false
             return cell
         } else {
-            
+            //MARK: Description Section
             let cell = tableView.dequeueReusableCell(withIdentifier: "dropDown") as! DetailTableViewCell
             cell.textLabel?.text = tableViewData[indexPath.section].desc[dataIndex]
             cell.textLabel?.font = UIFont(name: "Poppins-Regular", size: 14)
@@ -207,6 +249,7 @@ extension ResepDetailViewController: UITableViewDelegate, UITableViewDataSource 
             timerBtn.setTitle("Timer", for: .normal)
             timerBtn.tintColor = .white
             timerBtn.layer.cornerRadius = 10
+            timerBtn.addTarget(self, action: #selector(goToTimer), for: .touchUpInside)
             
             for i in 0..<detail.step.count {
                 if detail.step[i].contains("menit") {
