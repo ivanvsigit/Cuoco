@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         print(OnboardingState.shared.isNewUser())
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+4) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2) {
             let vc = OnboardingViewController()
             if OnboardingState.shared.isNewUser() == true {
                 self.window?.rootViewController = vc
