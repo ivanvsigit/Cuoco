@@ -36,7 +36,9 @@ class HighlightCollectionViewCell: UICollectionViewCell {
     func setupContent() {
         guard let data = tempModelHCol else { return }
         highlightImage.image = data.image
-        highlightLabel.text = data.label
+        let newTitle = data.label.components(separatedBy: ",")
+        highlightLabel.text = newTitle[0]
+        print(newTitle)
     }
 
 }

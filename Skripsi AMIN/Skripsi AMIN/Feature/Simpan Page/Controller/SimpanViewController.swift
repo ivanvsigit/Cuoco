@@ -88,7 +88,18 @@ class SimpanViewController: UIViewController {
         for model in DataManipulation.shared.model {
             if model.saved == true {
                 let data = CoreDetail(image: model.image, label: model.label!, key: model.key, saved: model.saved)
-                self.simpanDetail.append(data)
+                var temp = 0
+                for i in 0..<simpanDetail.count{
+                    if simpanDetail[i].key == data.key {
+                        temp = 1
+                        break
+                    }
+                }
+                
+                if temp == 0 {
+                    self.simpanDetail.append(data)
+                }
+                
             }
         }
         
@@ -122,6 +133,7 @@ extension SimpanViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let cell = simpanCollection.dequeueReusableCell(withReuseIdentifier: "simpanCollectionCell", for: indexPath) as! SimpanCollectionViewCell
         cell.layer.cornerRadius = 10
         cell.tempModelSCol = simpanDetail[indexPath.row]
+        cell.vc = self
         return cell
     }
     
