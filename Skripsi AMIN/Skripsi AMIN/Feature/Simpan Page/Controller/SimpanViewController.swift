@@ -10,15 +10,10 @@ import UIKit
 class SimpanViewController: UIViewController {
 
     @IBOutlet weak var simpanCollection: UICollectionView!
-    
-    
-//    let imageIcon: UIImageView = {
-//       let image = UIImageView(frame: CGRect(x: 8, y: 0, width: 16, height: 16))
-//        image.image = UIImage(systemName: "magnifyingglass")
-//
-//        return image
-//    }()
+
     var simpanDetail: [CoreDetail] = []
+    var filteredData: [CoreDetail] = []
+    var editState = false
     
     let searchBar = UISearchBar()
     
@@ -37,15 +32,20 @@ class SimpanViewController: UIViewController {
     
     let kosong = UILabel(frame: CGRect(x: 20, y: 450, width: 350, height: 50))
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        DataManipulation.shared.getItem()
         setUp()
-        fetchData()
         self.hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        DispatchQueue.main.async {
+            DataManipulation.shared.model.removeAll()
+            DataManipulation.shared.getItem()
+            self.fetchData()
+            self.simpanCollection.reloadData()
+        }
         tabBarController?.tabBar.isHidden = false
     }
     
@@ -57,49 +57,30 @@ class SimpanViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(named: "TextColor")!, .font: UIFont(name: "Poppins-SemiBold", size: 17)!]
       
         navigationItem.titleView = searchBar
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(showFilter))
-        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "PrimaryColor")
         
         searchBar.delegate = self
         searchBar.searchTextField.backgroundColor = UIColor(named: "SecondaryTintColor")
         searchBar.placeholder = "Pencarian"
         searchBar.tintColor = UIColor(named: "PrimaryColor")
-
-         // MARK: Custom search
-//        searchTextField.delegate = self
-//        searchTextField.leftViewMode = .always
-//        searchTextField.leftView = imageIcon
-//        searchTextField.leftView?.tintColor = UIColor(named: "TextColor")
-//        searchTextField.layer.cornerRadius = 10
-//        searchTextField.backgroundColor = UIColor(named: "SecondaryTintColor")
-//        searchTextField.layer.borderWidth = 1
-//        searchTextField.layer.borderColor = UIColor.white.cgColor
-//        searchTextField.clipsToBounds = true
-//        searchTextField.attributedPlaceholder = NSAttributedString(string: "Pencarian", attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "TextColor")!])
-//        searchTextField.font = UIFont(name: "Poppins-Regular", size: 17)
-        
     }
     
-    @objc func showFilter() {
-        //TODO: Show modal filter
-    }
-    
+     // MARK: Retrieve from Core Data
     func fetchData(){
+        simpanDetail.removeAll()
         for model in DataManipulation.shared.model {
             if model.saved == true {
                 let data = CoreDetail(image: model.image, label: model.label!, key: model.key, saved: model.saved)
-                var temp = 0
-                for i in 0..<simpanDetail.count{
-                    if simpanDetail[i].key == data.key {
-                        temp = 1
-                        break
-                    }
-                }
+//                var temp = 0
+//                for i in 0..<simpanDetail.count{
+//                    if simpanDetail[i].key == data.key {
+//                        temp = 1
+//                        break
+//                    }
+//                }
                 
-                if temp == 0 {
+//                if temp == 0 {
                     self.simpanDetail.append(data)
-                }
-                
+//                }
             }
         }
         
@@ -111,9 +92,8 @@ class SimpanViewController: UIViewController {
             self.emptyState.heightAnchor.constraint(equalToConstant: 200).isActive = true
             self.emptyState.widthAnchor.constraint(equalToConstant: 200).isActive = true
             self.kosong.text = "Belum ada resep yang tersimpan, ayo simpan resep yang kamu inginkan!"
-//            self.kosong.topAnchor.constraint(equalTo: emptyState.bottomAnchor).isActive = true
             self.kosong.textAlignment = .center
-            self.kosong.font = UIFont(name: "Poppins-Regular", size: 17)
+            self.kosong.font = UIFont(name: "Poppins-Regular", size: 14)
             self.kosong.textColor = .systemGray
             self.kosong.numberOfLines = 0
         }
@@ -123,18 +103,44 @@ class SimpanViewController: UIViewController {
     }
 }
 
-extension SimpanViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension SimpanViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, simpanColDelegate  {
+    func triggerReloadCollection() {
+        
+        DispatchQueue.main.async {
+            DataManipulation.shared.model.removeAll()
+            DataManipulation.shared.getItem()
+            self.simpanDetail.removeAll()
+            self.fetchData()
+            self.simpanCollection.reloadData()
+        }
+        
+        print("delegate oke")
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(simpanDetail.count)
+        if editState == true {
+            return filteredData.count
+        }
         return simpanDetail.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = simpanCollection.dequeueReusableCell(withReuseIdentifier: "simpanCollectionCell", for: indexPath) as! SimpanCollectionViewCell
         cell.layer.cornerRadius = 10
-        cell.tempModelSCol = simpanDetail[indexPath.row]
         cell.vc = self
-        return cell
+        cell.delegate = self
+        if editState == true {
+            cell.tempModelSCol = filteredData[indexPath.row]
+            return cell
+        }
+        else if editState == false {
+            cell.tempModelSCol = simpanDetail[indexPath.row]
+            return cell
+        }
+        else{
+            return UICollectionViewCell()
+        }
+
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -143,52 +149,87 @@ extension SimpanViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = ResepDetailViewController()
-        vc.resepKey = simpanDetail[indexPath.row].key
-        print(vc.resepKey)
-        navigationController?.pushViewController(vc, animated: true)
+        if editState == true {
+            vc.resepKey = filteredData[indexPath.row].key
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        else {
+            vc.resepKey = simpanDetail[indexPath.row].key
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }
 
 extension SimpanViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        editState = true
+        searchBar.showsCancelButton = true
         
+        DispatchQueue.main.async {
+            self.simpanCollection.reloadData()
+        }
+    }
+  
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        filteredData.removeAll()
+        
+        guard let safe_text = searchBar.text else { return }
+        for data in simpanDetail {
+            guard let lbl_data = data.label else { return  }
+            if lbl_data.contains(safe_text)  {
+                self.filteredData.append(data)
+            }
+        }
+        
+        DispatchQueue.main.async {
+            if self.filteredData.count == 0 {
+                self.view.addSubview(self.emptyState)
+                self.emptyState.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+                self.emptyState.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+                self.emptyState.heightAnchor.constraint(equalToConstant: 200).isActive = true
+                self.emptyState.widthAnchor.constraint(equalToConstant: 200).isActive = true
+            }
+            else {
+                self.emptyState.removeFromSuperview()
+            }
+            self.simpanCollection.reloadData()
+        }
+       
     }
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        searchTextField.endEditing(true)
-//        return true
-//    }
-//
-//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-//        if searchTextField.text != "" {
-//            return true
-//        }
-//        else {
-//            searchTextField.placeholder = "Masukan Kata Kunci"
-//            return false
-//        }
-//    }
-//
-//     // MARK: Func after done editing
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        if let data = searchTextField.text {
-//            //TODO: Func fetch data
-//        }
-//        searchTextField.text = ""
-//    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        guard let search_Text = searchText else { return }
+        if searchText.count < 1 {
+            filteredData.removeAll()
+        }
+        DispatchQueue.main.async {
+            self.simpanCollection.reloadData()
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        editState = false
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        DispatchQueue.main.async {
+            self.emptyState.removeFromSuperview()
+            self.simpanCollection.reloadData()
+        }
+    }
     
     func hideKeyboardWhenTappedAround() {
          // MARK: Looks for single or multiple taps
-        let tap = UITapGestureRecognizer(target: self, action: #selector(SimpanViewController.dismissKeyboard))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-    
+
      // MARK: Calls this function when the tap is recognized
     @objc func dismissKeyboard() {
          // MARK: Causes the view (or one of its embedded text fields) to resign the first responder status
-        view.endEditing(true)
+        searchBar.endEditing(true)
     }
 }
 

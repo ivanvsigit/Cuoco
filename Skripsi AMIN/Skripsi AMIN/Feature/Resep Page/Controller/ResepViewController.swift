@@ -31,7 +31,6 @@ class ResepViewController: UIViewController {
     var models = [SimpanResepDetail]()
     
     let searchBar = UISearchBar()
-//    let searchBar = UISearchController(searchResultsController: SearchResultViewController())
     
     let vc = SearchResultViewController()
     
@@ -62,8 +61,6 @@ class ResepViewController: UIViewController {
             launchScreen()
             print(OnboardingState.shared.isNewUser())
         }
-//        OnboardingState.shared.setIsNotNewUser()
-        print(OnboardingState.shared.isNewUser())
         DataManipulation.shared.getItem()
         fetchData()
         setUp()
