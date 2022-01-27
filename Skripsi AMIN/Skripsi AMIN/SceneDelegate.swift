@@ -18,10 +18,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow (frame: UIScreen.main.bounds)
         
         let tabbar = TabBarController()
-        
-        self.window?.rootViewController = tabbar
+        let launcScreen = LaunchViewController()
+        self.window?.rootViewController = launcScreen
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene
+        print(OnboardingState.shared.isNewUser())
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2) {
+            let vc = OnboardingViewController()
+            if OnboardingState.shared.isNewUser() == true {
+                self.window?.rootViewController = vc
+//                OnboardingState.shared.setIsNotNewUser()
+                print(OnboardingState.shared.isNewUser())
+            }
+            else {
+                self.window?.rootViewController = tabbar
+            }
+        }
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

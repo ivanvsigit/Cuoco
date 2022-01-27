@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		872087C92796B0340022603D /* ResepDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087C72796B0340022603D /* ResepDetailViewController.swift */; };
 		872087CA2796B0340022603D /* ResepDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 872087C82796B0340022603D /* ResepDetailViewController.xib */; };
 		872087D02796CD900022603D /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087CF2796CD900022603D /* DetailModel.swift */; };
 		872087FF279A2D500022603D /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872087FD279A2D500022603D /* DetailTableViewCell.swift */; };
@@ -44,6 +43,12 @@
 		9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD12320277D9ABF00E5BE36 /* SceneDelegate.swift */; };
 		9CD1232B277D9AC000E5BE36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1232A277D9AC000E5BE36 /* Assets.xcassets */; };
 		9CD1232E277D9AC000E5BE36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CD1232C277D9AC000E5BE36 /* LaunchScreen.storyboard */; };
+		9CD5C28C27A1C47E0099DF27 /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5C28B27A1C47E0099DF27 /* OnboardingModel.swift */; };
+		9CD5C28F27A1C4900099DF27 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CD5C28D27A1C4900099DF27 /* OnboardingViewController.xib */; };
+		9CD5C29027A1C4900099DF27 /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CD5C28E27A1C4900099DF27 /* OnboardingCollectionViewCell.xib */; };
+		9CD5C29327A1C49C0099DF27 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5C29127A1C49B0099DF27 /* OnboardingCollectionViewCell.swift */; };
+		9CD5C29427A1C49C0099DF27 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5C29227A1C49C0099DF27 /* OnboardingViewController.swift */; };
+		9CD5C29627A1C4CA0099DF27 /* ResepDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5C29527A1C4CA0099DF27 /* ResepDetailViewController.swift */; };
 		9CD6502527996A6C00997171 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6502327996A6C00997171 /* FilterViewController.swift */; };
 		9CD650282799771E00997171 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD650272799771E00997171 /* PresentationController.swift */; };
 		9CDA0F10279DB36C0079CA90 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDA0F0E279DB36C0079CA90 /* CategoryTableViewCell.swift */; };
@@ -85,7 +90,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		872087C72796B0340022603D /* ResepDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResepDetailViewController.swift; path = ../View/ResepDetailViewController.swift; sourceTree = "<group>"; };
 		872087C82796B0340022603D /* ResepDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResepDetailViewController.xib; sourceTree = "<group>"; };
 		872087CF2796CD900022603D /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		872087FD279A2D500022603D /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -124,6 +128,12 @@
 		9CD1232A277D9AC000E5BE36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CD1232D277D9AC000E5BE36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CD1232F277D9AC000E5BE36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CD5C28B27A1C47E0099DF27 /* OnboardingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
+		9CD5C28D27A1C4900099DF27 /* OnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		9CD5C28E27A1C4900099DF27 /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
+		9CD5C29127A1C49B0099DF27 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		9CD5C29227A1C49C0099DF27 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		9CD5C29527A1C4CA0099DF27 /* ResepDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResepDetailViewController.swift; path = "Skripsi AMIN/Feature/Resep Detail Page/View/ResepDetailViewController.swift"; sourceTree = SOURCE_ROOT; };
 		9CD6502327996A6C00997171 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		9CD650272799771E00997171 /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
 		9CDA0F0E279DB36C0079CA90 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -215,7 +225,7 @@
 		87838510279013B600FA62CF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				872087C72796B0340022603D /* ResepDetailViewController.swift */,
+				9CD5C29527A1C4CA0099DF27 /* ResepDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -224,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				A8BCBD48279961920032AFB5 /* Launch Screen */,
+				9CD13CDE27A0642D0069D667 /* Onboarding */,
 				9C54B082277D9CF100E1939A /* Main Page */,
 				9C54B098277DA6B700E1939A /* Resep Page */,
 				9CD6501F27996A0F00997171 /* FilterPage */,
@@ -449,6 +460,42 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		9CD13CDE27A0642D0069D667 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				9CD13CE127A064470069D667 /* Model */,
+				9CD13CE027A064400069D667 /* View */,
+				9CD13CDF27A064360069D667 /* Controller */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		9CD13CDF27A064360069D667 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9CD5C29227A1C49C0099DF27 /* OnboardingViewController.swift */,
+				9CD5C29127A1C49B0099DF27 /* OnboardingCollectionViewCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9CD13CE027A064400069D667 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9CD5C28D27A1C4900099DF27 /* OnboardingViewController.xib */,
+				9CD5C28E27A1C4900099DF27 /* OnboardingCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9CD13CE127A064470069D667 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9CD5C28B27A1C47E0099DF27 /* OnboardingModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9CD6501F27996A0F00997171 /* FilterPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,6 +666,7 @@
 				9CDA0F15279DB5320079CA90 /* CategoryCollectionViewCell.xib in Resources */,
 				A8C4C17027844BFE00472491 /* Poppins-Light.ttf in Resources */,
 				A8C4C17A27844BFE00472491 /* Poppins-Black.ttf in Resources */,
+				9CD5C29027A1C4900099DF27 /* OnboardingCollectionViewCell.xib in Resources */,
 				9C4083EB2784C98600F414E5 /* CardCollectionViewCell.xib in Resources */,
 				9C54B0AD277DAE0C00E1939A /* CardTableViewCell.xib in Resources */,
 				A8C4C17227844BFE00472491 /* Poppins-SemiBoldItalic.ttf in Resources */,
@@ -628,6 +676,7 @@
 				A8C4C17927844BFE00472491 /* Poppins-Bold.ttf in Resources */,
 				A8C4C16C27844BFE00472491 /* Poppins-ExtraLight.ttf in Resources */,
 				A8C4C17327844BFE00472491 /* Poppins-ExtraBoldItalic.ttf in Resources */,
+				9CD5C28F27A1C4900099DF27 /* OnboardingViewController.xib in Resources */,
 				A8C4C17627844BFE00472491 /* OFL.txt in Resources */,
 				9CD1232E277D9AC000E5BE36 /* LaunchScreen.storyboard in Resources */,
 				9CD1232B277D9AC000E5BE36 /* Assets.xcassets in Resources */,
@@ -672,6 +721,7 @@
 				877D20C8279E752300318D1D /* SimpanResepDetail+CoreDataClass.swift in Sources */,
 				A8AE3CAD279020E000EF034B /* ProgressBarView.swift in Sources */,
 				9C4083E02784495400F414E5 /* HighlightCollectionViewCell.swift in Sources */,
+				9CD5C29627A1C4CA0099DF27 /* ResepDetailViewController.swift in Sources */,
 				A8BCBD4B279961A60032AFB5 /* LaunchViewController.swift in Sources */,
 				9C182A46278FE3B600C95B14 /* SimpanCollectionViewCell.swift in Sources */,
 				9C4083E327845ED000F414E5 /* DataResep.swift in Sources */,
@@ -679,7 +729,6 @@
 				9C54B08E277DA3FB00E1939A /* ResepViewController.swift in Sources */,
 				9C54B0A7277DADB400E1939A /* HighlightTableViewCell.swift in Sources */,
 				9CD6502527996A6C00997171 /* FilterViewController.swift in Sources */,
-				872087C92796B0340022603D /* ResepDetailViewController.swift in Sources */,
 				9CD1231F277D9ABF00E5BE36 /* AppDelegate.swift in Sources */,
 				877D20CB27A052E600318D1D /* DataManipulation.swift in Sources */,
 				9CDA0F14279DB5320079CA90 /* CategoryCollectionViewCell.swift in Sources */,
@@ -688,13 +737,16 @@
 				9C54B08B277DA01A00E1939A /* TabBarController.swift in Sources */,
 				A8AE3C9E278D862B00EF034B /* TimerViewController.swift in Sources */,
 				9CDA0F10279DB36C0079CA90 /* CategoryTableViewCell.swift in Sources */,
+				9CD5C29327A1C49C0099DF27 /* OnboardingCollectionViewCell.swift in Sources */,
 				9C3B0C2A278AF7FA00AD8F6A /* ContentModel.swift in Sources */,
 				872087D02796CD900022603D /* DetailModel.swift in Sources */,
 				9C54B092277DA41200E1939A /* IdentifikasiViewController.swift in Sources */,
 				9C54B0AC277DAE0C00E1939A /* CardTableViewCell.swift in Sources */,
 				877D20C5279E74D100318D1D /* SimpanResep.xcdatamodeld in Sources */,
+				9CD5C29427A1C49C0099DF27 /* OnboardingViewController.swift in Sources */,
 				9CD12321277D9ABF00E5BE36 /* SceneDelegate.swift in Sources */,
 				A83CB50527847EC300C4DFB8 /* imageModel.swift in Sources */,
+				9CD5C28C27A1C47E0099DF27 /* OnboardingModel.swift in Sources */,
 				9CD650282799771E00997171 /* PresentationController.swift in Sources */,
 				872087FF279A2D500022603D /* DetailTableViewCell.swift in Sources */,
 			);

@@ -29,6 +29,7 @@ class HighlightTableViewCell: UITableViewCell {
     
 //    var delay = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
     
+     // MARK: Observe current index to make some changes
     var currentIndex = 0 {
         didSet {
             highlightPageController.currentPage = currentIndex
