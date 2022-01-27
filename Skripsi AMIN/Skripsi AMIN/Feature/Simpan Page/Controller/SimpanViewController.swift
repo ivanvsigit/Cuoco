@@ -22,6 +22,21 @@ class SimpanViewController: UIViewController {
     
     let searchBar = UISearchBar()
     
+    let emptyState: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.animationImages = (0...4).map ({
+            value in return UIImage(named: "animated-2-\(value)") ?? UIImage()
+        })
+        image.animationRepeatCount = -1
+        image.animationDuration = 1
+        image.startAnimating()
+
+        return image
+    }()
+    
+    let kosong = UILabel(frame: CGRect(x: 20, y: 450, width: 350, height: 50))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         DataManipulation.shared.getItem()
@@ -75,6 +90,21 @@ class SimpanViewController: UIViewController {
                 let data = CoreDetail(image: model.image, label: model.label!, key: model.key, saved: model.saved)
                 self.simpanDetail.append(data)
             }
+        }
+        
+        if simpanDetail.count == 0 {
+            self.view.addSubview(self.emptyState)
+            self.view.addSubview(self.kosong)
+            self.emptyState.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+            self.emptyState.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+            self.emptyState.heightAnchor.constraint(equalToConstant: 200).isActive = true
+            self.emptyState.widthAnchor.constraint(equalToConstant: 200).isActive = true
+            self.kosong.text = "Belum ada resep yang tersimpan, ayo simpan resep yang kamu inginkan!"
+//            self.kosong.topAnchor.constraint(equalTo: emptyState.bottomAnchor).isActive = true
+            self.kosong.textAlignment = .center
+            self.kosong.font = UIFont(name: "Poppins-Regular", size: 17)
+            self.kosong.textColor = .systemGray
+            self.kosong.numberOfLines = 0
         }
         
         print("print history")
