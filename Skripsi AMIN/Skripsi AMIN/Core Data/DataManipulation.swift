@@ -90,12 +90,13 @@ class DataManipulation {
             if result.count == 1{
                 let managedObject = result[0]
                 managedObject.setValue(value, forKey: "saved")
+                print(result)
             }
         } catch let error{
             print(error)
         }
         
-        print(model)
+//        print(model)
         
     }
 }

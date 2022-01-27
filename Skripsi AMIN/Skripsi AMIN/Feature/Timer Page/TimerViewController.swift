@@ -8,6 +8,12 @@
 import UIKit
 import AVFoundation
 
+protocol TimerViewDelegate{
+    
+    func passTimeValue(time: Int)
+    
+}
+
 class TimerViewController: UIViewController {
     
     var isStarted = false
@@ -95,6 +101,15 @@ class TimerViewController: UIViewController {
         //Font
         cancelButton.titleLabel?.font = UIFont(name: "Poppins-Regular", size: 14)
         startButton.titleLabel?.font = UIFont(name: "Poppins-Regular", size: 14)
+        
+//        navigationController?.
+//
+        
+        self.navigationController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Kembali", style: .plain, target: self, action: #selector(back))
+    }
+    
+    @objc func back(){
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
 }
 

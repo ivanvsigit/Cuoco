@@ -43,6 +43,7 @@ class ResepDetailViewController: UIViewController {
     
     
     var resepKey: String = ""
+    var time: Int = 0
     
 //    let timer: TimerViewController
     
@@ -78,6 +79,8 @@ class ResepDetailViewController: UIViewController {
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hapus", style: .plain, target: self, action: #selector(savedTapped))
                     return
                 }
+            } else {
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simpan", style: .plain, target: self, action: #selector(savedTapped))
             }
         }
 
@@ -90,12 +93,12 @@ class ResepDetailViewController: UIViewController {
     
     //MARK: Save Recipe - Boolean
     @objc func savedTapped(sender: AnyObject){
-        DataManipulation.shared.getItem()
-        print(DataManipulation.shared.model)
+//        DataManipulation.shared.getItem()
+//        print(DataManipulation.shared.model)
         for data in DataManipulation.shared.model{
-            print(data)
+//            print(data)
             if data.key == self.resepKey{
-                if data.saved == false { //Simpan Recipe
+                if data.saved == false { //Simpan Resep
                     
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hapus", style: .plain, target: self, action: #selector(savedTapped))
                     let alert = UIAlertController(title: "Simpan Resep", message: "Resep telah tersimpan", preferredStyle: .alert)
@@ -112,7 +115,7 @@ class ResepDetailViewController: UIViewController {
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simpan", style: .plain, target: self, action: #selector(savedTapped))
                     let alert = UIAlertController(title: "Hapus Resep", message: "Anda yakin ingin menghapus resep ini?", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ya", style: .destructive, handler: { _ in
-                        DataManipulation.shared.updateItem(key: self.resepKey, value: true)
+                        DataManipulation.shared.updateItem(key: self.resepKey, value: false)
                         print("Menghapus...")
                     }))
                     alert.addAction(UIAlertAction(title: "Tidak", style: .cancel, handler: nil))
@@ -127,8 +130,8 @@ class ResepDetailViewController: UIViewController {
     
     //MARK: Timer
     @objc func goToTimer(sender: AnyObject){
-        let vc = TimerViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        passTimeValue(time: time)
+        
     }
     
     //MARK: Load Detail Data
@@ -209,7 +212,16 @@ class ResepDetailViewController: UIViewController {
     
 }
 
-extension ResepDetailViewController: UITableViewDelegate, UITableViewDataSource {
+extension ResepDetailViewController: UITableViewDelegate, UITableViewDataSource, TimerViewDelegate {
+    func passTimeValue(time: Int) {
+        let vc = TimerViewController()
+        vc.startValue = time
+        vc.modalPresentationStyle = .fullScreen
+        navigationController?.present(vc, animated: true, completion: nil)
+    }
+    
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableViewData.count
     }
@@ -224,9 +236,9 @@ extension ResepDetailViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let dataIndex = indexPath.row - 1
-        guard let detail = detailData else{
-            return tableView.dequeueReusableCell(withIdentifier: "dropDown") as! DetailTableViewCell
-        }
+//        guard let detail = detailData else{
+//            return tableView.dequeueReusableCell(withIdentifier: "dropDown") as! DetailTableViewCell
+//        }
         
         if indexPath.row == 0{
             //MARK: Title Section
@@ -251,14 +263,34 @@ extension ResepDetailViewController: UITableViewDelegate, UITableViewDataSource 
             timerBtn.layer.cornerRadius = 10
             timerBtn.addTarget(self, action: #selector(goToTimer), for: .touchUpInside)
             
-            for i in 0..<detail.step.count {
-                if detail.step[i].contains("menit") {
-                    print("kasih timer")
-                    view.addSubview(timerBtn)
-                } else {
-                    print("gaperlu timer")
+            let desc = tableViewData[indexPath.section].desc[dataIndex]
+            
+            if desc.contains("menit") || desc.contains("jam"){
+                print("kasih timer")
+                let seperate = desc.split(separator: " ")
+                print(seperate)
+                for i in 0..<seperate.count{
+                    if seperate[i].contains("menit"){
+                        time = Int(seperate[i-1])! * 60
+                        break
+                    } else if seperate[i].contains("jam"){
+                        time = Int(seperate[i-1])! * 3600
+                        break
+                    }
                 }
+                
+                print(time)
+                cell.addSubview(timerBtn)
             }
+            
+//            for i in 0..<detail.step.count {
+//                if detail.step[i].contains("menit") {
+//                    print("kasih timer")
+//                    view.addSubview(timerBtn)
+//                } else {
+//                    print("gaperlu timer")
+//                }
+//            }
             
             return cell
         }
