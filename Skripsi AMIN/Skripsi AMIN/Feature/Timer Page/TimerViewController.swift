@@ -54,13 +54,24 @@ class TimerViewController: UIViewController {
     
     @IBOutlet weak var cancelButton: UIButton!
     @IBAction func cancelButton(_ sender: Any) {
-        self.ProgressBar.end()
         
-        audioPlayer!.stop()
-        
-        DispatchQueue.main.async {
+        // create the alert
+        let alert = UIAlertController(title: "Peringatan", message: "Apakah anda yakin ingin menghentikan timer?", preferredStyle: UIAlertController.Style.alert)
+
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "Ya", style: UIAlertAction.Style.default, handler: {_ in
+            self.ProgressBar.end()
+            
+            self.audioPlayer!.stop()
+            
             self.dismiss(animated: true, completion: nil)
-         }
+        }))
+        alert.addAction(UIAlertAction(title: "Tidak", style: UIAlertAction.Style.cancel, handler: nil))
+
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
+        
     }
     
     func playSound() {
