@@ -81,6 +81,7 @@
                 <constraint firstAttribute="trailing" secondItem="dQt-Ux-YTY" secondAttribute="trailing" id="eMD-q3-VtB"/>
             </constraints>
             <connections>
+                <outlet property="simpanBtn" destination="KKF-Fy-xdA" id="nxB-2s-NWD"/>
                 <outlet property="simpanImage" destination="yGp-0o-X16" id="7aw-1Q-eGS"/>
                 <outlet property="simpanLabel" destination="NSf-KB-lFc" id="X44-3I-fOs"/>
                 <outlet property="simpanLabelBG" destination="drf-EW-lAc" id="XJ7-yC-VXn"/>

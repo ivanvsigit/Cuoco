@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -97,7 +97,7 @@
                     </constraints>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ThX-03-T6r">
-                    <rect key="frame" x="0.0" y="351" width="390" height="493"/>
+                    <rect key="frame" x="0.0" y="372" width="390" height="472"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
@@ -124,7 +124,7 @@
                 <constraint firstItem="DHt-7Y-6wZ" firstAttribute="leading" secondItem="q2C-St-2Gd" secondAttribute="trailing" constant="78" id="tHt-tv-fHM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eff-8t-fFi" secondAttribute="trailing" constant="20" id="vH3-Jn-d11"/>
                 <constraint firstItem="iFN-DL-5us" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="xd8-Wg-dQc"/>
-                <constraint firstItem="ThX-03-T6r" firstAttribute="top" secondItem="iFN-DL-5us" secondAttribute="bottom" constant="133" id="zdb-iG-27l"/>
+                <constraint firstItem="ThX-03-T6r" firstAttribute="top" secondItem="iFN-DL-5us" secondAttribute="bottom" constant="154" id="zdb-iG-27l"/>
                 <constraint firstItem="oQ8-9K-Bg1" firstAttribute="top" secondItem="q2C-St-2Gd" secondAttribute="bottom" constant="8" id="zgF-5Q-5Oy"/>
             </constraints>
             <point key="canvasLocation" x="138.46153846153845" y="122.98578199052132"/>

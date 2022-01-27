@@ -66,24 +66,26 @@ class ResepDetailViewController: UIViewController {
         setupTableView()
         fetchData()
 //        DataManipulation.shared.getItem()
-        
-        for data in DataManipulation.shared.model{
-            if data.key == resepKey{
-                print(data.key)
-                if data.saved == false {
-                    print(data.saved)
-                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simpan", style: .plain, target: self, action: #selector(savedTapped))
-                    return
+        if DataManipulation.shared.model.count != 0{
+            for data in DataManipulation.shared.model{
+                if data.key == resepKey{
+                    print(data.key)
+                    if data.saved == false {
+                        print(data.saved)
+                        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simpan", style: .plain, target: self, action: #selector(savedTapped))
+                        return
+                    } else if data.saved == true{
+                        print(data.saved)
+                        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hapus", style: .plain, target: self, action: #selector(savedTapped))
+                        return
+                    }
                 } else {
-                    print(data.saved)
-                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hapus", style: .plain, target: self, action: #selector(savedTapped))
-                    return
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simpan", style: .plain, target: self, action: #selector(savedTapped))
                 }
-            } else {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simpan", style: .plain, target: self, action: #selector(savedTapped))
             }
+        } else {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simpan", style: .plain, target: self, action: #selector(savedTapped))
         }
-
     }
     
     //MARK: Back Button
@@ -102,10 +104,10 @@ class ResepDetailViewController: UIViewController {
                     
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hapus", style: .plain, target: self, action: #selector(savedTapped))
                     let alert = UIAlertController(title: "Simpan Resep", message: "Resep telah tersimpan", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
-                        DataManipulation.shared.updateItem(key: self.resepKey, value: true)
-                        print("Menyimpan resep...")
-                    }))
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        
+                    print("Menyimpan resep...")
+                    DataManipulation.shared.updateItem(key: self.resepKey, value: true)
                     self.present(alert, animated: true, completion: nil)
                     print("Resep tersimpan!")
                     
@@ -146,7 +148,9 @@ class ResepDetailViewController: UIViewController {
         
         resepImage.image = UIImage(data: Constant.shared.getImage(urlKey: image))
         titleResep.numberOfLines = 0
-        titleResep.text = detail.title
+        let newTitle = detail.title.components(separatedBy: ",")
+        titleResep.text = newTitle[0]
+        print(newTitle)
         durasi.text = detail.times
         porsi.text = detail.servings
         level.text = detail.dificulty
@@ -196,6 +200,21 @@ class ResepDetailViewController: UIViewController {
             
             //MARK: Create Item on Core Data
             DataManipulation.shared.createItem(title: data.title, thumb: image, key: self.resepKey, saved: false)
+            
+//            if DataManipulation.shared.model.count != 0 {
+//                for model in DataManipulation.shared.model{
+//                    if model.key == self.resepKey{
+//                        break
+//                    } else {
+//                        DataManipulation.shared.createItem(title: data.title, thumb: image, key: self.resepKey, saved: false)
+//                        break
+//                    }
+//                }
+//            } else {
+//                DataManipulation.shared.createItem(title: data.title, thumb: image, key: self.resepKey, saved: false)
+//            }
+            
+            
 //            guard let detail = self.detailData else{
 //                return
 //            }
@@ -217,7 +236,7 @@ extension ResepDetailViewController: UITableViewDelegate, UITableViewDataSource,
         let vc = TimerViewController()
         vc.startValue = time
         vc.modalPresentationStyle = .fullScreen
-        navigationController?.present(vc, animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     

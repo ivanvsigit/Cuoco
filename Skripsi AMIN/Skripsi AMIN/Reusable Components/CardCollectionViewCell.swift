@@ -37,7 +37,9 @@ class CardCollectionViewCell: UICollectionViewCell {
     func setupContent() {
         guard let data = tempModelCCol else { return }
         cardImage.image = data.image
-        cardLabel.text = data.label
+        let newTitle = data.label.components(separatedBy: ",")
+        print(newTitle)
+        cardLabel.text = newTitle[0]
     }
 
 }
