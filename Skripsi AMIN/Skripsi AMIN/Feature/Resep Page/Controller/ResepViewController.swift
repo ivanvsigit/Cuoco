@@ -165,7 +165,9 @@ class ResepViewController: UIViewController {
                                 
                                 self.tableView.reloadData()
                                 self.imgLoad.removeFromSuperview()
-                                OnboardingState.shared.setIsNotNewUser()
+                                if OnboardingState.shared.isNewUser() == true {
+                                    OnboardingState.shared.setIsNotNewUser()
+                                }
                                 print(OnboardingState.shared.isNewUser())
                             }
                         }
