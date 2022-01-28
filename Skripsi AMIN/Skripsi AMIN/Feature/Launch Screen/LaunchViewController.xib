@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +13,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LaunchViewController" customModule="Skripsi_AMIN" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LaunchViewController" customModule="Cuoco" customModuleProvider="target">
             <connections>
                 <outlet property="appName" destination="ObP-RW-WIB" id="5dv-qx-dZR"/>
                 <outlet property="image" destination="B3K-8S-Hzf" id="8se-K5-TDH"/>
@@ -29,26 +29,23 @@
                     <rect key="frame" x="65" y="292" width="260" height="260"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Copyright © 2020 Reski Arianto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwF-4c-8tY">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2020 Reski Arianto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwF-4c-8tY">
                     <rect key="frame" x="88" y="774" width="215" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                     <color key="textColor" name="TextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ObP-RW-WIB">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ObP-RW-WIB">
                     <rect key="frame" x="120" y="502" width="151" height="56"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="56" id="sO6-Li-Bat"/>
-                    </constraints>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="SecondaryColor"/>
             <constraints>
-                <constraint firstItem="ObP-RW-WIB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="120" id="PUY-xE-E3E"/>
-                <constraint firstAttribute="bottom" secondItem="ObP-RW-WIB" secondAttribute="bottom" constant="286" id="aDD-w0-vTS"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ObP-RW-WIB" secondAttribute="trailing" constant="119" id="vAz-Yi-Z6j"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="iwF-4c-8tY" secondAttribute="bottom" constant="16" id="ZYp-zo-RE0"/>
+                <constraint firstItem="iwF-4c-8tY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="88" id="qg8-Vk-1dF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iwF-4c-8tY" secondAttribute="trailing" constant="87" id="uqp-Bu-SbV"/>
             </constraints>
             <point key="canvasLocation" x="132" y="83"/>
         </view>

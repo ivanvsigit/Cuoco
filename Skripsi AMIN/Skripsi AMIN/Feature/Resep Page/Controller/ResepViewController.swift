@@ -36,6 +36,7 @@ class ResepViewController: UIViewController {
     
      // MARK: THIS IS DUMMY DATA
     var contentData: [SectionModel] = []
+    var temp: [SectionModel] = []
     
      // MARK: to store random index data
     var randomIndex: [Int] = []
@@ -158,6 +159,11 @@ class ResepViewController: UIViewController {
                             print("print history")
                             print(self.history)
                             
+                            for data in self.contentData{
+                                self.temp.append(SectionModel(title: data.title, content: data.content))
+                            }
+                            print("ini temp")
+                            print(self.temp)
                             
                             DispatchQueue.main.async {
                                 
@@ -177,18 +183,21 @@ class ResepViewController: UIViewController {
         }
     
     func reloadHistory() {
-        self.history.removeAll()
-        print(contentData.count)
+//        self.temp.removeLast()
         DataManipulation.shared.model.removeAll()
         DataManipulation.shared.getItem()
         for model in DataManipulation.shared.model {
             let data = Content(image: (UIImage(data: Constant.shared.getImage(urlKey: model.image!)))!, label: model.label!, detailKey: model.key)
             self.history.append(data)
         }
-        self.contentData.append(SectionModel(title: "Terakhir Dilihat", content: self.history))
-        print(self.contentData)
-        print("print history")
-        print(self.history)
+        self.temp.append(SectionModel(title: "Terakhir Dilihat", content: self.history))
+        for data in self.temp{
+            self.contentData.append(SectionModel(title: data.title, content: data.content))
+        }
+        
+        DispatchQueue.main.async {
+//            self.tableView.reloadData()
+        }
     }
 
     
