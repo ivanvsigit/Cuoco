@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol HistoryColDelegate {
+    func triggerReloadCollection()
+}
+
 class CardCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var cardView: UIView!

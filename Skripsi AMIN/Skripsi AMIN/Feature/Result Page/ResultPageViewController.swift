@@ -75,8 +75,8 @@ class ResultPageViewController: UIViewController {
         
         do{
             let config = MLModelConfiguration()
-            let model = try Vegetables_Identifier(configuration: config)
-            let input = Vegetables_IdentifierInput(image: buffer)
+            let model = try VegetablesIdentifier(configuration: config)
+            let input = VegetablesIdentifierInput(image: buffer)
             
             let output = try model.prediction(input: input)
             let text = output.classLabel

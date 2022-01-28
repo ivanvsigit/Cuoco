@@ -30,7 +30,7 @@ class SimpanViewController: UIViewController {
         return image
     }()
     
-    let kosong = UILabel(frame: CGRect(x: 20, y: 450, width: 350, height: 50))
+    let kosong = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
     
     
     override func viewDidLoad() {
@@ -70,17 +70,7 @@ class SimpanViewController: UIViewController {
         for model in DataManipulation.shared.model {
             if model.saved == true {
                 let data = CoreDetail(image: model.image, label: model.label!, key: model.key, saved: model.saved)
-//                var temp = 0
-//                for i in 0..<simpanDetail.count{
-//                    if simpanDetail[i].key == data.key {
-//                        temp = 1
-//                        break
-//                    }
-//                }
-                
-//                if temp == 0 {
-                    self.simpanDetail.append(data)
-//                }
+                self.simpanDetail.append(data)
             }
         }
         
@@ -92,10 +82,17 @@ class SimpanViewController: UIViewController {
             self.emptyState.heightAnchor.constraint(equalToConstant: 200).isActive = true
             self.emptyState.widthAnchor.constraint(equalToConstant: 200).isActive = true
             self.kosong.text = "Belum ada resep yang tersimpan, ayo simpan resep yang kamu inginkan!"
+            self.kosong.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
+            self.kosong.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
+            self.kosong.topAnchor.constraint(equalTo: self.emptyState.bottomAnchor, constant: -8).isActive = true
             self.kosong.textAlignment = .center
+            self.kosong.translatesAutoresizingMaskIntoConstraints = false
             self.kosong.font = UIFont(name: "Poppins-Regular", size: 14)
             self.kosong.textColor = .systemGray
             self.kosong.numberOfLines = 0
+        } else {
+            self.emptyState.removeFromSuperview()
+            self.kosong.removeFromSuperview()
         }
         
         print("print history")
