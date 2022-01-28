@@ -100,6 +100,15 @@ class TimerViewController: UIViewController {
         
         self.ProgressBar.delegate = self
         
+        //Constraint
+        ProgressBar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        ProgressBar.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        cancelButton.topAnchor.constraint(equalTo: ProgressBar.bottomAnchor).isActive = true
+        cancelButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        startButton.topAnchor.constraint(equalTo: ProgressBar.bottomAnchor).isActive = true
+        startButton.leadingAnchor.constraint(equalTo: cancelButton.trailingAnchor).isActive = true
+        startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        
         //Phone'sCurrentTime
         let date = Date()
         let calendar = Calendar.current

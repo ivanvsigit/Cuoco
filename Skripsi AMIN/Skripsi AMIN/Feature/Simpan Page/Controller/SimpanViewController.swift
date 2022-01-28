@@ -84,7 +84,7 @@ class SimpanViewController: UIViewController {
             self.kosong.text = "Belum ada resep yang tersimpan, ayo simpan resep yang kamu inginkan!"
             self.kosong.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
             self.kosong.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
-            self.kosong.topAnchor.constraint(equalTo: self.emptyState.bottomAnchor, constant: -8).isActive = true
+            self.kosong.topAnchor.constraint(equalTo: self.emptyState.bottomAnchor).isActive = true
             self.kosong.textAlignment = .center
             self.kosong.translatesAutoresizingMaskIntoConstraints = false
             self.kosong.font = UIFont(name: "Poppins-Regular", size: 14)

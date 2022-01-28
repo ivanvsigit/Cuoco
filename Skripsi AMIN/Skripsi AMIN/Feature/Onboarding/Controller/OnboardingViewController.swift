@@ -37,6 +37,8 @@ class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        onboardingCollection.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        onboardingCollection.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     @IBAction func didNextBtnTap(_ sender: UIButton) {
