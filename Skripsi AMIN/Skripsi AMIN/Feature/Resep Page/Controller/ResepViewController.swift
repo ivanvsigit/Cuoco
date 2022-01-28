@@ -158,6 +158,7 @@ class ResepViewController: UIViewController {
                             print("print history")
                             print(self.history)
                             
+                            
                             DispatchQueue.main.async {
                                 
                                 self.tableView.reloadData()
@@ -174,11 +175,32 @@ class ResepViewController: UIViewController {
                 }
             }
         }
-//    }
+    
+    func reloadHistory() {
+        self.history.removeAll()
+        print(contentData.count)
+        DataManipulation.shared.model.removeAll()
+        DataManipulation.shared.getItem()
+        for model in DataManipulation.shared.model {
+            let data = Content(image: (UIImage(data: Constant.shared.getImage(urlKey: model.image!)))!, label: model.label!, detailKey: model.key)
+            self.history.append(data)
+        }
+        self.contentData.append(SectionModel(title: "Terakhir Dilihat", content: self.history))
+        print(self.contentData)
+        print("print history")
+        print(self.history)
+    }
+
     
 }
 
-extension ResepViewController: UITableViewDelegate, UITableViewDataSource, HighlightTableViewDelegate, CardTableViewDelegate, CategoryTableViewDelegate {
+extension ResepViewController: UITableViewDelegate, UITableViewDataSource, HighlightTableViewDelegate, CardTableViewDelegate, CategoryTableViewDelegate, HistoryColDelegate{
+    func triggerReloadCollection() {
+        reloadHistory()
+
+        print("delegate oke")
+    }
+    
     //MARK: Push to Resep Detail
     func passDataDetail(key: String) {
         let vc = ResepDetailViewController()

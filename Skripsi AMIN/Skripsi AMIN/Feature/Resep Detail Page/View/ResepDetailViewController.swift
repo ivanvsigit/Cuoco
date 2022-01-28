@@ -90,15 +90,16 @@ class ResepDetailViewController: UIViewController {
     
     //MARK: Back Button
     @objc func addTapped(sender: AnyObject){
+        let resep = ResepViewController()
+        resep.triggerReloadCollection()
         navigationController?.popViewController(animated: true)
     }
     
     //MARK: Save Recipe - Boolean
     @objc func savedTapped(sender: AnyObject){
-//        DataManipulation.shared.getItem()
-//        print(DataManipulation.shared.model)
+        DataManipulation.shared.model.removeAll()
+        DataManipulation.shared.getItem()
         for data in DataManipulation.shared.model{
-//            print(data)
             if data.key == self.resepKey{
                 if data.saved == false { //Simpan Resep
                     
@@ -113,7 +114,6 @@ class ResepDetailViewController: UIViewController {
                     
                     return
                 } else if data.saved == true{ //Hapus Resep
-//                    self.dismiss(animated: false, completion: nil)
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Simpan", style: .plain, target: self, action: #selector(savedTapped))
                     let alert = UIAlertController(title: "Hapus Resep", message: "Anda yakin ingin menghapus resep ini?", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ya", style: .destructive, handler: { _ in
@@ -180,46 +180,27 @@ class ResepDetailViewController: UIViewController {
     func fetchData(){
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        DispatchQueue.main.async {
-            blurEffectView.frame = self.view.bounds
-            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            
-            //MARK: Load Animation
-            self.view.addSubview(blurEffectView)
-            self.view.addSubview(self.imgLoad)
-            self.imgLoad.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-            self.imgLoad.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-            self.imgLoad.heightAnchor.constraint(equalToConstant: 200).isActive = true
-            self.imgLoad.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        }
+            DispatchQueue.main.async {
+                blurEffectView.frame = self.view.bounds
+                blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                
+                //MARK: Load Animation
+                self.view.addSubview(blurEffectView)
+                self.view.addSubview(self.imgLoad)
+                self.imgLoad.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+                self.imgLoad.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+                self.imgLoad.heightAnchor.constraint(equalToConstant: 200).isActive = true
+                self.imgLoad.widthAnchor.constraint(equalToConstant: 200).isActive = true
+            }
         API.shared.fetchDetailAPI(urlKey: resepKey) { data in
             self.detailData = data
             guard let image = data.thumb else{
                 return
-            }
+        }
             
             //MARK: Create Item on Core Data
-            DataManipulation.shared.createItem(title: data.title, thumb: image, key: self.resepKey, saved: false)
+        DataManipulation.shared.createItem(title: data.title, thumb: image, key: self.resepKey, saved: false)
             
-//            if DataManipulation.shared.model.count != 0 {
-//                for model in DataManipulation.shared.model{
-//                    if model.key == self.resepKey{
-//                        break
-//                    } else {
-//                        DataManipulation.shared.createItem(title: data.title, thumb: image, key: self.resepKey, saved: false)
-//                        break
-//                    }
-//                }
-//            } else {
-//                DataManipulation.shared.createItem(title: data.title, thumb: image, key: self.resepKey, saved: false)
-//            }
-            
-            
-//            guard let detail = self.detailData else{
-//                return
-//            }
-//            print(detail)
-//            print(self.resepKey)
             DispatchQueue.main.async {
                 self.loadDetail()
                 self.tableView.reloadData()
@@ -236,7 +217,7 @@ extension ResepDetailViewController: UITableViewDelegate, UITableViewDataSource,
         let vc = TimerViewController()
         vc.startValue = time
         vc.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.present(vc, animated: true)
     }
     
     

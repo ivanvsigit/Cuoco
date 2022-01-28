@@ -97,7 +97,7 @@
                     </constraints>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ThX-03-T6r">
-                    <rect key="frame" x="0.0" y="372" width="390" height="472"/>
+                    <rect key="frame" x="0.0" y="380" width="390" height="464"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
@@ -124,7 +124,7 @@
                 <constraint firstItem="DHt-7Y-6wZ" firstAttribute="leading" secondItem="q2C-St-2Gd" secondAttribute="trailing" constant="78" id="tHt-tv-fHM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eff-8t-fFi" secondAttribute="trailing" constant="20" id="vH3-Jn-d11"/>
                 <constraint firstItem="iFN-DL-5us" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="xd8-Wg-dQc"/>
-                <constraint firstItem="ThX-03-T6r" firstAttribute="top" secondItem="iFN-DL-5us" secondAttribute="bottom" constant="154" id="zdb-iG-27l"/>
+                <constraint firstItem="ThX-03-T6r" firstAttribute="top" secondItem="iFN-DL-5us" secondAttribute="bottom" constant="162" id="zdb-iG-27l"/>
                 <constraint firstItem="oQ8-9K-Bg1" firstAttribute="top" secondItem="q2C-St-2Gd" secondAttribute="bottom" constant="8" id="zgF-5Q-5Oy"/>
             </constraints>
             <point key="canvasLocation" x="138.46153846153845" y="122.98578199052132"/>
