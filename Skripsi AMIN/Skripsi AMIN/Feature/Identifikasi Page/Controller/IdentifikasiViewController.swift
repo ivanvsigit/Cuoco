@@ -132,6 +132,8 @@ class IdentifikasiViewController: UIViewController, AVCapturePhotoCaptureDelegat
         vc.modalPresentationStyle = .fullScreen
         //self.present(vc, animated: true, completion: nil)
         navigationController?.pushViewController(vc, animated: true)
+        navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: "Kembali", style: .plain, target: nil, action: nil)
     }
     
     //CleanUpSession

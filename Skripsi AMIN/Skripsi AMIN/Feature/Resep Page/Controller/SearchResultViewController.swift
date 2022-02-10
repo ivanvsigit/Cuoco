@@ -44,6 +44,8 @@ class SearchResultViewController: UIViewController {
         super.viewDidLoad()
         setUp()
         self.hideKeyboardWhenTappedAround()
+        
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "Batal"
     }
     
     func setUp() {
