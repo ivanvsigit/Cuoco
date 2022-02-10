@@ -35,6 +35,9 @@ class SimpanViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Kembali", style: .plain, target: nil, action: nil)
+        
         setUp()
         self.hideKeyboardWhenTappedAround()
     }

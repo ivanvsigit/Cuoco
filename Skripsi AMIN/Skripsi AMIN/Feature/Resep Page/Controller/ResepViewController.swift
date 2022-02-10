@@ -58,6 +58,9 @@ class ResepViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Kembali", style: .plain, target: nil, action: nil)
+        
         if OnboardingState.shared.isNewUser() == false {
             launchScreen()
             print(OnboardingState.shared.isNewUser())

@@ -53,7 +53,7 @@ class ResepDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Kembali", style: .plain, target: self, action: #selector(addTapped))
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Kembali", style: .plain, target: self, action: #selector(addTapped))
         
         self.tabBarController?.tabBar.isHidden = true
         tabBarController?.tabBar.isTranslucent = true
@@ -89,11 +89,11 @@ class ResepDetailViewController: UIViewController {
     }
     
     //MARK: Back Button
-    @objc func addTapped(sender: AnyObject){
-        let resep = ResepViewController()
-        resep.triggerReloadCollection()
-        navigationController?.popViewController(animated: true)
-    }
+//    @objc func addTapped(sender: AnyObject){
+//        let resep = ResepViewController()
+//        resep.triggerReloadCollection()
+//        navigationController?.popViewController(animated: true)
+//    }
     
     //MARK: Save Recipe - Boolean
     @objc func savedTapped(sender: AnyObject){

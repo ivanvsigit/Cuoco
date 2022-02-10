@@ -45,6 +45,10 @@ class SearchResultViewController: UIViewController {
         setUp()
         self.hideKeyboardWhenTappedAround()
         
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Kembali", style: .plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem?.tintColor = UIColor(named: "TextColor")
+        
+        
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "Batal"
     }
     
