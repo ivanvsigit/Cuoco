@@ -55,6 +55,9 @@ class ResepDetailViewController: UIViewController {
         
 //        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Kembali", style: .plain, target: self, action: #selector(addTapped))
         
+        
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "TextColor")
+        
         self.tabBarController?.tabBar.isHidden = true
         tabBarController?.tabBar.isTranslucent = true
         
